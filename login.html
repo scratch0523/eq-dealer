@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Equipride</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+
+    <!-- site Favicon -->
+    <link rel="icon" href="assets/images/favicon/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png" />
+    <meta name="msapplication-TileImage" content="assets/images/favicon/favicon.png" />
+
+    <!-- css Icon Font -->
+    <link rel="stylesheet" href="assets/css/vendor/ecicons.min.css" />
+
+    <!-- css All Plugins Files -->
+    <link rel="stylesheet" href="assets/css/plugins/animate.css" />
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/countdownTimer.css" />
+    <link rel="stylesheet" href="assets/css/plugins/slick.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.css" />
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!-- Background css -->
+    <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
+    <link rel="stylesheet" href="assets/css/style_new.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        img {
+            vertical-align: middle;
+            max-width: 50% !important;
+            margin: 0 auto !important;
+        }
+
+        body {
+
+            font-family: 'Roboto', sans-serif !important;
+        }
+
+        .ec-login-wrapper .ec-login-container .ec-login-form .btn {
+            font-size: 16px !important;
+            border-radius: 32px;
+            width: 120px !important;
+        }
+
+        .ec-register-wrapper .ec-register-container .ec-register-form .btn {
+            font-size: 16px !important;
+            border-radius: 32px;
+            width: 120px !important;
+        }
+
+        .btn-secondary:hover {
+            color: #ffffff;
+            background-color: #26292c !important;
+            border-color: #01050c !important;
+        }
+
+        .btn-primary {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1) !important;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff !important;
+            color: #ff764b;
+            border: 1px solid #ff764b;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+        .ec-register-wrapper .ec-register-container .ec-register-form input {
+            margin-bottom: 7px !important;
+        }
+
+        .ec-login-wrapper .ec-login-container {
+            border: 1px solid #ededed;
+            padding: 34px 38px 34px;
+            text-align: left;
+            background-color: #ffffffba !important;
+            border-radius: 5px;
+        }
+
+        .ec-register-wrapper .ec-register-container {
+            background-color: #ffffffba !important;
+        }
+
+        .ec-register-wrapper .ec-register-container .ec-register-form input {
+            color: #01050c !important;
+        }
+
+        .ec-login-wrapper .ec-login-container .ec-login-form input {
+            color: #01050c !important;
+        }
+
+        select {
+            background-color: #ffffff1a !important
+        }
+
+
+        .Success__container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .Success__container__hide {
+            display: none;
+        }
+
+        .register__box_container {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            height: 328px;
+            width: 350px;
+            border-radius: 21px;
+            background-color: #FFF;
+        }
+
+        .register__box__header {
+            background-color: rgb(105, 235, 93);
+            height: 30%;
+            border-radius: 21px 21px 0px 0px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Success__message__title {
+            margin-top: 0.4rem;
+            text-align: center;
+            font-size: 45px;
+        }
+
+        .Success__message__para {
+            text-align: center;
+            padding: 5px 12px 0px 15px;
+        }
+
+        .register__box__body__button__box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .Success__message__close {
+            padding: 5px 22px 5px 22px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            background-color: rgba(243, 29, 29, 0.712);
+            color: #FFF;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+
+
+        .register__box__header__img {
+            position: absolute;
+            height: 80%;
+
+        }
+    </style>
+
+</head>
+
+<body
+    style="background-image: url(assets/images/Sample_imge/login.jpg); background-position: center; background-size: cover;">
+
+    <div id="ec-overlay">
+        <div class="ec-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Header start  -->
+    <header class="ec-header">
+        <!--Ec Header Top Start -->
+
+        <!-- Ec Header Top  End -->
+        <!-- Ec Header Bottom  Start -->
+
+        <!-- Ec Header Button End -->
+        <!-- Header responsive Bottom  Start -->
+        <div class="ec-header-bottom d-lg-none">
+            <div class="container position-relative">
+                <div class="row ">
+
+                    <!-- Ec Header Logo Start -->
+                    <div class="col">
+                        <div class="header-logo">
+                            <a href="index.html"><img src="assets/images/Logo shadow.png" alt="Site Logo" /><img
+                                    class="dark-logo" src="assets/images/Logo shadow.png" alt="Site Logo"
+                                    style="display: none;" /></a>
+                        </div>
+                    </div>
+                    <!-- Ec Header Logo End -->
+                </div>
+            </div>
+        </div>
+        <!-- Header responsive Bottom  End -->
+
+        <!-- ekka Mobile Menu Start -->
+        <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
+            <div class="ec-menu-title">
+                <span class="menu_title">My Menu</span>
+                <button class="ec-close">×</button>
+            </div>
+            <div class="ec-menu-inner">
+                <div class="ec-menu-content">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="header-res-lan-curr">
+                    <div class="header-top-lan-curr">
+                    </div>
+                    <!-- Social Start -->
+                    <div class="header-res-social">
+                        <div class="header-top-social">
+                            <ul class="mb-0">
+                                <li class="list-inline-item"><a class="hdr-facebook" href="#"><i
+                                            class="ecicon eci-facebook"></i></a></li>
+                                <li class="list-inline-item"><a class="hdr-instagram" href="#"><i
+                                            class="ecicon eci-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Social End -->
+                </div>
+            </div>
+        </div>
+        <!-- ekka mobile Menu End -->
+    </header>
+    <!-- Header End  -->
+
+
+    <!-- Ec login page -->
+    <section class="ec-page-content section-space-p" id="login1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="section-title">
+
+                    </div>
+                </div>
+                <div class="ec-login-wrapper">
+                    <div class="ec-login-container"
+                        style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+                        <div class="ec-login-form">
+                            <form method="post" id="login">
+                                <!-- <p style="font-weight: 800; font-size: 30px; text-align: center;">Log In</p> -->
+                                <img src="assets/images/Logo shadow.png" alt="Site Logo" /> <br />
+
+                                <span class="ec-login-wrap">
+                                    <div id="form-id">
+                                        <label style="font-weight: 700;">Email Address*</label>
+                                        <input type="text" id="login-email" name="name"
+                                            placeholder="Enter Your Email ID" required />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+                                <span class="ec-login-wrap">
+                                    <div id="form-id">
+                                        <label style="font-weight: 700;">Password*</label>
+                                        <input type="password" id="login-pass" name="password"
+                                            placeholder="Enter Your Password" required />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+                                <span class="ec-login-wrap ec-login-fp">
+                                    <label><a href="#" id="forget-btn">Forgot Password?</a></label>
+                                </span>
+                                <span class="ec-login-wrap ec-login-btn">
+                                    <a class="btn btn-primary" id="login-btn" onclick="onLogin()">Login</a>
+                                    <p style="text-align: center; font-weight: 800; margin: 0px !important;">OR</p>
+                                    <a href="#reg2" class="btn btn-secondary" id="reg1"
+                                        style="margin-top: 10px !important;">Register</a>
+
+
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Start Register -->
+    <section class="ec-page-content section-space-p" id="reg2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="section-title">
+                    </div>
+                </div>
+                <div class="ec-register-wrapper">
+                    <div class="ec-register-container"
+                        style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+                        <div class="ec-register-form">
+                            <div class="col">
+                                <img src="assets/images/Logo shadow.png" alt="Site Logo"
+                                    style="display: flex; justify-content: center;" /> <br /><br>
+                            </div>
+
+                            <form method="post" id="form1">
+                                <span class="ec-register-wrap ec-register-half">
+                                    <div id="form-id">
+                                        <label>First Name*</label>
+                                        <input type="text" name="firstname" placeholder="Enter your first name"
+                                            id="f_name" value="" required />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <div id="form-id" class="">
+                                        <label>Last Name*</label>
+                                        <input type="text" name="lastname" placeholder="Enter your last name"
+                                            id="l_name" required />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <div id="form-id" class="">
+                                        <label>Gender *</label>
+                                        <span class="ec-rg-select-inner" id="gen">
+                                            <select name="gender" id="gender" style="border: 1px !important;">
+                                                <option disabled="disabled" required selected="selected" value="">Gender
+                                                </option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </span>
+                                        <div class="error" id="genid" style="margin-bottom: 15px;"></div>
+                                    </div>
+
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <div id="form-id" class="">
+                                        <label>Email*</label>
+                                        <input type="email" name="email" placeholder="Enter your email add..." id="mail"
+                                            required />
+                                        <div class="error" id="mailerror" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <div id="form-id" class="">
+                                        <label>Phone Number*</label>
+                                        <input type="number" name="phone" placeholder="Enter your phone number"
+                                            id="number" required />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+
+                                <span class="ec-register-wrap">
+                                    <div id="form-id" class="">
+                                        <label>Password</label>
+                                        <input type="password" id="password" name="password"
+                                            placeholder="Enter Your Password" required maxlength="10" />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+                                </span>
+
+                                <span class="ec-register-wrap">
+                                    <div id="form-id" class="">
+                                        <label>Re-Enter Password</label>
+                                        <input type="password" id="cpassword" name="cpassword"
+                                            placeholder="Re-enter Password" required maxlength="10" />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+
+                                <span class="ec-register-wrap">
+                                    <div id="form-id" class="">
+                                        <label>Company Name</label>
+                                        <input type="text" name="companyName" placeholder="Company Name" id="c_name"
+                                            required />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+                                <span class="ec-register-wrap">
+                                    <div id="form-id" class="">
+                                        <label>Address</label>
+                                        <input type="text" name="address" placeholder="Address Line 1" id="address"
+                                            required />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+
+                                <span class="ec-register-wrap ec-register-half">
+                                    <div id="form-id" class="">
+                                        <label>City *</label>
+                                        <input type="text" name="City" placeholder="City" id="city" required />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <div id="form-id" class="">
+
+                                        <label>Post Code</label>
+                                        <input type="text" name="postalcode" placeholder="Post Code" id="pcode"
+                                            required />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+
+                                <span class="ec-register-wrap ec-register-half" style="    padding: 0px 0px 0px 13px;">
+                                    <label>Country*</label><br>
+                                    <select id="country-select" class="country-select" name="country"
+                                        style="padding: 15px 10px; border: 1px solid #FFF !important; width: 97% !important;"></select>
+                                    <div class="country-div" name="country_select" id="country-select-after"></div>
+                                </span>
+                                <span class="ec-register-wrap ec-register-btn">
+                                    <input type="button" class="btn btn-primary" onclick="onSubmit()" value="Submit">
+                                    <!-- <button class="btn btn-primary" id="submit"
+                                        onclick="onSubmit()">Submit</button> -->
+                                    <a href="#" class="btn btn-secondary" id="reg4">Cancel</a>
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div></div>
+    </section>
+    <!-- End Register -->
+
+
+
+
+
+    <!-- Registration Success Modal Start -->
+
+
+    <div class="Success__container Success__container__hide" id="pop_container">
+        <div class="register__box_container">
+            <div class="register__box__header">
+                <img src="./green_tick.svg" alt="" class="register__box__header__img">
+            </div>
+            <div class="register__box__body">
+                <h1 class="Success__message__title">Success!</h1>
+                <p class="Success__message__para"> Your request has been sent to our website admin. We will review
+                    it
+                    promptly and get back to you as
+                    soon as possible.<br />
+                    Thank you for reaching out to us</p>
+                <div class="register__box__body__button__box">
+
+                    <button class="Success__message__close" id="Success__message__close__button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="register__box_container">
+                    <div class="register__box__header">
+                        <img src="./green_tick.svg" alt="" class="register__box__header__img">
+                    </div>
+                    <div class="register__box__body">
+                        <h1 class="Success__message__title">Success!</h1>
+                        <p class="Success__message__para"> Your request has been sent to our website admin. We will
+                            review it
+                            promptly and get back to you as
+                            soon as possible.<br />
+                            Thank you for reaching out to us</p>
+                        <div class="register__box__body__button__box">
+
+                            <button class="Success__message__close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Registration Success Modal End -->
+
+    <!-- Forget Password  Start-->
+    <section class="ec-page-content section-space-p" id="forget">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="section-title">
+
+                    </div>
+                </div>
+                <div class="ec-login-wrapper">
+                    <div class="ec-login-container"
+                        style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+                        <div class="ec-login-form">
+                            <form action="" id="login_reg">
+                                <!-- <p style="font-weight: 800; font-size: 30px; text-align: center;">Log In</p> -->
+                                <img src="assets/images/Logo shadow.png" alt="Site Logo" /> <br />
+
+                                <span class="ec-login-wrap">
+                                    <div id="form-id">
+                                        <label style="font-weight: 700;">Email Address*</label>
+                                        <input type="text" id="login-email_reg" name="name"
+                                            placeholder="Enter Your Email ID" required />
+                                        <div class="error" style="margin-bottom: 15px;"></div>
+                                    </div>
+                                </span>
+
+
+                                <span class="ec-login-wrap ec-login-btn">
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                    <p style="text-align: center; font-weight: 800; margin: 0px !important;">OR</p>
+                                    <a href="#reg2" class="btn btn-secondary" id="reg3"
+                                        style="margin-top: 10px !important;">Cancel</a>
+
+
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Forget Password End -->
+
+
+    <!-- Vendor JS -->
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+    <!--Plugins JS-->
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/countdownTimer.min.js"></script>
+    <script src="assets/js/plugins/scrollup.js"></script>
+    <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+    <script src="assets/js/plugins/slick.min.js"></script>
+    <script src="assets/js/plugins/infiniteslidev2.js"></script>
+    <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/plugins/jquery.sticky-sidebar.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            check_cookie();
+
+            // function getCookie(name) {
+            //     const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            //     if (match) return match[2];
+            // }
+
+            // const dealerId = getCookie('dealer_id');
+
+            // if (!dealerId || dealerId.trim() === '') {
+            //     // window.location.href = 'index.html';
+            // } else {
+            //     window.location.href = 'with-amount-index.html';
+            // }
+
+            $('#reg2').hide();
+            $('#forget').hide();
+
+            $('#reg1').click(function () {
+                $('#reg2').show();
+                $('#login1').hide();
+            });
+            $('#navLogin').click(function () {
+                $('#login1').show();
+                $('#reg2').hide();
+            });
+            $('#reg4').click(function () {
+                $('#reg2').hide();
+                $('#login1').show();
+            });
+        });
+
+        var dealerId;
+
+        function check_cookie() {
+            $.ajax({
+                url: 'dealer_actions/dealer_cookies.php',
+                type: 'GET',
+                data: {
+                    check_cookie: 'check_cookie'
+                },
+                success: function (response) {
+                    var success_response = JSON.parse(response);
+                    // console.log(success_response.status);
+                    if (success_response.status === 'Authentication_successful') {
+                        dealerId = success_response.dealer_id;
+                        window.location.href = 'with-amount-index.html';
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var error_response = JSON.parse(xhr.responseText);
+                    if (error_response == 'Not_authenticated') {
+                        console.log(error_response);
+                    }
+                }
+            });
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#forget-btn').click(function () {
+                $('#forget').show();
+                $('#reg2').hide();
+                $('#login1').hide();
+
+            });
+
+            $('#reg3').click(function () {
+                $('#forget').hide();
+
+                $('#login1').show();
+            });
+
+        });
+    </script>
+
+
+    <!-- Main Js -->
+    <script src="assets/js/vendor/index.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+
+
+    <script>
+        const loginEmail = document.getElementById('login-email');
+        const loginPass = document.getElementById('login-pass');
+
+
+        function onLogin() {
+            var valueEmail = loginEmail.value.trim();
+            var valuePass = loginPass.value.trim();
+
+            if (valueEmail === '') {
+                setError(loginEmail, 'Mail Is Required');
+            } else if (!isValidEmail(valueEmail)) {
+                setError(loginEmail, 'Invalid Email Format');
+            } else {
+                setSuccess(loginEmail);
+            }
+
+            if (valuePass === '') {
+                setError(loginPass, 'Enter The Password');
+            } else {
+                setSuccess(loginPass);
+
+                // Assuming you have a function named sendAjaxRequest
+                sendAjaxRequest(valueEmail, valuePass);
+            }
+        }
+
+        function sendAjaxRequest(email, password) {
+            $.ajax({
+                url: 'dealer_actions/dealer_action.php',
+                method: 'POST',
+                data: {
+                    login_request: 'login_request',
+                    login_email: email,
+                    login_password: password
+                },
+                success: function (response) {
+                    var success_response = JSON.parse(response);
+                    console.log(success_response);
+
+                    if (success_response.status === 'login-success') {
+                        window.location = "dealer-profile.html";
+                    } else {
+                        alert("Login failed. Please check your credentials.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var error_response = xhr.responseText.trim();
+
+                    if (error_response === 'incorrect-password') {
+                        alert("Incorrect Password");
+                    } else if (error_response === 'user-not-found') {
+                        alert("User Not Found");
+                    } else {
+                        alert("An error occurred. Please try again.");
+                    }
+                }
+            });
+        }
+    </script>
+
+
+    <script>
+        const form = document.querySelector('#form1');
+        const firstName = document.getElementById('f_name');
+        const lastName = document.getElementById('l_name');
+
+        var genderSelect = document.getElementById("gender");
+        const getMail = document.getElementById('mail');
+        const number = document.getElementById('number');
+        const password = document.getElementById('password');
+        const cpassword = document.getElementById('cpassword');
+        const address = document.getElementById('address');
+        const city = document.getElementById('city');
+        const pcode = document.getElementById('pcode');
+        const state = document.getElementById('state');
+        const companyName = document.querySelector('#c_name');
+
+        function onSubmit() {
+            // alert("success");
+            validateInput()
+            var formData = $('#form1').serialize();
+            var register_id = 'register';
+            $.ajax({
+                url: 'dealer_actions/dealer_action.php',
+                type: 'post',
+                data: {
+                    formData: formData,
+                    register_id: register_id
+                },
+                success: function (response) {
+                    // console.log(response);
+                    var success_response = JSON.parse(response);
+
+                    const popup = document.querySelector('#pop_container')
+                    const close_btn = document.querySelector('#Success__message__close__button')
+
+                    if (success_response === "Registration-successful") {
+                        $('#reg2').hide();
+
+                        popup.classList.remove('Success__container__hide')
+
+                        close_btn.addEventListener('click', () => {
+                            popup.classList.add('Success__container__hide')
+                            window.location.href = 'index.html';
+                        })
+
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                    var error_response = JSON.parse(xhr.responseText);
+                    if (error_response === 'email-exist') {
+                        $('#mailerror').text('Mail Already Exist');
+                    }
+                }
+            });
+        }
+
+        function validateInput() {
+
+
+            const firstNameValue = firstName.value.trim();
+            const lastNameValue = lastName.value.trim();
+            var selectedOption = genderSelect.options[genderSelect.selectedIndex];
+            var genderValue = selectedOption.value;
+            const mailValue = getMail.value.trim();
+            const NumberValue = number.value.trim();
+            const passwordValue = password.value.trim();
+            const cpasswordValue = cpassword.value.trim();
+            const addressValue = address.value.trim();
+            const cityValue = city.value.trim();
+            const pcodeValue = pcode.value.trim();
+            const company = companyName.value.trim();
+
+
+
+            if (firstNameValue === '') {
+                success = false;
+                setError(firstName, 'First Name Is Required');
+            } else {
+                setSuccess(firstName);
+            }
+
+
+
+
+
+            if (lastNameValue === '') {
+                success = false;
+                setError(lastName, 'Last Name Is Required');
+            } else {
+                setSuccess(lastName);
+            }
+
+
+            if (passwordValue === '') {
+                success = false;
+                setError(password, 'Password Is Required');
+            } else {
+                setSuccess(password);
+            }
+
+            if (cpasswordValue === '') {
+                success = false;
+                setError(cpassword, 'Re-Enter The Password');
+            } else {
+                setSuccess(cpassword);
+            }
+
+            if (passwordValue !== cpasswordValue) {
+                success = false;
+                setError(cpassword, `Password Didn't Match`)
+            }
+
+            if (addressValue === '') {
+                success = false;
+                setError(address, 'Address Is Required');
+            } else {
+                setSuccess(address);
+            }
+
+            if (cityValue === '') {
+                success = false;
+                setError(city, 'City Name Is Required');
+            } else {
+                setSuccess(city);
+            }
+
+            if (pcodeValue === '') {
+                success = false;
+                setError(pcode, 'Postal Code Is Required');
+            } else {
+                setSuccess(pcode);
+            }
+
+
+            if (company === '') {
+                success = false;
+                setError(companyName, 'Company Name Is Required');
+            } else {
+                setSuccess(companyName);
+            }
+
+
+
+            if (genderValue === '') {
+                const gen1 = document.getElementById('gen');
+                gen1.style.borderColor = 'red';
+
+                const selectGender = document.querySelector('#genid');
+                selectGender.innerText = 'Select the Gender';
+            } else if (genderValue === 'Male') {
+                const gen1 = document.getElementById('gen');
+                gen1.style.borderColor = 'green';
+
+                const selectGender = document.querySelector('#genid');
+                selectGender.innerText = '';
+            } else if (genderValue === 'Female') {
+                const gen1 = document.getElementById('gen');
+                gen1.style.borderColor = 'green';
+
+                const selectGender = document.querySelector('#genid');
+                selectGender.innerText = '';
+            } else if (genderValue === 'Other') {
+                const gen1 = document.getElementById('gen');
+                gen1.style.borderColor = 'green';
+
+                const selectGender = document.querySelector('#genid');
+                selectGender.innerText = '';
+            } else {
+
+            }
+
+            if (mailValue === '') {
+                success = false;
+                setError(getMail, 'Mail Is Required');
+            } else if (!isValidEmail(mailValue)) {
+                success = false;
+                setError(getMail, 'Invalid Email Format');
+            } else {
+                setSuccess(getMail);
+            }
+
+            if (NumberValue === '') {
+                success = false;
+                setError(number, 'Number Is Required');
+            } else if (!isValidNumber(NumberValue)) {
+                success = false;
+                setError(number, 'Invalid Format');
+            } else {
+                setSuccess(number);
+            }
+
+            // if (stateValue === '') {
+            //     success = false;
+            //     setError(state, 'State Name Is Required');
+            // } else {
+            //     setSuccess(state);
+            // }
+
+            // return success;
+
+        }
+
+        function setError(element, message) {
+            const inputGroup = element.parentElement;
+            const errorElement = inputGroup.querySelector('.error');
+
+            errorElement.innerText = message;
+            inputGroup.classList.add('error');
+            inputGroup.classList.remove('success');
+        }
+
+        function setSuccess(element) {
+            const inputGroup = element.parentElement;
+            const errorElement = inputGroup.querySelector('.error');
+
+            errorElement.innerText = '';
+            inputGroup.classList.add('success');
+            inputGroup.classList.remove('error');
+        }
+
+
+        function isValidEmail(email) {
+
+            return String(email).toLowerCase()
+                .match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
+        }
+
+        function isValidNumber(number) {
+
+            return String(number)
+                .match(/^(([0-9\ \+\_\-\,\.\^\*\?\$\^\#\(\)])|(ext|x)){1,20}$/);
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            const countriesApiUrl = 'https://restcountries.com/v3.1/all';
+
+            $.get(countriesApiUrl, function (data) {
+                if (Array.isArray(data)) {
+                    $('.country-select').empty();
+
+                    $('.country-select').append($('<option>', {
+                        value: 'United Kingdom',
+                        text: 'United Kingdom'
+                    }));
+
+                    data.forEach(function (country) {
+                        const commonName = country.name.common;
+                        if (commonName) {
+                            $('.country-select').append($('<option>', {
+                                value: commonName,
+                                text: commonName
+                            }));
+                        }
+                    });
+                    $('.country-select').val('United Kingdom');
+                } else {
+                    console.error('Failed to fetch country data');
+                }
+            }).fail(function () {
+                console.error('Failed to make the API request');
+            });
+
+
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

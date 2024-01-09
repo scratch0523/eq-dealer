@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <title>Equipride</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            /* background: linear-gradient(to right, #b1b1b1, #838a93); */
+            background-image: url('assets/background/background.jpg');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 50vh;
+            height: 60vh;
+            border-radius: 3vh;
+            background: #fef9ef;
+            backdrop-filter: blur(20px);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+                10px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .top {
+            text-align: center;
+            margin-bottom: 10vh;
+        }
+
+        .top span {
+            position: relative;
+            top: 3vh;
+            font-size: 25px;
+            letter-spacing: 0.2vh;
+            font-weight: 700;
+            color: #264653;
+            text-shadow: 1px 1px 2px rgba(83, 154, 182, 1);
+        }
+
+        .inputBox {
+            box-shadow: rgb(219, 219, 219) 3px 3px 6px 0px inset,
+                rgba(221, 220, 220, 0.5) -3px -3px 6px 1px inset;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-left: 4.5vh;
+            width: 40vh;
+            height: 6vh;
+            margin-bottom: 4vh;
+            border-radius: 5vh;
+        }
+
+        .inputBox:focus-within {
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
+                -5px -5px 10px rgba(255, 255, 255, 0.5);
+            outline: 0.5vh solid #264653a1;
+        }
+
+        .input {
+            height: 4vh;
+            width: 30vh;
+            margin-left: -2vh;
+            border: none;
+            outline: none;
+            background: inherit;
+        }
+
+        .input::placeholder {
+            color: black;
+            letter-spacing: 0.05em;
+            font-size: 14px;
+        }
+
+        .btn {
+            margin-top: 2vh;
+            height: 5vh;
+            width: 10vh;
+            border: none;
+            border-radius: 5vh;
+            background: transparent;
+            cursor: pointer;
+            color: #264653;
+            border: 1px solid #264653;
+            font-weight: 600;
+            transition: 0.3s ease;
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+        }
+
+        .btn:hover {
+            background: #264653;
+            color: #fff;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .user {
+            margin-top: 3vh;
+            color: #0f1f26;
+        }
+
+        .user span {
+            margin-left: 1vh;
+            font-size: 15px;
+            font-weight: bold;
+            color: #195c71;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .user span:hover {
+            text-decoration: underline;
+
+        }
+
+        /* <!-- --------------------------- back ---------------------------------- --> */
+
+        .inputBoxBack {
+            height: 6vh;
+            margin-bottom: 2vh;
+        }
+
+        .topBack {
+            margin-bottom: 6vh;
+        }
+
+        .btnBack {
+            margin-top: 0vh;
+            height: 5vh;
+            width: 10vh;
+            font-size: 2vh;
+        }
+
+        .front {
+            position: absolute;
+            z-index: 2;
+            transition: 2s ease;
+        }
+
+        .back {
+            position: absolute;
+            transition: 2s ease;
+            z-index: 1;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container front">
+        <div class="top">
+            <span>Admin Login</span>
+        </div>
+        <div class="form">
+            <form method="post" id="adminLoginForm">
+                <span id="error_msg"></span><br>
+
+                <div class="inputBox inputBoxFront">
+                    <label><i class="fa-solid fa-user"></i></label>
+                    <input type="text" placeholder="Username" id="email" class="input" required>
+                </div>
+                <div class="inputBox inputBoxFront">
+                    <label><i class="fa-solid fa-lock"></i></label>
+                    <input type="password" placeholder="Password" id="password" class="input" required>
+                </div>
+                <button type="button" class="btn btn-primary" id="loginButton">Log in</button>
+                <div class="user"><span class="newUser">Forget Password</span></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- --------------------------- back ---------------------------------- -->
+
+    <div class="container back">
+        <div class="top topBack">
+            <span>Forget Password</span>
+        </div>
+        <div class="form formBack">
+            <form>
+                <p>Enter Your Email ID</p>
+                <br>
+                <div class="inputBox inputBoxBack">
+                    <label><i class="fa-solid fa-envelope"></i></label>
+                    <input type="email" placeholder="Email id" class="input" required>
+                </div>
+
+                <button type="submit" class="btn btnBack">Submit</button>
+                <div class="user userBack">Existing user? <span class="existingUser">log In</span></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+    <script>
+        let front = document.querySelector('.front');
+        let back = document.querySelector('.back');
+
+        let newUser = document.querySelector('.newUser');
+        let existingUser = document.querySelector('.existingUser');
+
+        newUser.addEventListener('click', function () {
+            front.style.zIndex = "1"
+            back.style.zIndex = "2"
+            front.style.transform = "rotateY(180deg)"
+            back.style.transform = "rotateY(0deg)"
+        })
+
+        existingUser.addEventListener('click', function () {
+            back.style.zIndex = "1"
+            front.style.zIndex = "2"
+            back.style.transform = "rotateY(180deg)"
+            front.style.transform = "rotateY(0deg)"
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            check_cookie();
+
+            $("#loginButton").click(function () {
+                var formData = new FormData();
+
+                var username = $("#email").val();
+                var password = $("#password").val();
+
+                formData.append('email', username);
+                formData.append('password', password);
+
+                // Append the 'login_request' value
+                formData.append('login_request', 'login_request');
+
+                $.ajax({
+                    url: 'admin_actions/admin_action.php',
+                    type: "POST",
+                    processData: false, // Important: Prevent jQuery from transforming the data
+                    contentType: false, // Important: Set to false for FormData
+                    data: formData,
+                    success: function (response) {
+                        console.log(response);
+                        if (response == 'Invalid-email-format') {
+                            $("#error_msg").html("Invalid Email Format").css("color",
+                                "red");
+                            $("#adminLoginForm")[0].reset();
+                        } else if (response == 'Email-and-password-are-empty') {
+                            $("#error_msg").html("Please fill All Fields").css("color",
+                                "red");
+                            // $("#adminLoginForm")[0].reset();
+                        } else if (response == 'Email-is-empty') {
+                            $("#error_msg").html("Please fill Email Address").css("color",
+                                "red");
+                            // $("#adminLoginForm")[0].reset();
+                        } else if (response == 'Password-is-empty') {
+                            $("#error_msg").html("Please fill Password").css("color",
+                                "red");
+                            // $("#adminLoginForm")[0].reset();
+                        } else if (response == 'Login-successful') {
+                            window.location = 'index.html';
+                        } else if (response == 'Incorrect-password') {
+                            $("#error_msg").html("Incorrect Password").css("color", "red");
+                            $("#adminLoginForm")[0].reset();
+                        } else if (response == 'User-not-found') {
+                            $("#error_msg").html("User Not Found").css("color", "red");
+                            $("#adminLoginForm")[0].reset();
+                        }
+                    }
+                });
+            });
+        });
+
+        function check_cookie() {
+            $.ajax({
+                url: 'admin_actions/admin_cookies.php',
+                type: 'GET',
+                data: {
+                    check_cookie: 'check_cookie'
+                },
+                success: function (response) {
+                    var success_response = JSON.parse(response);
+                    console.log(success_response);
+                    if (success_response == 'Authentication_successful') {
+                        window.location.href = 'index.html';
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var error_response = JSON.parse(xhr.responseText);
+                    console.log(error_response);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

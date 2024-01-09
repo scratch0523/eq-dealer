@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Equipride</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+
+
+    <!-- site Favicon -->
+    <link rel="icon" href="assets/images/favicon/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png" />
+    <meta name="msapplication-TileImage" content="assets/images/favicon/favicon.png" />
+
+    <!-- css Icon Font -->
+    <link rel="stylesheet" href="assets/css/vendor/ecicons.min.css" />
+
+    <!-- css All Plugins Files -->
+    <link rel="stylesheet" href="assets/css/plugins/animate.css" />
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/countdownTimer.css" />
+    <link rel="stylesheet" href="assets/css/plugins/slick.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!-- Background css -->
+    <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
+    <link rel="stylesheet" href="assets/css/style_new.css">
+
+    <link rel="stylesheet" href="assets/css/footer.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- Optionally, include Bootstrap Icons CSS (for icons) -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.css" rel="stylesheet"> -->
+
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        crossorigin="anonymous">
+    <style>
+        .form-switch .form-check-input {
+            width: 37px !important;
+            position: relative;
+            top: 10px;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif !important;
+        }
+
+        #acc_info {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        #acc_info span {
+            margin-left: 1rem;
+        }
+
+        /* Full Screen Search Dropdown */
+
+        #searchResultsDropdownFullScreen {
+            display: none;
+            position: absolute;
+            width: 90%;
+            max-height: 300px;
+            margin-top: 5px;
+            overflow-y: auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 100;
+        }
+
+        #searchResultsDropdownFullScreen ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #searchResultsDropdownFullScreen li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        #searchResultsDropdownFullScreen li:last-child {
+            border-bottom: none;
+        }
+
+        #searchResultsDropdownFullScreen a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        #searchResultsDropdownFullScreen a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Small Screen Search Dropdown */
+
+        #searchResultsDropdownSmallScreen {
+            display: none;
+            position: absolute;
+            width: 100%;
+            max-height: 300px;
+            margin-top: 5px;
+            overflow-y: auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 100;
+        }
+
+        #searchResultsDropdownSmallScreen ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #searchResultsDropdownSmallScreen li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        #searchResultsDropdownSmallScreen li:last-child {
+            border-bottom: none;
+        }
+
+        #searchResultsDropdownSmallScreen a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        #searchResultsDropdownSmallScreen a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body class="shop_page">
+    <div id="ec-overlay">
+        <div class="ec-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Header start  -->
+    <header class="ec-header">
+        <!--Ec Header Top Start -->
+        <div class="header-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Header Top social Start -->
+                    <div class="col text-left header-top-left d-none d-lg-block">
+                        <div class="header-top-social">
+                            <span class="social-text text-upper">Follow us on:</span>
+                            <ul class="mb-0">
+                                <li class="list-inline-item"><a class="hdr-facebook"
+                                        href="https://www.facebook.com/equestrian.avenue.1"><i
+                                            class="ecicon eci-facebook"></i></a></li>
+                                <li class="list-inline-item"><a class="hdr-instagram"
+                                        href="https://www.instagram.com/equiprideltduk/"><i
+                                            class="ecicon eci-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Header Top social End -->
+                    <!-- Header Top Message Start -->
+                    <!-- <div class="col text-center header-top-center">
+                        <div class="header-top-message text-upper">
+                            <span>Free Shipping Over All Uk</span>
+                        </div>
+                    </div> -->
+                    <!-- Header Top Message End -->
+                    <!-- Header Top Language Currency -->
+                    <div class="col header-top-right d-none d-lg-block">
+                        <div class="header-top-lan-curr d-flex justify-content-end">
+
+
+
+                        </div>
+                    </div>
+                    <!-- Header Top Language Currency -->
+                    <!-- Header Top responsive Action -->
+                    <div class="col d-lg-none ">
+                        <div class="ec-header-bottons">
+                            <!-- Header User Start -->
+                            <div class="ec-header-user dropdown">
+                                <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+                                </ul>
+                            </div>
+                            <!-- Header User End -->
+                            <!-- Header Cart Start -->
+                            <a href="dealer-wishlist.html" class="ec-header-btn ec-header-wishlist">
+                                <div class="header-icon"><i class="fi-rr-heart"></i></div>
+                                <span class="ec-header-count Wishlist_count">0</span>
+                            </a>
+                            <!-- Header Cart End -->
+                            <!-- Header Cart Start -->
+                            <a href="dealer-cart.html" class="ec-header-btn">
+                                <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
+                                <span class="ec-header-count cart-count-lable cart_count">0</span>
+                            </a>
+                            <!-- Header Cart End -->
+                            <!-- Header menu Start -->
+                            <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
+                                <i class="fi fi-rr-menu-burger"></i>
+                            </a>
+                            <!-- Header menu End -->
+                        </div>
+                    </div>
+                    <!-- Header Top responsive Action -->
+                </div>
+            </div>
+        </div>
+        <!-- Ec Header Top  End -->
+        <!-- Ec Header Bottom  Start -->
+        <div class="ec-header-bottom d-none d-lg-block">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="ec-flex">
+                        <!-- Ec Header Logo Start -->
+                        <div class="align-self-center">
+                            <div class="header-logo">
+                                <a href="with-amount-index.html"><img src="assets/images/Logo editted.png"
+                                        alt="Site Logo" /><img class="dark-logo" src="assets/images/Logo editted.png"
+                                        alt="Site Logo" style="display: none;" /></a>
+                            </div>
+                        </div>
+                        <!-- Ec Header Logo End -->
+
+                        <!-- Ec Header Search Start -->
+                        <div class="align-self-center">
+                            <div class="header-search">
+                                <form id="full_screen_search_form" class="ec-btn-group-form" onsubmit="return false;">
+                                    <input class="form-control ec-search-bar" id="search_product_full"
+                                        placeholder="Search products..." type="text">
+                                    <button class="submit" id="searchButton" onclick="searchProductFullScreen()"
+                                        type="button"><i class="fi-rr-search"></i></button>
+                                </form>
+                                <div id="searchResultsDropdownFullScreen" class="search-results-dropdown"></div>
+
+                            </div>
+                        </div>
+                        <!-- Ec Header Search End -->
+
+                        <!-- Ec Header Button Start -->
+                        <div class="align-self-center">
+                            <div class="ec-header-bottons">
+
+                                <!-- Header User Start -->
+                                <div class="ec-header-user dropdown">
+                                    <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
+                                            class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Header User End -->
+                                <!-- Header wishlist Start -->
+                                <a href="dealer-wishlist.html" class="ec-header-btn ec-header-wishlist">
+                                    <div class="header-icon"><i class="fi-rr-heart"></i></div>
+                                    <span class="ec-header-count Wishlist_count">0</span>
+                                </a>
+                                <!-- Header wishlist End -->
+                                <!-- Header Cart Start -->
+                                <a href="dealer-cart.html" class="ec-header-btn">
+                                    <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
+                                    <span class="ec-header-count cart-count-lable cart_count">0</span>
+                                </a>
+                                <!-- Header Cart End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Ec Header Button End -->
+        <!-- Header responsive Bottom  Start -->
+        <div class="ec-header-bottom d-lg-none">
+            <div class="container position-relative">
+                <div class="row ">
+
+                    <!-- Ec Header Logo Start -->
+                    <div class="col">
+                        <div class="header-logo">
+                            <a href="with-amount-index.html"><img src="assets/images/Logo editted.png"
+                                    alt="Site Logo" /><img class="dark-logo" src="assets/images/Logo editted.png"
+                                    alt="Site Logo" style="display: none;" /></a>
+                        </div>
+                    </div>
+                    <!-- Ec Header Logo End -->
+                    <!-- Ec Header Search Start -->
+                    <div class="col">
+                        <div class="header-search">
+                            <form id="small_search_form" class="ec-btn-group-form" onsubmit="return false;">
+                                <input class="form-control ec-search-bar" id="search_product_small"
+                                    placeholder="Search products..." type="text">
+                                <button class="submit" id="searchButtonSmall" type="button"
+                                    onclick="searchProductSmallScreen()"><i class="fi-rr-search"></i></button>
+                            </form>
+                            <div id="searchResultsDropdownSmallScreen" class="search-results-dropdown"></div>
+                        </div>
+                    </div>
+                    <!-- Ec Header Search End -->
+                </div>
+            </div>
+        </div>
+        <!-- Header responsive Bottom  End -->
+        <!-- EC Main Menu Start -->
+        <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-md-12 align-self-center">
+                        <div class="ec-main-menu">
+                            <ul>
+                                <li><a href="with-amount-index.html">Home</a></li>
+                                <li class="dropdown position-static"><a onmouseover="fetchCategory('rider')">Rider</a>
+                                    <ul class="mega-menu d-block" style="position: absolute;width: 100%;">
+                                        <li class="d-flex category_menu">
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown position-static"><a onmouseover="fetchCategory('horse')">Horse</a>
+                                    <ul class="mega-menu d-block" style="position: absolute;width: 100%;">
+                                        <li class="d-flex category_menu">
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown position-static"><a onmouseover="fetchCategory('dog')">DOG</a>
+                                    <ul class="mega-menu d-block" style="position: absolute;width: 100%;">
+                                        <li class="d-flex category_menu">
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a>Clearance</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Ec Main Menu End -->
+        <!-- ekka Mobile Menu Start -->
+        <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
+            <div class="ec-menu-title">
+                <span class="menu_title">My Menu</span>
+                <button class="ec-close">×</button>
+            </div>
+            <div class="ec-menu-inner">
+                <div class="ec-menu-content">
+                    <ul>
+                        <li><a href="with-amount-index.html">Home</a></li>
+                        <li><a onclick="categoryURL('rider')">Rider</a></li>
+                        <li><a onclick="categoryURL('horse')">Horse</a></li>
+                        <li><a onclick="categoryURL('dog')">Dog</a></li>
+                        <li><a>Clearance</a></li>
+
+                    </ul>
+                </div>
+                <div class="header-res-lan-curr">
+                    <div class="header-top-lan-curr">
+                    </div>
+                    <!-- Social Start -->
+                    <div class="header-res-social">
+                        <div class="header-top-social">
+                            <ul class="mb-0">
+                                <li class="list-inline-item"><a class="hdr-facebook"
+                                        href="https://www.facebook.com/equestrian.avenue.1"><i
+                                            class="ecicon eci-facebook"></i></a></li>
+                                <li class="list-inline-item"><a class="hdr-instagram"
+                                        href="https://www.instagram.com/equiprideltduk/"><i
+                                            class="ecicon eci-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Social End -->
+                </div>
+            </div>
+        </div>
+        <!-- ekka mobile Menu End -->
+    </header>
+    <!-- Header End  -->
+
+    <!-- ekka Cart Start -->
+    <div class="ec-side-cart-overlay"></div>
+    <div id="ec-side-cart" class="ec-side-cart">
+        <div class="ec-cart-inner">
+            <div class="ec-cart-top">
+                <div class="ec-cart-title">
+                    <span class="cart_title">My Cart</span>
+                    <button class="ec-close">×</button>
+                </div>
+                <ul class="eccart-pro-items">
+
+                </ul>
+            </div>
+            <div class="ec-cart-bottom">
+                <div class="cart-sub-total">
+                    <table class="table cart-table">
+                        <tbody>
+                            <tr>
+                                <td class="text-left">Sub-Total :</td>
+                                <td class="text-right">$0.00</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">VAT (20%) :</td>
+                                <td class="text-right">$0.00</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Total :</td>
+                                <td class="text-right primary-color">$0.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cart_btn">
+                    <a href="dealer-cart.html" class="btn btn-primary">View Cart</a>
+                    <a href="checkout.html" class="btn btn-secondary">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ekka Cart End -->
+
+    <!-- Ec breadcrumb start -->
+    <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row ec_breadcrumb_inner">
+                        <div class="col-md-6 col-sm-12">
+                            <h2 class="ec-breadcrumb-title">User Profile</h2>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <!-- ec-breadcrumb-list start -->
+                            <ul class="ec-breadcrumb-list">
+                                <li class="ec-breadcrumb-item"><a href="with-amount-index.html">Home</a></li>
+                                <li class="ec-breadcrumb-item active">Profile</li>
+                            </ul>
+                            <!-- ec-breadcrumb-list end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ec breadcrumb end -->
+
+    <!-- User profile section -->
+    <section class="ec-page-content ec-vendor-uploads ec-user-account section-space-p">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Area Start -->
+                <div class="ec-shop-leftside ec-vendor-sidebar col-lg-3 col-md-12">
+                    <div class="ec-sidebar-wrap ec-border-box">
+                        <!-- Sidebar Category Block -->
+                        <div class="ec-sidebar-block">
+                            <div class="ec-vendor-block">
+                                <!-- <div class="ec-vendor-block-bg"></div>
+                                <div class="ec-vendor-block-detail">
+                                    <img class="v-img" src="assets/images/user/1.jpg" alt="vendor image">
+                                    <h5>Mariana Johns</h5>
+                                </div> -->
+                                <div class="ec-vendor-block-items">
+                                    <ul>
+                                        <li><a href="dealer-profile.html">User Profile</a></li>
+                                        <li><a href="dealer-order-history.html">Order History</a></li>
+                                        <li><a href="dealer-wishlist.html">Wishlist</a></li>
+                                        <li><a href="dealer-cart.html">Cart</a></li>
+                                        <li><a href="product-update.html">Product Updates</a></li>
+                                        <li><a href="quick-order.html">Quick Orders</a></li>
+                                        <li><a href="product-alert.html">Product Alerts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="ec-shop-rightside col-lg-9 col-md-12">
+                    <div class="ec-vendor-dashboard-card ec-vendor-setting-card">
+                        <div class="ec-vendor-card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="ec-vendor-block-profile">
+                                        <div class="ec-vendor-block-img space-bottom-30">
+                                            <div class="ec-vendor-block-bg">
+                                                <a class="btn btn-lg btn-primary" onclick="editDealerDetails()"
+                                                    id="edit-btn">Edit Detail</a>
+                                            </div>
+                                            <div class="ec-vendor-block-detail">
+                                                <img class="v-img" src="" alt="vendor image">
+                                                <h5 class="name" id="dealer_fullname"></h5>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-12">
+                                                    <p>Hello <span id="dealer_name"></span></p>
+                                                    <p>From your account you can easily view and track orders. You can
+                                                        manage
+                                                        and change your account information like address, contact
+                                                        information
+                                                        and history of orders.</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <p style="font-weight: 700; font-size: large;">Dealer Settings</p>
+                                                    <!-- Default switch -->
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" role="switch"
+                                                            id="flexSwitchCheckPriceDefault"
+                                                            onchange="setPriceCookie()">
+                                                        <label class="form-check-label" for="flexSwitchCheckDefault"
+                                                            style="margin-left: 9px;">Show Purchase Price</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" role="switch"
+                                                            id="flexSwitchCheckMsrpDefault"
+                                                            onchange="setMsrpPriceCookie()">
+                                                        <label class="form-check-label" for="flexSwitchCheckDefault"
+                                                            style="margin-left: 9px;">Show MSRP</label>
+                                                    </div>
+                                                    <!-- <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" role="switch"
+                                                            id="flexSwitchCheckDefault">
+                                                        <label class="form-check-label" for="flexSwitchCheckDefault"
+                                                            style="margin-left: 9px;">Collection Images on
+                                                            Category</label>
+                                                    </div> -->
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h5 id="acc_info">Account Information
+                                        </h5>
+
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12">
+                                                <div
+                                                    class="ec-vendor-detail-block ec-vendor-block-email space-bottom-30">
+                                                    <h6>Dealer Name</h6>
+                                                    <ul>
+                                                        <li id="dealer_full_name"></li>
+                                                    </ul>
+                                                </div>
+                                                <div
+                                                    class="ec-vendor-detail-block ec-vendor-block-email space-bottom-30">
+                                                    <h6>E-mail address</h6>
+                                                    <ul>
+                                                        <li id="dealer_email"></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <div
+                                                    class="ec-vendor-detail-block ec-vendor-block-contact space-bottom-30">
+                                                    <h6>Contact nubmer</h6>
+                                                    <ul>
+                                                        <li id="dealer_phone"></li>
+                                                        <!-- <li><strong>Phone Nubmer 2 : </strong>(123) 123 456 7890</li> -->
+                                                    </ul>
+                                                </div>
+
+                                                <div class="ec-vendor-detail-block ec-vendor-block-address mar-b-30">
+                                                    <h6>Address
+                                                    </h6>
+                                                    <ul>
+                                                        <li id="dealer_address"></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-6 col-sm-12">
+                                                <div class="ec-vendor-detail-block ec-vendor-block-address mar-b-30">
+                                                    <h6>Address
+                                                    </h6>
+                                                    <ul>
+                                                        <li id="dealer_address"></li>
+                                                    </ul>
+                                                </div>
+                                            </div> -->
+
+                                            <!-- <div class="col-md-6 col-sm-12">
+                                                <div class="ec-vendor-detail-block ec-vendor-block-address mar-b-30">
+                                                    <h6>Address
+                                                    </h6>
+                                                    <ul>
+                                                        <ul>
+                                                            <li id="dealer_address"></li>
+                                                        </ul>
+                                                    </ul>
+                                                </div>
+                                            </div> -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br />
+
+                    <!-- Recent Orders  Start -->
+                    <div class="ec-vendor-dashboard-card ec-vendor-setting-card">
+                        <div class="ec-vendor-card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="ec-vendor-block-profile">
+                                        <h5>Order History</h5>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <table class="table table-hover" id="orderTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Order ID</th>
+                                                            <th scope="col">Date</th>
+                                                            <!-- <th scope="col">Ship to</th> -->
+                                                            <th scope="col">Order Total</th>
+                                                            <th scope="col">Status</th>
+                                                            <th scope="col" colspan="2" style="text-align: center;">
+                                                                Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="orderTable-tbody">
+                                                        <!-- <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>€6,789</td>
+                                                            <td>Completed</td>
+                                                            <td><a href="">View Order</a></td>
+                                                            <td><a href="">Reorder</a></td>
+                                                        </tr> -->
+
+                                                    </tbody>
+                                                </table>
+                                                <p style="text-align: right; padding-right: 10px;"><a id="viewAllLink"
+                                                        style="color: #eb6b16;">View All</a></p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recent Orders End -->
+
+                </div>
+            </div> <br />
+            <div class="ec-btn-bw" style="display: flex; justify-content: right;">
+                <button class="custom-btn btn-15" style="font-weight: 700;" onclick="logout()">Log Out</button>
+            </div>
+        </div>
+    </section>
+    <!-- End User profile section -->
+
+    <!-- Footer Start -->
+    <footer class="ec-footer">
+
+        <div class="footer-container">
+            <div class="footer-top section-space-footer-p">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-4 ec-footer-cat">
+                            <div class="ec-footer-widget">
+                                <h4 class="ec-footer-heading">Categories</h4>
+                                <div class="ec-footer-links">
+                                    <ul class="align-items-center">
+                                        <li class="ec-footer-link"><a onclick="categoryURL('horse')">Horse</a></li>
+                                        <li class="ec-footer-link"><a onclick="categoryURL('rider')">Riders</a></li>
+                                        <li class="ec-footer-link"><a onclick="categoryURL('dog')">Dogs</a></li>
+                                        <li class="ec-footer-link"><a>Clearance</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-4 ec-footer-info">
+                            <div class="ec-footer-widget">
+                                <h4 class="ec-footer-heading">Usefull Links</h4>
+                                <div class="ec-footer-links">
+                                    <ul class="align-items-center">
+                                        <li class="ec-footer-link"><a href="Shop-all-collection.html">All Collection</a>
+                                        </li>
+                                        <li class="ec-footer-link"><a href="dealer-wishlist.html">Wishlist</a></li>
+                                        <li class="ec-footer-link"><a href="dealer-cart.html">Cart</a></li>
+                                        <li class="ec-footer-link"><a href="dealer-profile.html">Profile</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-lg-4 ec-footer-service">
+                            <div class="ec-footer-widget">
+                                <h4 class="ec-footer-heading">Our Company</h4>
+                                <div class="ec-footer-links">
+                                    <ul class="align-items-center">
+                                        <li class="ec-footer-link"><a href="about_us.html">About Us</a></li>
+                                        <li class="ec-footer-link"><a href="contact_us.html">Contact Us</a></li>
+                                        <li class="ec-footer-link"><a href="terms_and_condition.html">Terms and
+                                                Conditions</a></li>
+                                        <li class="ec-footer-link"><a href="privacy_statement.html">Privacy
+                                                Statement</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-4 ec-footer-service">
+                            <div class="ec-footer-contact" style="margin-bottom: 15px;">
+                                <div class="ec-footer-widget">
+                                    <h4 class="ec-footer-heading">Follow Us</h4>
+
+                                </div>
+                            </div>
+                            <div class="ec-footer-social">
+                                <div class="ec-footer-widget">
+                                    <h4 class="ec-footer-heading marg-b-0 s-head">Follow Us</h4>
+                                    <div class="ec-footer-links">
+                                        <ul class="align-items-center">
+                                            <li class="ec-footer-link"><a
+                                                    href="https://www.instagram.com/equiprideltduk/"><i
+                                                        class="ecicon eci-instagram" aria-hidden="true"></i></a></li>
+                                            <li class="ec-footer-link"><a
+                                                    href="https://www.facebook.com/equestrian.avenue.1"><i
+                                                        class="ecicon eci-facebook-square" aria-hidden="true"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-4 ec-footer-cont-social">
+                            <div class="ec-footer-contact">
+                                <div class="ec-footer-widget">
+                                    <h4 class="ec-footer-heading">Contact</h4>
+                                    <div class="ec-footer-links">
+                                        <ul class="align-items-center">
+                                            <li class="ec-footer-link ec-foo-location"><span><i
+                                                        class="fi fi-rr-marker"></i></span>
+                                                <p>Equipride Ltd Metro house
+                                                    <br>
+                                                    57 pepper Road Leeds West Yorkshire LS10&nbsp;2RU.
+                                                </p>
+                                            </li>
+                                            <li class="ec-footer-link ec-foo-call"><span><i
+                                                        class="fi-rr-phone-call"></i></span><a
+                                                    href="tel:+01900510569">+01900510569</a>
+                                            </li>
+                                            <li class="ec-footer-link ec-foo-mail"><span><i
+                                                        class="fi fi-rr-envelope"></i></span><a
+                                                    href="mailto:info@equipride.co.uk">info@equipride.co.uk</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="ec-footer-social">
+                                <div class="ec-footer-widget">
+                                    <h4 class="ec-footer-heading marg-b-0 s-head">Follow Us</h4>
+                                    <div class="ec-footer-links">
+                                        <ul class="align-items-center">
+                                            <li class="ec-footer-link"><a href="#"><i class="ecicon eci-instagram"
+                                                        aria-hidden="true"></i></a></li>
+                                            <li class="ec-footer-link"><a href="#"><i class="ecicon eci-facebook-square"
+                                                        aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <!-- Footer payment -->
+                        <div class="footer-bottom-right">
+                            <div class="footer-bottom-payment d-flex justify-content-center">
+                                <div class="payment-link">
+                                    <img src="assets/images/icons/payment.png" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Footer payment -->
+                        <!-- Footer Copyright Start -->
+                        <div class="footer-copy">
+                            <div class="footer-bottom-copy ">
+                                <div class="ec-copy">Copyright © 2023 <a class="site-name" href="#">Equipride</a> all
+                                    rights reserved.</div>
+                            </div>
+                        </div>
+                        <!-- Footer Copyright End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!-- Footer navigation panel for responsive display -->
+    <div class="ec-nav-toolbar">
+        <div class="container">
+            <div class="ec-nav-panel">
+                <div class="ec-nav-panel-icons">
+                    <a href="#ec-mobile-menu" class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
+                            class="fi-rr-menu-burger"></i></a>
+                </div>
+                <div class="ec-nav-panel-icons">
+                    <a href="dealer-cart.html" class="toggle-cart ec-header-btn"><i class="fi-rr-shopping-bag"></i><span
+                            class="ec-cart-noti ec-header-count cart-count-lable cart_count">0</span></a>
+                </div>
+                <div class="ec-nav-panel-icons">
+                    <a href="with-amount-index.html" class="ec-header-btn"><i class="fi-rr-home"></i></a>
+                </div>
+                <div class="ec-nav-panel-icons">
+                    <a href="dealer-wishlist.html" class="ec-header-btn"><i class="fi-rr-heart"></i><span
+                            class="ec-cart-noti Wishlist_count">0</span></a>
+                </div>
+                <div class="ec-nav-panel-icons">
+                    <a href="login.html" class="ec-header-btn"><i class="fi-rr-user"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer navigation panel for responsive display end -->
+
+    <!-- Order Details Modal -->
+
+    <div class="modal fade" id="viewOrderDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+                    <button type="button" onclick="viewModalClose()" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">S No</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Product Colour</th>
+                                <th scope="col">Product Price</th>
+                                <th scope="col">Product Size</th>
+                                <th scope="col">Order Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderDetailsTable-tbody">
+                            <!-- <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="viewModalClose()" class="btn btn-secondary"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal End -->
+
+    <!-- Dealer Details Edit Modal -->
+
+    <div class="modal fade" id="editDealerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Dealer Details</h5>
+                    <button type="button" onclick="viewModalClose()" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="dealer_profile_image">Profile Image</label>
+                            <input type="file" class="form-control" value="assets/" id="dealer_profile_image"
+                                placeholder="profile">
+                            <img id="imagePreview" src="#" alt="Preview"
+                                style="display:none; max-width: 100%; max-height: 200px; margin-top: 10px;">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dealer_first_name_modal">First Name</label><br>
+                            <span id="modal_first_name_error"></span>
+                            <input type="text" class="form-control" id="dealer_first_name_modal"
+                                placeholder="First Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dealer_last_name_modal">Last Name</label><br>
+                            <span id="modal_last_name_error"></span>
+                            <input type="text" class="form-control" id="dealer_last_name_modal" placeholder="Last Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dealer_contact_modal">Contact</label><br>
+                            <span id="modal_contact_error"></span>
+                            <input type="number" class="form-control" id="dealer_contact_modal" placeholder="Contact">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dealer_email_modal">Email address</label><br>
+                            <span id="modal_email_error"></span>
+                            <input type="email" class="form-control" id="dealer_email_modal"
+                                aria-describedby="emailHelp" placeholder="Email Address">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dealer_address_modal">Address</label><br>
+                            <span id="modal_address_error"></span>
+                            <input type="text" class="form-control" id="dealer_address_modal" placeholder="Address">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="viewModalClose()">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="updateDealerDetails()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor JS -->
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/category-dropdown.js"></script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+    <!--Plugins JS-->
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/countdownTimer.min.js"></script>
+    <script src="assets/js/plugins/scrollup.js"></script>
+    <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+    <script src="assets/js/plugins/slick.min.js"></script>
+    <script src="assets/js/plugins/infiniteslidev2.js"></script>
+    <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/plugins/jquery.sticky-sidebar.js"></script>
+    <script src="assets/js/plugins/nouislider.js"></script>
+    <!-- Google translate Js -->
+
+    <!-- Main Js -->
+    <script src="assets/js/vendor/index.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            check_cookie();
+
+        });
+
+        var dealerId;
+
+        function check_cookie() {
+            $.ajax({
+                url: 'dealer_actions/dealer_cookies.php',
+                type: 'GET',
+                data: {
+                    check_cookie: 'check_cookie'
+                },
+                success: function (response) {
+                    var success_response = JSON.parse(response);
+                    console.log(success_response.status);
+                    if (success_response.status === 'Authentication_successful') {
+                        // const dealerId = success_response.dealer_id;
+                        dealerId = success_response.dealer_id;
+                        wishlistCount();
+                        viewOrderDeatils();
+                        dealerDetails(dealerId);
+                        delaerProfile();
+
+                        // Price Cookie
+
+                        var showPriceCookie = getShowPriceCookie("show-price");
+
+                        if (showPriceCookie === "true") {
+                            document.getElementById('flexSwitchCheckPriceDefault').checked = true;
+                        } else {
+                            document.getElementById('flexSwitchCheckPriceDefault').checked = false;
+                        }
+
+                        // Msrp Cookie
+
+                        var showPriceCookie = getShowPriceCookie("msrp-price");
+
+                        if (showPriceCookie === "true") {
+                            document.getElementById('flexSwitchCheckMsrpDefault').checked = true;
+                        } else {
+                            document.getElementById('flexSwitchCheckMsrpDefault').checked = false;
+                        }
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var error_response = JSON.parse(xhr.responseText);
+                    console.log(error_response);
+                    if (error_response == 'Not_authenticated') {
+                        window.location.href = 'login.html';
+                    }
+                }
+            });
+        }
+
+        function getShowPriceCookie(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+
+            if (parts.length === 2) {
+                return parts.pop().split(";").shift();
+            } else {
+                return null;
+            }
+        }
+
+        function wishlistCount() {
+            $.ajax({
+                url: 'dealer-admin/admin_actions/admin_action.php',
+                type: 'GET',
+                data: {
+                    wishlist_count_request: 'wishlist_count'
+                },
+                success: function (response) {
+                    console.log(response);
+                    var wishlistData = JSON.parse(response);
+
+                    var wishlistCount = wishlistData.wishlist_count;
+                    var cartCount = wishlistData.cart_count;
+                    $('.Wishlist_count').text(wishlistCount);
+                    $('.cart_count').text(cartCount);
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+
+        // Get Dealer Profile Image
+
+        function delaerProfile() {
+            console.log("profile");
+            $.ajax({
+                url: 'dealer_actions/dealer_action.php',
+                type: 'GET',
+                data: {
+                    dealer_profile_request: 'dealer_profile'
+                },
+                success: function (response) {
+                    var success_response = JSON.parse(response);
+                    console.log(success_response);
+                    $('.v-img').attr('src', 'dealer_actions/profile_images/' + success_response);
+                },
+                error: function (xhr, status, error) {
+                    // console.log(xhr.responseText);
+                    var error_response = JSON.parse(xhr.responseText);
+                    console.log(error_response);
+                    if (error_response == 'profile_image_not_found') {
+                        $('.v-img').attr('src', 'dealer_actions/profile_images/default-profile.svg');
+                    }
+                }
+            });
+        }
+
+        // Get Dealer Details
+
+        function dealerDetails(dealerId) {
+            // console.log(dealerId);
+            $.ajax({
+                url: 'dealer_actions/dealer_action.php',
+                type: 'GET',
+                data: {
+                    get_dealer_details: 'get_dealer_details',
+                    dealerId: dealerId
+                },
+                success: function (response) {
+                    var success_response = JSON.parse(response);
+                    console.log(success_response);
+                    var dealerDetails = success_response[0];
+
+                    if (dealerDetails) {
+                        var firstname = dealerDetails.firstname;
+                        var lastname = dealerDetails.lastname;
+                        var fullName = firstname + ' ' + lastname;
+                        $("#dealer_fullname").text(fullName.replace(/\b\w/g, l => l.toUpperCase()));
+                        $("#dealer_name").text(firstname + ' ' + lastname);
+
+                        $("#dealer_full_name").html('<strong>Name :</strong> ' + fullName);
+                        $("#dealer_email").html('<strong>Email :</strong> ' + dealerDetails.email);
+                        $("#dealer_phone").html('<strong>Phone :</strong> ' + dealerDetails.phone);
+                        $("#dealer_address").html('<strong>Address :</strong> ' + dealerDetails
+                            .address);
+                        // $("#shipping_address").html('<strong>Shipping Address :</strong> ' + dealerDetails
+                        //     .address);
+
+                        $("#dealer_first_name_modal").val(firstname);
+                        $("#dealer_last_name_modal").val(lastname);
+                        $("#dealer_email_modal").val(dealerDetails.email);
+                        $("#dealer_contact_modal").val(dealerDetails.phone);
+                        $("#dealer_address_modal").val(dealerDetails.address);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var error_response = JSON.parse(xhr.responseText);
+                    console.log(error_response);
+                }
+            });
+        }
+
+        // View Order History
+
+        function viewOrderDeatils() {
+            $.ajax({
+                url: 'dealer_actions/dealer_action.php',
+                type: 'GET',
+                data: {
+                    order_details_request: 'order_details'
+                },
+                success: function (response) {
+                    var success_response = JSON.parse(response);
+                    console.log(success_response);
+
+                    var tbody = $('#orderTable-tbody');
+                    tbody.empty();
+
+                    var ordersToShow = 5;
+
+                    for (var i = 0; i < ordersToShow && i < success_response.length; i++) {
+                        var order = success_response[i];
+
+                        var formattedAmount = parseFloat(order.total_amount).toLocaleString(
+                            'en-US', {
+                                style: 'currency',
+                                currency: 'GBP',
+                                minimumFractionDigits: 2,
+                            });
+
+                        var htmlTemplate = `
+            <tr>
+                <th scope="row">${order.unique_orderid}</th>
+                <td>${order.created_at}</td>
+                <td>${formattedAmount}</td>
+                <td>${order.order_status}</td>
+                <td><a onclick="viewOrderDetailsByOrderId('${order.unique_orderid}')">View Order</a></td>
+                <td><a onclick="reOrder('${order.unique_orderid}')">Reorder</a></td>
+            </tr>
+        `;
+
+                        tbody.append(htmlTemplate);
+                    }
+
+                    var viewAllButton = $('#viewAllLink');
+                    viewAllButton.text('View All');
+                    viewAllButton.off('click').on('click', function () {
+                        tbody.empty();
+
+                        if (viewAllButton.text() === 'View All') {
+                            for (var i = 0; i < success_response.length; i++) {
+                                var order = success_response[i];
+
+                                var formattedAmount = parseFloat(order.total_amount)
+                                    .toLocaleString(
+                                        'en-US', {
+                                            style: 'currency',
+                                            currency: 'GBP',
+                                            minimumFractionDigits: 2,
+                                        });
+
+                                var htmlTemplate = `
+                                    <tr>
+                                        <th scope="row">${order.unique_orderid}</th>
+                                        <td>${order.created_at}</td>
+                                        <td>${formattedAmount}</td>
+                                        <td>${order.order_status}</td>
+                                        <td><a onclick="viewOrderDetailsByOrderId('${order.unique_orderid}')">View Order</a></td>
+                                        <td><a onclick="reOrder('${order.unique_orderid}')">Reorder</a></td>
+                                    </tr>
+                                `;
+
+                                tbody.append(htmlTemplate);
+                            }
+
+                            viewAllButton.text('Show Less');
+                        } else {
+                            for (var i = 0; i < ordersToShow && i < success_response
+                                .length; i++) {
+                                var order = success_response[i];
+
+                                var formattedAmount = parseFloat(order.total_amount)
+                                    .toLocaleString(
+                                        'en-US', {
+                                            style: 'currency',
+                                            currency: 'GBP',
+                                            minimumFractionDigits: 2,
+                                        });
+
+                                var htmlTemplate = `
+                                    <tr>
+                                        <th scope="row">${order.unique_orderid}</th>
+                                        <td>${order.created_at}</td>
+                                        <td>${formattedAmount}</td>
+                                        <td>${order.order_status}</td>
+                                        <td><button onclick="viewOrderDetailsByOrderId('${order.unique_orderid}')">View Order</button></td>
+                                        <td><a onclick="reOrder('${order.unique_orderid}')">Reorder</a></td>
+                                    </tr>
+                                `;
+
+                                tbody.append(htmlTemplate);
+                            }
+
+                            viewAllButton.text('View All');
+                        }
+                    });
+                },
+
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+
+        // Reorder 
+
+        function reOrder(unique_orderid) {
+            // alert(unique_orderid);
+            $.ajax({
+                url: 'dealer_actions/dealer_action.php',
+                type: 'POST',
+                data: {
+                    reorder_request: 'reorder',
+                    unique_orderid: unique_orderid
+                },
+                success: function (response) {
+                    alert("Order Placed Successfully");
+                    viewOrderDeatils();
+                },
+                error: function (xhr, status, error) {
+                    // console.log(xhr.responseText);
+                    var error_response = JSON.parse(xhr.responseText);
+                    console.log(error_response);
+                    if (error_response == 'quantity_exceeds') {
+                        alert("Stock Empty or Quantity Exceeds");
+                    }
+                }
+            });
+        }
+
+        // View Order Details By Orderid
+
+        function viewOrderDetailsByOrderId(unique_orderid) {
+            // alert(unique_orderid);
+            $.ajax({
+                url: 'dealer_actions/dealer_action.php',
+                type: 'GET',
+                data: {
+                    viewOrderDeatils_by_unique_orderid_request: 'viewOrderDeatils_by_unique_orderid',
+                    unique_orderid: unique_orderid
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response && response.length > 0) {
+                        $('#orderDetailsTable-tbody').empty();
+
+                        response.forEach(function (item, index) {
+                            $('#orderDetailsTable-tbody').append(`
+                                <tr>
+                                    <th scope="row">${index + 1}</th>
+                                    <td>${item.product_name}</td> <!-- Replace with the actual property names from your response -->
+                                    <td>${item.product_color}</td>
+                                    <td>${item.product_price}</td>
+                                    <td>${item.product_size}</td>
+                                    <td>${item.order_quantity}</td>
+                                </tr>
+                            `);
+                        });
+
+                        // Show the modal
+                        $('#viewOrderDetails').modal('show');
+                    } else {
+                        console.log('Order Items Are Empty');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var error_response = JSON.parse(xhr.responseText);
+                    console.log(error_response);
+                }
+            });
+        }
+
+        function viewModalClose() {
+            $('#viewOrderDetails').modal('hide');
+            $('#editDealerModal').modal('hide');
+            resetImagePreview();
+        }
+
+        function logout() {
+            document.cookie =
+                "dealer_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/Equipride-Dealer-Login-Reg-Updated-last; samesite=Strict; secure";
+
+            $.ajax({
+                url: 'dealer_actions/logout.php',
+                type: 'POST',
+                success: function (response) {
+                    if (response.status === 'success') {
+                        console.log(response.message);
+                        window.location = "index.html";
+                    } else {
+                        console.error('Logout failed:', response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+
+        function editDealerDetails() {
+            $("#editDealerModal").modal('show');
+        }
+
+        $("#dealer_profile_image").change(function () {
+            readURL(this);
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imagePreview').attr('src', e.target.result).show();
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function resetImagePreview() {
+            $('#imagePreview').attr('src', '').hide();
+            $("#dealer_profile_image").val('');
+            $("#modal_first_name_error").text("").css("color", "black");
+            $("#modal_last_name_error").text("").css("color", "black");
+            $("#modal_contact_error").text("").css("color", "black");
+            $("#modal_email_error").text("").css("color", "black");
+            $("#modal_address_error").text("").css("color", "black");
+
+            dealerDetails(dealerId);
+        }
+
+        function updateDealerDetails() {
+            var profileImage = $('#dealer_profile_image')[0].files[0];
+            var firsName = $('#dealer_first_name_modal').val();
+            var lastName = $('#dealer_last_name_modal').val();
+            var contact = $('#dealer_contact_modal').val();
+            var email = $('#dealer_email_modal').val();
+            var address = $('#dealer_address_modal').val();
+
+            var formData = new FormData();
+            formData.append('profile_image', profileImage);
+            formData.append('first_name', firsName);
+            formData.append('last_name', lastName);
+            formData.append('contact', contact);
+            formData.append('email', email);
+            formData.append('address', address);
+            formData.append('update_dealer_details_request', 'update_dealer_details');
+
+            formData.forEach(function (value, key) {
+                console.log(key, ' : ', value);
+            });
+
+            $.ajax({
+                url: 'dealer_actions/dealer_action.php',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    console.log(response);
+                    var success_response = JSON.parse(response);
+
+                    if (success_response == 'success') {
+                        dealerDetails(dealerId);
+                        delaerProfile();
+                        $('#editDealerModal').modal('hide');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var error_response = JSON.parse(xhr.responseText);
+                    if (error_response == 'First_Name_is_empty') {
+                        $("#modal_first_name_error").text("First Name Is Empty").css("color", "red");
+                    } else if (error_response == 'Last_Name_is_empty') {
+                        $("#modal_last_name_error").text("Last Name Is Empty").css("color", "red");
+                    } else if (error_response == 'Contact_is_empty') {
+                        $("#modal_contact_error").text("Contact Is Empty").css("color", "red");
+                    } else if (error_response == 'Invalid_contact_format') {
+                        $("#modal_contact_error").text("Invalid Contact Type").css("color", "red");
+                    } else if (error_response == 'Email_is_empty') {
+                        $("#modal_email_error").text("Email Is Empty").css("color", "red");
+                    } else if (error_response == 'Address_is_empty') {
+                        $("#modal_address_error").text("Address Is Empty").css("color", "red");
+                    } else if (error_response == 'Invalid_email_format') {
+                        $("#modal_email_error").text("Invalid Email").css("color", "red");
+                    } else {
+                        console.log(error_response);
+                    }
+                }
+            });
+        }
+
+        function categoryURL(category) {
+            window.location.href = 'category.html?main_category=' + category;
+        }
+
+        // Price Cookie
+
+        function setPriceCookie() {
+            console.log("cookie function called");
+
+            var checkbox = document.getElementById('flexSwitchCheckPriceDefault');
+            if (!checkbox) {
+                console.error("Checkbox element not found");
+                return;
+            }
+
+            var isChecked = checkbox.checked;
+            console.log("Checkbox is checked:", isChecked);
+
+            var expirationDate = new Date();
+            expirationDate.setMonth(expirationDate.getMonth() + 1);
+
+            if (isChecked) {
+                var cookieValue = "show-price=true; path=/; secure; samesite=None; expires=" + expirationDate
+                    .toUTCString();
+                document.cookie = cookieValue;
+                console.log("Cookie 'show-price' set");
+            } else {
+                document.cookie = "show-price=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=None";
+                console.log("Cookie 'show-price' removed");
+            }
+        }
+
+        // Msrp Cookie
+
+        function setMsrpPriceCookie() {
+            console.log("cookie function called");
+
+            var checkbox = document.getElementById('flexSwitchCheckMsrpDefault');
+            if (!checkbox) {
+                console.error("Checkbox element not found");
+                return;
+            }
+
+            var isChecked = checkbox.checked;
+            console.log("Checkbox is checked:", isChecked);
+
+            var expirationDate = new Date();
+            expirationDate.setMonth(expirationDate.getMonth() + 1);
+
+            if (isChecked) {
+                var cookieValue = "msrp-price=true; path=/; secure; samesite=None; expires=" + expirationDate
+                    .toUTCString();
+                document.cookie = cookieValue;
+                console.log("Cookie 'msrp-price' set");
+            } else {
+                document.cookie = "msrp-price=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=None";
+                console.log("Cookie 'msrp-price' removed");
+            }
+        }
+    </script>
+    <script src="assets/js/search-bar.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+#search-input {
+    margin-bottom: 3px;
+    /* Adjust the value as needed */
+}
+
+/* Add margin space above the dropdown div */
+#search-results {
+    margin-top: 3px;
+    /* Adjust the value as needed */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    /* Set the maximum height for the dropdown */
+    overflow-y: auto;
+    /* Enable vertical scrolling if needed */
+    display: none;
+    z-index: 1;
+}
+
+/* Style each item in the dropdown */
+.results-container div {
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Highlight the selected item */
+.results-container div:hover {
+    background-color: #f2f2f2;
+}
+
+.ec-main-menu ul li:hover>a {
+    color: #ff764b !important;
+}
+
+.ec-main-menu>ul>li:hover>a:before {
+    background: #ff764b !important;
+}
+
+.btn-primary {
+    background-color: #ff764b !important;
+}
+
+<style>.ec-register-wrapper .ec-register-container .ec-register-form input {
+    margin-bottom: 5px !important;
+}
+
+.ec-login-wrapper .ec-login-container .ec-login-form input {
+    margin-bottom: 5px !important;
+
+}
+
+#form-id>span {
+    margin-bottom: 5px !important;
+
+}
+
+.error {
+    color: rgb(255, 0, 0);
+}
+.mailerror{
+     color: rgb(255, 0, 0);
+   
+}
+
+#form-id.success>input[type=text] {
+    border-color: rgb(0, 161, 0);
+}
+
+#form-id.error>input[type=text] {
+    border-color: rgb(255, 0, 0);
+}
+
+#form-id.success>input[type=date] {
+    border-color: rgb(0, 161, 0);
+}
+
+#form-id.error>input[type=date] {
+    border-color: rgb(255, 0, 0);
+}
+
+
+#form-id.success>input[type=email] {
+    border-color: rgb(0, 161, 0);
+}
+
+#form-id.error>input[type=email] {
+    border-color: rgb(255, 0, 0);
+}
+
+
+#form-id.success>input[type=number] {
+    border-color: rgb(0, 161, 0);
+}
+
+#form-id.error>input[type=number] {
+    border-color: rgb(255, 0, 0);
+}
+
+
+#form-id.success>input[type=password] {
+    border-color: rgb(0, 161, 0);
+}
+
+
+#gen.error {
+    border-color: rgb(255, 0, 0) !important;
+}
+
+#gen.success {
+    border-color: rgb(255, 0, 0) !important;
+}
+
+
+
+#form-id.error>input[type=password] {
+    border-color: rgb(255, 0, 0);
+}
+
+#form-id.success select {
+    border-color: rgb(0, 161, 0) !important;
+}
+
+#form-id.error select {
+    border-color: rgb(255, 0, 0) !important;
+}
+
+
+.success {
+    border-color: rgb(0, 161, 0);
+}
+
+.error {
+    border-color: rgb(255, 0, 0);
+}
+
+.header-search .form-control {
+    border: 1px solid #ff764b !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.ec_cat_slider .slick-arrow:before {
+    color: #ff764b !important;
+}
+
+.ec_cat_content .ec-section-title {
+    color: #ff764b !important;
+}
+
+.ec-cat-image i {
+    color: #ff764b !important;
+}
+
+.ec-category-section {
+    background-color: rgb(255, 255, 255);
+}
+
+.ec-main-menu ul li:hover>a {
+    color: #060606 !important;
+    font-weight: 700;
+}
+
+
+@media (min-width:988px) {
+    .ec-product-inner .ec-pro-image .ec-pro-actions {
+        display: flex;
+        justify-content: start !important;
+        left: 65px;
+    }
+
+}
+
+@media only screen and (max-width: 991px) {
+    .ec-product-inner .ec-pro-image .ec-pro-actions .ec-btn-group.wishlist {
+        top: auto;
+        bottom: 93px !important;
+    }
+}
+
+#sp1:hover {
+
+    color: #eb6b16 !important;
+
+}
+
+a:hover {
+    color: #eb6b16 !important;
+}
+.form-check-input:checked {
+    background-color: #ff764b !important;
+}
+.ec-btn-bw .custom-btn {
+    border: 1px solid black !important;
+    border-radius: 32px !important;
+}
+.ec-btn-bw .btn-15 {
+    background-color: rgb(250, 250, 250) !important;
+    color: #060606 !important;
+    
+}
+.ec-btn-bw .btn-15:hover {
+    background-color: #ff764b !important;
+    border-radius: 32px !important;
+
+}
+.ec-btn-bw .btn-15:after{
+    background-color: #ff764b !important;
+    border-radius: 32px !important;
+
+}
+#edit-btn:hover{
+color: #fff !important;
+}
+
+#page-nation{
+    display: flex !important;
+    justify-content: center !important;
+}
+.ec-breadcrumb-list li.active{
+    color: #eb6b16 !important;
+}
+.ec-breadcrumb-list .ec-breadcrumb-item.active::before {color: #eb6b16 !important;}
+
+.btn-sets {
+    justify-content: left !important;
+}
+.ec-btn-ds {
+    justify-content: left !important;
+}
+.ec-bg-swipe .ec-btn-bg-swipe .circle {
+    background: #eb6b16;
+}

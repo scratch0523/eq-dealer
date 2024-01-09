@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Ekka - Admin Dashboard HTML Template.">
+
+    <title>Equipride - Admin Dashboard</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
+
+    <!-- PLUGINS CSS STYLE -->
+    <link href="assets/plugins/simplebar/simplebar.css" rel="stylesheet" />
+
+    <!-- Data Tables -->
+    <link href='assets/plugins/data-tables/datatables.bootstrap5.min.css' rel='stylesheet'>
+    <link href='assets/plugins/data-tables/responsive.datatables.min.css' rel='stylesheet'>
+
+    <!-- ekka CSS -->
+    <link id="ekka-css" rel="stylesheet" href="assets/css/ekka.css" />
+
+    <!-- FAVICON -->
+    <link href="../assets/images/favicon/favicon.png" rel="shortcut icon" />
+</head>
+<style>
+    .table-input {
+        border: none;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body class="ec-header-fixed ec-sidebar-fixed ec-sidebar-dark ec-header-light" id="body">
+
+    <!-- WRAPPER -->
+    <div class="wrapper">
+
+        <!-- LEFT MAIN SIDEBAR -->
+        <div class="ec-left-sidebar ec-bg-sidebar">
+            <div id="sidebar" class="sidebar ec-sidebar-footer">
+
+                <div class="ec-brand">
+                    <a href="index.html" title="Equipride">
+                        <img class="ec-brand-icon" src="assets/img/logo/Logo editted.png" alt="Logo" />
+                        <!-- <span class="ec-brand-name text-truncate">Equipride</span> -->
+                    </a>
+                </div>
+
+                <!-- begin sidebar scrollbar -->
+                <div class="ec-navigation" data-simplebar>
+                    <!-- sidebar menu -->
+                    <ul class="nav sidebar-inner" id="sidebar-menu">
+                        <!-- Dashboard -->
+                        <li class="active">
+                            <a class="sidenav-item-link" href="index.html">
+                                <i class="mdi mdi-view-dashboard-outline"></i>
+                                <span class="nav-text">Dashboard</span>
+                            </a>
+                            <hr>
+                        </li>
+
+                        <!-- Vendors -->
+                        <!-- <li class="has-sub">
+							<a class="sidenav-item-link" href="javascript:void(0)">
+								<i class="mdi mdi-account-group-outline"></i>
+								<span class="nav-text">Vendors</span> <b class="caret"></b>
+							</a>
+							<div class="collapse">
+								<ul class="sub-menu" id="vendors" data-parent="#sidebar-menu">
+									<li class="">
+										<a class="sidenav-item-link" href="vendor-card.html">
+											<span class="nav-text">Vendor Grid</span>
+										</a>
+									</li>
+
+									<li class="">
+										<a class="sidenav-item-link" href="vendor-list.html">
+											<span class="nav-text">Vendor List</span>
+										</a>
+									</li>
+									<li class="">
+										<a class="sidenav-item-link" href="vendor-profile.html">
+											<span class="nav-text">Vendors Profile</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li> -->
+
+                        <!-- Users -->
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)">
+                                <i class="mdi mdi-account-group"></i>
+                                <span class="nav-text">Users</span> <b class="caret"></b>
+                            </a>
+                            <div class="collapse">
+                                <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="user-request.html">
+                                            <span class="nav-text">User Request</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a class="sidenav-item-link" href="user-list.html">
+                                            <span class="nav-text">User List</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <hr>
+                        </li>
+
+                        <!-- Category -->
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)">
+                                <i class="mdi mdi-dns-outline"></i>
+                                <span class="nav-text">Categories</span> <b class="caret"></b>
+                            </a>
+                            <div class="collapse">
+                                <ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
+                                    <li class="">
+                                        <a class="sidenav-item-link" href="main-category.html">
+                                            <span class="nav-text">Main Category</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a class="sidenav-item-link" href="sub-category.html">
+                                            <span class="nav-text">Sub Category</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Products -->
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)">
+                                <i class="mdi mdi-palette-advanced"></i>
+                                <span class="nav-text">Products</span> <b class="caret"></b>
+                            </a>
+                            <div class="collapse">
+                                <ul class="sub-menu" id="products" data-parent="#sidebar-menu">
+                                    <li class="">
+                                        <a class="sidenav-item-link" href="product-add.html">
+                                            <span class="nav-text">Add Product</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a class="sidenav-item-link" href="product-list.html">
+                                            <span class="nav-text">List Product</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Orders -->
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)">
+                                <i class="mdi mdi-cart"></i>
+                                <span class="nav-text">Order History</span> <b class="caret"></b>
+                            </a>
+                            <div class="collapse">
+                                <ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
+
+                                    <li class="">
+                                        <a class="sidenav-item-link" href="order-history.html">
+                                            <span class="nav-text">Order History</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a class="sidenav-item-link" href="quick-order-history.html">
+                                            <span class="nav-text">Quick Order</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Reviews -->
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)">
+                                <i class="mdi mdi-account-group-outline"></i>
+                                <span class="nav-text">Stock Update</span> <b class="caret"></b>
+                            </a>
+                            <div class="collapse">
+                                <ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
+
+                                    <li class="">
+                                        <a class="sidenav-item-link" href="stock-update.html">
+                                            <span class="nav-text">Stock Update</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Brands -->
+                        <!-- <li>
+							<a class="sidenav-item-link" href="brand-list.html">
+								<i class="mdi mdi-tag-faces"></i>
+								<span class="nav-text">Brands</span>
+							</a>
+							<hr>
+						</li> -->
+
+                        <!-- Authentication -->
+                        <!-- <li class="has-sub">
+							<a class="sidenav-item-link" href="javascript:void(0)">
+								<i class="mdi mdi-login"></i>
+								<span class="nav-text">Authentication</span> <b class="caret"></b>
+							</a>
+							<div class="collapse">
+								<ul class="sub-menu" id="authentication" data-parent="#sidebar-menu">
+									<li class="">
+										<a href="sign-in.html">
+											<span class="nav-text">Sign In</span>
+										</a>
+									</li>
+									<li class="">
+										<a href="sign-up.html">
+											<span class="nav-text">Sign Up</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li> -->
+
+                        <!-- Icons -->
+                        <!-- <li class="has-sub">
+							<a class="sidenav-item-link" href="javascript:void(0)">
+								<i class="mdi mdi-diamond-stone"></i>
+								<span class="nav-text">Icons</span> <b class="caret"></b>
+							</a>
+							<div class="collapse">
+								<ul class="sub-menu" id="icons" data-parent="#sidebar-menu">
+									<li class="">
+										<a class="sidenav-item-link" href="material-icon.html">
+											<span class="nav-text">Material Icon</span>
+										</a>
+									</li>
+									<li class="">
+										<a class="sidenav-item-link" href="font-awsome-icons.html">
+											<span class="nav-text">Font Awsome Icon</span>
+										</a>
+									</li>
+									<li class="">
+										<a class="sidenav-item-link" href="flag-icon.html">
+											<span class="nav-text">Flag Icon</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li> -->
+
+                        <!-- Other Pages -->
+                        <!-- <li class="has-sub">
+							<a class="sidenav-item-link" href="javascript:void(0)">
+								<i class="mdi mdi-image-filter-none"></i>
+								<span class="nav-text">Other Pages</span> <b class="caret"></b>
+							</a>
+							<div class="collapse">
+								<ul class="sub-menu" id="otherpages" data-parent="#sidebar-menu">
+									<li class="has-sub">
+										<a href="404.html">404 Page</a>
+									</li>
+								</ul>
+							</div>
+						</li> -->
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!--  PAGE WRAPPER -->
+        <div class="ec-page-wrapper">
+
+            <!-- Header -->
+            <header class="ec-main-header" id="header">
+                <nav class="navbar navbar-static-top navbar-expand-lg">
+                    <!-- Sidebar toggle button -->
+                    <button id="sidebar-toggler" class="sidebar-toggle"></button>
+                    <!-- search form -->
+                    <div class="search-form d-lg-inline-block">
+                        <!-- <div class="input-group">
+							<input type="text" name="query" id="search-input" class="form-control"
+								placeholder="search.." autofocus autocomplete="off" />
+							<button type="button" name="search" id="search-btn" class="btn btn-flat">
+								<i class="mdi mdi-magnify"></i>
+							</button>
+						</div>
+						<div id="search-results-container">
+							<ul id="search-results"></ul>
+						</div> -->
+                    </div>
+
+                    <!-- navbar right -->
+                    <div class="navbar-right">
+                        <ul class="nav navbar-nav">
+                            <!-- User Account -->
+                            <li class="dropdown user-menu">
+                                <button class="dropdown-toggle nav-link ec-drop" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="assets/img/user/user.png" class="user-image" alt="User Image" />
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right ec-dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="dropdown-header">
+                                        <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
+                                        <div class="d-inline-block">
+                                            John Deo <small class="pt-1">john.example@gmail.com</small>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="user-profile.html">
+                                            <i class="mdi mdi-account"></i> My Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="mdi mdi-email"></i> Message
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
+                                    </li>
+                                    <li class="right-sidebar-in">
+                                        <a href="javascript:0"> <i class="mdi mdi-settings-outline"></i> Setting </a>
+                                    </li>
+                                    <li class="dropdown-footer">
+                                        <a type="button" onclick="logout()"> <i class="mdi mdi-logout"></i> Log Out </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown notifications-menu custom-dropdown">
+                                <button class="dropdown-toggle notify-toggler custom-dropdown-toggler">
+                                    <i class="mdi mdi-bell-outline"></i>
+                                </button>
+
+                                <div class="card card-default dropdown-notify dropdown-menu-right mb-0">
+                                    <div class="card-header card-header-border-bottom px-3">
+                                        <h2>Notifications</h2>
+                                    </div>
+
+                                    <div class="card-body px-0 py-0">
+                                        <ul class="nav nav-tabs nav-style-border p-0 justify-content-between" id="myTab"
+                                            role="tablist">
+                                            <li class="nav-item mx-3 my-0 py-0">
+                                                <a href="#" class="nav-link active pb-3" id="home2-tab"
+                                                    data-bs-toggle="tab" data-bs-target="#home2" role="tab"
+                                                    aria-controls="home2" aria-selected="true">All (10)</a>
+                                            </li>
+
+                                            <li class="nav-item mx-3 my-0 py-0">
+                                                <a href="#" class="nav-link pb-3" id="profile2-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#profile2" role="tab" aria-controls="profile2"
+                                                    aria-selected="false">Msgs (5)</a>
+                                            </li>
+
+                                            <li class="nav-item mx-3 my-0 py-0">
+                                                <a href="#" class="nav-link pb-3" id="contact2-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#contact2" role="tab" aria-controls="contact2"
+                                                    aria-selected="false">Others (5)</a>
+                                            </li>
+                                        </ul>
+                </nav>
+            </header>
+
+            <!-- CONTENT WRAPPER -->
+            <div class="ec-content-wrapper">
+                <div class="content">
+                    <div class="breadcrumb-wrapper breadcrumb-wrapper-2 breadcrumb-contacts">
+                        <h1>Category</h1>
+                        <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
+                            <span><i class="mdi mdi-chevron-right"></i></span>Product Details
+                        </p>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <button class="btn btn-primary" onclick="addColourProduct()">New Variant</button>
+                    </div>
+                    <div class="row">
+
+
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="ec-cat-list card card-default">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+
+
+                                        <table id="responsive-data" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>S No</th>
+                                                    <th>Product Name</th>
+                                                    <th>Category Type</th>
+                                                    <th>Category Name</th>
+                                                    <th>Sub Category Name</th>
+                                                    <th>Product Colour</th>
+                                                    <th>Product Description</th>
+                                                    <th>Product Specification</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody></tbody>
+                                        </table>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End Content -->
+            </div> <!-- End Content Wrapper -->
+
+            <!-- Category Edit Modal -->
+
+
+            <!-- Modal -->
+
+            <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <!-- Add modal-lg class for a larger width -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <center><span id="error_msg"></span></center>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Product Name</label>
+                                    <input type="text" class="form-control" id="product_name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Category Type</label>
+                                    <input type="text" class="form-control" id="category_type">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Category Name</label>
+                                    <input type="text" class="form-control" id="category_name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Sub Category Name</label>
+                                    <input type="text" class="form-control" id="sub_category_name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Product Colour</label>
+                                    <input type="text" class="form-control" id="product_color">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Product
+                                        Description</label>
+                                    <textarea class="form-control" id="product_description" rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Product
+                                        Specification</label>
+                                    <textarea class="form-control" id="product_specification" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="editColorProductButton" data-id=""
+                                data-product-id="" onclick="editColorProduct()">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Product Edit Modal End -->
+
+            <!-- Product Image Modal Start -->
+
+            <div class="modal fade" id="editProductImageModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                onclick="resetModal()"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" id="product_id_image">
+                            <div class="mb-3">
+                                <center><span id="image_error_msg"></span></center>
+                            </div>
+                            <div class="mb-3">
+                                <label for="product_images" class="form-label">Product Images</label>
+                                <input type="file" class="form-control" id="product_images" accept="image/*" multiple>
+                                <div id="imagePreview" class="mt-2"></div>
+                            </div>
+                            <div class="mb-3">
+                                <button type="button" class="btn btn-primary addProductImage" data-id=""
+                                    onclick="addColorProductImages(this)">Save</button>
+                            </div>
+                            <div class="row product_image"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                onclick="resetModal()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Image Modal End -->
+
+            <!-- Product Details Modal Start -->
+
+            <div class="modal fade" id="editProductDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <center><span id="details_error_msg"></span></center>
+                            </div>
+                            <div class="mb-3">
+                                <label for="product_images" class="form-label">Product Details</label>
+                                <table class="table table-bordered"
+                                    style="border: 1px solid #ced4da; border-radius: 50%;" id="table_id">
+                                    <thead>
+                                        <tr>
+                                            <th>Size</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                            <th>Msrp</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="size_quantity_tbody">
+                                        <tr>
+
+                                            <td><input type="text" class="table-input" name="product_size"
+                                                    id="product_size">
+                                            </td>
+                                            <td><input type="text" class="table-input" name="product_quantity"
+                                                    id="product_quantity"></td>
+                                            <td><input type="number" class="table-input" name="product_price"
+                                                    id="product_price">
+                                            </td>
+                                            <td><input type="number" class="table-input" name="msrp_price"
+                                                    id="msrp_price"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <button type="button" class="btn btn-primary addProductImage" data-id=""
+                                    onclick="addColorProductDetails()">Save Details</button>
+                            </div>
+                            <div class="mb-3">
+                                <center><span id="edit_details_error"></span></center>
+                            </div>
+                            <div class="mb-3">
+
+                                <table id="second-table" class="table">
+                                    <input type="hidden" id="product_id_details">
+
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">S No</th>
+                                            <th class="text-center">Product Size</th>
+                                            <th class="text-center">Product Quantity</th>
+                                            <th class="text-center">Product Price</th>
+                                            <th class="text-center">Product Msrp</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div class="row"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details Modal End -->
+
+            <!-- Footer -->
+            <footer class="footer mt-auto">
+                <div class="copyright bg-white">
+                    <p>
+                        Copyright &copy; <span id="ec-year"></span><a class="text-primary" href="" target="_blank">
+                            Equipride Admin
+                            Dashboard</a>. All Rights Reserved.
+                    </p>
+                </div>
+            </footer>
+
+        </div> <!-- End Page Wrapper -->
+
+    </div> <!-- End Wrapper -->
+
+    <!-- Common Javascript -->
+    <script src="assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/plugins/tags-input/bootstrap-tagsinput.js"></script>
+    <script src="assets/plugins/simplebar/simplebar.min.js"></script>
+    <script src="assets/plugins/jquery-zoom/jquery.zoom.min.js"></script>
+    <script src="assets/plugins/slick/slick.min.js"></script>
+
+    <!-- Data Tables -->
+    <script src='assets/plugins/data-tables/jquery.datatables.min.js'></script>
+    <script src='assets/plugins/data-tables/datatables.bootstrap5.min.js'></script>
+    <script src='assets/plugins/data-tables/datatables.responsive.min.js'></script>
+
+    <!-- Option Switcher -->
+    <script src="assets/plugins/options-sidebar/optionswitcher.js"></script>
+
+    <!-- Ekka Custom -->
+    <script src="assets/js/ekka.js"></script>
+    <script src="js/admin_actions.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            var ProductId = getCookie('product_id');
+
+            // console.log('Product ID:', colorProductId);
+
+            loadColorProducts(ProductId);
+
+            $('#responsive-data').DataTable({
+                "paging": true,
+                "lengthMenu": [10, 20, 30],
+                "searching": true,
+            });
+
+            $('#second-table').DataTable({
+                "paging": true,
+                "lengthMenu": [10, 20, 30],
+                "searching": true,
+                "columnDefs": [{
+                    "targets": "_all",
+                    "orderable": false
+                }, ]
+            });
+        });
+
+
+        // Get Product Id Cookie
+
+        function getCookie(name) {
+            const cookies = document.cookie.split('; ');
+
+            for (const cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.split('=');
+
+                if (cookieName === name) {
+                    return decodeURIComponent(cookieValue);
+                }
+            }
+
+            return null;
+        }
+
+        // Add Colour Product
+
+        function addColourProduct() {
+            window.location.href = 'color-product.html';
+        }
+
+        // Load All Products
+
+
+        function loadColorProducts(ProductId) {
+            console.log(ProductId);
+            $.ajax({
+                url: 'admin_actions/admin_action.php',
+                type: 'GET',
+                data: {
+                    loadColorProduct_request: 'load_Product',
+                    color_product_id: ProductId
+                },
+                success: function (response) {
+                    // console.log(response);
+                    var data = JSON.parse(response);
+
+                    if (data.status === 'success') {
+                        // Clear existing table rows
+                        $('#responsive-data').DataTable().clear();
+
+                        if (data.products && data.products.length > 0) {
+                            // Iterate through each product in the message and add to DataTable
+                            for (var i = 0; i < data.products.length; i++) {
+                                var product = data.products[i];
+                                $('#responsive-data').DataTable().row.add([
+                                    i + 1,
+                                    product.product_name,
+                                    product.product_category_type,
+                                    product.product_category_name,
+                                    product.product_sub_category_name,
+                                    product.product_color,
+                                    product.product_description,
+                                    product.product_specification,
+                                    '<div class="btn-group">' +
+                                    '<button type="button" class="btn btn-outline-success">Info</button>' +
+                                    '<button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" ' +
+                                    'data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">' +
+                                    '<span class="sr-only">Info</span>' +
+                                    '</button>' +
+                                    '<div class="dropdown-menu">' +
+                                    '<a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editProductImageModal" data-id="' +
+                                    product.color_product_id +
+                                    '" onclick="editColorProductImages(' +
+                                    product
+                                    .color_product_id + ')">Images</a>' +
+                                    '<a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editProductDetailsModal" data-id="' +
+                                    product.color_product_id + '" onclick="editMoreColorDetails(' +
+                                    product
+                                    .color_product_id + ')">Size & Quantity</a>' +
+                                    '<a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editProductModal" data-id="' +
+                                    product.color_product_id +
+                                    '" onclick="editColorProductDetails(' +
+                                    product
+                                    .color_product_id + ')">Edit</a>' +
+                                    '<a type="button" class="dropdown-item" onclick="deleteColorProduct(' +
+                                    product.product_id + ')">Delete</a>' +
+                                    '</div>' +
+                                    '</div>'
+                                ]).draw();
+                            }
+                        }
+                    }
+                },
+                error: function () {
+                    console.log('Error loading All Products');
+                }
+            });
+        }
+
+        // Delete Products By Id 
+
+        function deleteColorProduct(colorProductId) {
+
+            alert(colorProductId);
+            $.ajax({
+                url: 'admin_actions/admin_action.php',
+                type: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    deleteColorProduct_request: 'deletecolor_product',
+                    colorProductId: colorProductId,
+                }),
+                success: function (response) {
+                    // console.log(response);
+
+                    if (response === 'Last_product_deleted_successfully') {
+                        //console.log(response);
+                        $('#responsive-data').DataTable().clear().draw();
+                        noProductsFound = false;
+                    } else if (response === 'Product_deleted_successfully') {
+                        //console.log(response);
+                        loadColorProducts(colorProductId);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log('Error deleting product');
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+
+
+        // Edit Product Details By Id
+
+        // global product id for the selected product
+
+        var currentProductId;
+
+        function editColorProductDetails(productId) {
+            var currentProductId = productId;
+            var color_product_id = productId;
+
+            console.log(color_product_id);
+            $.ajax({
+                url: 'admin_actions/admin_action.php',
+                type: 'GET',
+                data: {
+                    editColorProductDetails_request: 'edit_color_product',
+                    color_product_id: color_product_id
+                },
+                success: function (response) {
+                    // console.log(response);
+
+                    // var product_details = JSON.parse(response);
+                    var editButton = $("#editColorProductButton");
+
+                    editButton.data('id', response.color_product_id);
+
+                    var editButtonProductId = $("#editColorProductButton");
+
+                    editButton.data('product-id', response.product_id);
+
+                    $('#product_name').val(response.product_name);
+                    $('#category_type').val(response.product_category_type);
+                    $('#category_name').val(response.product_category_name);
+                    $('#sub_category_name').val(response.product_sub_category_name);
+                    $('#product_color').val(response.product_color);
+                    $('#product_description').val(response.product_description);
+                    $('#product_specification').val(response.product_specification);
+                },
+                error: function (xhr, status, error) {
+                    // console.log('Error Fetching product');
+                    console.log(xhr.responseText);
+                }
+            });
+
+        }
+
+
+        function editColorProduct() {
+
+            var color_product_id = $("#editColorProductButton").data('id');
+            var product_id = $("#editColorProductButton").data('product-id');
+            alert(product_id);
+
+            var product_name = $('#product_name').val();
+            var category_type = $('#category_type').val();
+            var category_name = $('#category_name').val();
+            var sub_category_name = $('#sub_category_name').val();
+            var product_color = $('#product_color').val();
+            var product_description = $('#product_description').val();
+            var product_specification = $('#product_specification').val();
+
+            // Create an object with the updated product details
+            var updatedcolorProduct = {
+                colorProductId: color_product_id,
+                product_name: product_name,
+                product_category_type: category_type,
+                product_category_name: category_name,
+                product_sub_category_name: sub_category_name,
+                product_color: product_color,
+                product_description: product_description,
+                product_specification: product_specification
+            };
+
+            // console.log(updatedcolorProduct);
+
+            $.ajax({
+                url: 'admin_actions/admin_action.php',
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    updateColorProduct_request: 'update_color_product',
+                    product_details: updatedcolorProduct
+                }),
+                success: function (response) {
+
+                    // console.log('Update successful:', response);
+
+                    var successResponse = (response.message);
+                    // console.log(successResponse);
+
+                    if (response.message == 'product_updated_successfully') {
+                        $('#editProductModal').modal('hide');
+                        $("#error_msg").text("");
+                        loadColorProducts(product_id);
+                        alert(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var jsonResponse = JSON.parse(xhr.responseText);
+                    // console.error(jsonResponse.error);
+
+                    if (jsonResponse.error == 'product_name_is_empty') {
+                        $("#error_msg").text("Product Name Is Empty").css("color", "red");
+                    } else if (jsonResponse.error == 'category_type_is_empty') {
+                        $("#error_msg").text("Category Type Is Empty").css("color", "red");
+                    } else if (jsonResponse.error == 'category_name_is_empty') {
+                        $("#error_msg").text("Category Name Is Empty").css("color", "red");
+                    } else if (jsonResponse.error == 'sub_category_name_is_empty') {
+                        $("#error_msg").text("Sub Category Name Is Empty").css("color", "red");
+                    } else if (jsonResponse.error == 'product_color_is_empty') {
+                        $("#error_msg").text("Product Colour Is Empty").css("color", "red");
+                    } else if (jsonResponse.error == 'product_description_is_empty') {
+                        $("#error_msg").text("Product Description Is Empty").css("color", "red");
+                    } else if (jsonResponse.error == 'product_specification_is_empty') {
+                        $("#error_msg").text("Product Specification Is Empty").css("color", "red");
+                    }
+                }
+            });
+        }
+
+
+        function editColorProductImages(color_product_id) {
+            var color_product_id = color_product_id;
+            $("#product_id_image").val('');
+            $("#product_id_image").val(color_product_id);
+
+
+            $.ajax({
+                url: 'admin_actions/admin_action.php',
+                type: 'GET',
+                data: {
+                    getColorProductImageById_request: 'get_color_product_images',
+                    color_product_id: color_product_id
+                },
+                success: function (response) {
+                    // console.log('Received response:', response);
+
+                    var product_images = JSON.parse(response);
+                    // console.log(product_images.images);
+
+                    var product_container = $(".product_image");
+                    product_container.empty();
+
+
+                    product_images.images.forEach(function (productImage) {
+
+                        // Assuming base_url is the base URL for your images
+                        var base_url =
+                            "http://localhost/Equipride-Dealer-Login-Reg-Updated-last/dealer-admin/product_images/";
+
+                        var productImageHTML = `
+                    		<div class="col-lg-4 col-md-4 mlt-1 card">
+                    			<img src="${base_url}${productImage}" class="card-img-top" alt="Product Image" width="239" height="238" loading="lazy">
+                    			<div class="card-body" style="margin: 0 auto;">
+                    				<button type="button" class="btn btn-danger" onclick="removeImage('${productImage}', ${color_product_id})">
+                    					Remove
+                    				</button>
+                    			</div>
+                    		</div>
+                    	`;
+
+                        product_container.append(productImageHTML);
+                    });
+
+                },
+                error: function (xhr, status, error) {
+                    try {
+                        var errorResponse = JSON.parse(xhr.responseText);
+
+                        if (errorResponse.error === 'no_images_found') {
+                            var product_container = $(".product_image");
+                            product_container.empty();
+                        }
+
+                    } catch (e) {
+                        console.error('Error parsing JSON response:', e);
+                    }
+                }
+            });
+        }
+
+
+        // Image Preview For Add More image
+
+        // Function to reset the modal content
+
+        function resetModal() {
+            // Reset the file input
+            var fileInput = document.getElementById('product_images');
+            fileInput.value = ''; // Clear the selected files
+            var previewContainer = document.getElementById('imagePreview');
+            previewContainer.innerHTML = '';
+        }
+
+        $('#editProductImageModal').on('hidden.bs.modal', resetModal);
+
+        function previewImages() {
+            var previewContainer = document.getElementById('imagePreview');
+            var files = document.getElementById('product_images').files;
+
+            previewContainer.innerHTML = '';
+
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var image = document.createElement('img');
+                    image.src = e.target.result;
+                    image.className = 'img-thumbnail mr-2';
+                    image.style.width = '150px';
+                    image.style.height = '150px';
+                    previewContainer.appendChild(image);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+        document.getElementById('product_images').addEventListener('change', previewImages);
+
+
+
+        // Remove Product Image
+
+        function removeImage(imageName, color_product_id) {
+            var imageName = imageName;
+            var color_product_id = color_product_id;
+
+            $.ajax({
+                url: 'admin_actions/admin_action.php',
+                type: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    color_product_image_delete_request: 'delete_color_product_image',
+                    imageName: imageName,
+                    color_product_id: color_product_id
+                }),
+                success: function (response) {
+                    // console.log(response.message);
+                    if (response.message == 'Image_deleted_successfully') {
+                        alert("Image Deleted Successfully");
+                        // Find and remove the deleted image from the container
+                        editColorProductImages(color_product_id);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+
+        // Add More Product Image
+
+        function addColorProductImages(button) {
+            var colorProductId = $("#product_id_image").val();
+            // console.log(colorProductId);
+
+            var ProductId = getCookie('product_id');
+            console.log(ProductId);
+
+            var fileInput = document.getElementById('product_images');
+            var files = fileInput.files;
+
+            var formData = new FormData();
+            formData.append('add_color_product_image_request', 'add_color_product_image');
+            for (var i = 0; i < files.length; i++) {
+                formData.append('images[]', files[i]);
+            }
+
+            formData.append('color_product_id', colorProductId);
+            formData.append('product_id', ProductId);
+
+            // console.log(formData);
+
+            $.ajax({
+                url: 'admin_actions/admin_action.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    // console.log(response);
+
+                    if (response == 'image_upload_successfully') {
+                        $("#image_error_msg").text(' ');
+                        editColorProductImages(colorProductId);
+
+                        // Reset ImagePreview
+                        var previewContainer = document.getElementById('imagePreview');
+                        previewContainer.innerHTML = '';
+
+                        // Reset Image Input
+                        var fileInput = document.getElementById('product_images');
+                        fileInput.value = '';
+                        alert("Image Upload Successfully");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+
+                    if (xhr.responseText == 'No_images_uploaded') {
+                        $("#image_error_msg").text("Please Select Image").css("color", "red");
+                    } else if (xhr.responseText == 'Invalid_file_type') {
+                        $("#image_error_msg").text("Invalid Image Type").css("color", "red");
+                    }
+                }
+            });
+        }
+
+        // Upadte Product Size,Quantity,Price,Msrp Price
+
+        function editMoreColorDetails(color_product_id) {
+            // console.log("edit More function called");
+
+            $("#product_id_details").val(color_product_id);
+            // alert(color_product_id);
+            $.ajax({
+                url: 'admin_actions/admin_action.php',
+                type: 'GET',
+                data: {
+                    get_color_product_details_request: 'color_product_details',
+                    color_product_id: color_product_id
+                },
+                success: function (response) {
+                    // console.log(response);
+
+                    if (response.status === 'success') {
+                        var dataTable = $('#second-table').DataTable();
+                        dataTable.clear();
+
+                        if (response.productDetails.length > 0) {
+
+
+                            for (var i = 0; i < response.productDetails.length; i++) {
+                                var product = response.productDetails[i];
+
+                                dataTable.row.add([
+                                    '<div class="text-center">' + (i + 1) + '</div>',
+                                    '<td class="text-center"><input type="text" class="form-control editProductSize" value="' +
+                                    product.product_size + '"></td>',
+                                    '<td class="text-center"><input type="number" class="form-control editProductQuantity" value="' +
+                                    product.product_quantity + '"></td>',
+                                    '<td class="text-center"><input type="number" class="form-control editProductPrice" value="' +
+                                    product.product_price + '"></td>',
+                                    '<td class="text-center"><input type="number" class="form-control editMsrpPrice" value="' +
+                                    product.product_msrp_price + '"></td>',
+                                    '<div class="text-center">' +
+                                    '<div class="btn-group">' +
+
+                                    '<a type="button" class="btn btn-primary" data-id="' + product
+                                    .color_product_id + '" data-details-id="' + product
+                                    .color_product_detail_id +
+                                    '" onclick="editDetails(this)">Edit</a>' +
+
+                                    '<a type="button" class="btn btn-danger" data-id="' + product
+                                    .color_product_id + '" data-details-id="' + product
+                                    .color_product_detail_id +
+                                    '" onclick="deleteColorDetails(this)">Delete</a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>'
+                                ]).draw();
+                            }
+                        }
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var response = JSON.parse(xhr.responseText);
+                    console.log(response.message);
+                    if (response.message === 'No_product_details_found') {
+                        var dataTable = $('#second-table').DataTable();
+
+                        // Clear all rows from the DataTable
+                        dataTable.clear().draw();
+                    }
+                }
+            });
+        }
+
+        // Add More Product Details
+
+        function addColorProductDetails() {
+
+            var ProductId = getCookie('product_id');
+            // console.log(ProductId);
+
+            var color_product_id = $("#product_id_details").val();
+            var product_size = $("#product_size").val();
+            var product_quantity = $("#product_quantity").val();
+            var product_price = $("#product_price").val();
+            var msrp_price = $("#msrp_price").val();
+
+            var productDetails = {
+                product_id: ProductId,
+                color_product_id: color_product_id,
+                product_size: product_size,
+                product_quantity: product_quantity,
+                product_price: product_price,
+                msrp_price: msrp_price
+            };
+
+            $.ajax({
+                url: 'admin_actions/admin_action.php',
+                type: 'POST',
+                data: {
+                    add_more_color_details_request: 'add_more_color_details',
+                    productDetails: productDetails
+                },
+                success: function (response) {
+                    console.log(response);
+                    var success_response = JSON.parse(response);
+                    // console.log(success_response);
+                    if (success_response == 'Details_Added_Successfully') {
+                        $("#details_error_msg").text('');
+
+                        $("#product_size").val('');
+                        $("#product_quantity").val('');
+                        $("#product_price").val('');
+                        $("#msrp_price").val('');
+                        editMoreColorDetails(color_product_id);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+
+                    var error_msg = JSON.parse(xhr.responseText);
+                    // console.log(error_msg);
+                    if (error_msg == 'product_id_is_empty') {
+                        console.log("Product Id Is Empty For Add More Details");
+                    } else if (error_msg == 'product_size_is_empty') {
+                        $("#details_error_msg").text("Product Size Is Empty").css("color", "red");
+                    } else if (error_msg == 'product_quantity_is_empty') {
+                        $("#details_error_msg").text("Product Quantity Is Empty").css("color", "red");
+                    } else if (error_msg == 'product_price_is_empty') {
+                        $("#details_error_msg").text("Product Price Is Empty").css("color", "red");
+                    } else if (error_msg == 'msrp_price_is_empty') {
+                        $("#details_error_msg").text("Msrp Price Is Empty").css("color", "red");
+                    }
+                }
+
+            });
+        }
+
+
+        // Edit Product Detail
+
+        function editDetails(clickedButton) {
+
+            var clickedRow = $(clickedButton).closest('tr');
+
+            var color_productId = $(clickedButton).data('id');
+            var color_productDetailsId = $(clickedButton).data('details-id');
+            // alert(color_productId);
+            // alert(color_productDetailsId);
+            var productSize = clickedRow.find('.editProductSize').val();
+            var productQuantity = clickedRow.find('.editProductQuantity').val();
+            var productPrice = clickedRow.find('.editProductPrice').val();
+            var msrpPrice = clickedRow.find('.editMsrpPrice').val();
+
+            // Create an object with the values
+            var dataToSend = {
+                color_productId: color_productId,
+                color_productDetailsId: color_productDetailsId,
+                productSize: productSize,
+                productQuantity: productQuantity,
+                productPrice: productPrice,
+                msrpPrice: msrpPrice
+            };
+
+            // Send a PUT request to update the values
+            $.ajax({
+                type: 'PUT',
+                url: 'admin_actions/admin_action.php',
+                // data: dataToSend,
+                // dataType: 'json',
+                data: JSON.stringify({
+                    update_color_product_details_request: 'update_color_product_details',
+                    edit_color_product_details: dataToSend
+                }),
+                success: function (response) {
+                    // console.log(response);
+                    if (response == "product_details_updated") {
+                        $("#edit_details_error").text('');
+                        alert("Product Details Updated!");
+                        editMoreColorDetails(color_productId);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var response = JSON.parse(xhr.responseText);
+                    // console.log(response.error);
+
+                    if (response.error == 'product_size_empty') {
+                        $("#edit_details_error").text("Product Size Is Empty").css("color", "red");
+                    } else if (response.error == 'product_quantity_empty') {
+                        $("#edit_details_error").text("Product Quantity Is Empty").css("color", "red");
+                    } else if (response.error == 'product_price_empty') {
+                        $("#edit_details_error").text("Product Price Is Empty").css("color", "red");
+                    } else if (response.error == 'product_msrp_price_empty') {
+                        $("#edit_details_error").text("MSRP Price Is Empty").css("color", "red");
+                    }
+                }
+            });
+        }
+
+        // Delete Product Details
+
+        function deleteColorDetails(clickedButton) {
+
+            var color_productId = $(clickedButton).data('id');
+            var color_productDetailsId = $(clickedButton).data('details-id');
+            // alert(color_productId);
+            // alert(color_productDetailsId);
+
+            $.ajax({
+                url: 'admin_actions/admin_action.php',
+                type: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    delete_color_product_details_request: 'delete_color_product_detail',
+                    color_product_id: color_productId,
+                    color_product_details_id: color_productDetailsId
+                }),
+                success: function (response) {
+                    // console.log(response);
+                    if (response == 'Product_details_deleted_successfully') {
+                        alert("Detail Deleted Successfully");
+                        editMoreColorDetails(color_productId);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+
+        // Colour Product 
+
+        // function colorProduct(product_id) {
+        //     var product_id = product_id;
+        //     alert(product_id);
+
+        //     document.cookie = "product_id=" + encodeURIComponent(product_id);
+
+        //     window.location.href = 'color-product.html';
+        // }
+    </script>
+</body>
+
+</html>
