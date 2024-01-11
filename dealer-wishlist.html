@@ -905,6 +905,11 @@
     <script>
         $(document).ready(function () {
             check_cookie();
+            $(window).on('beforeunload', function () {
+                // check_cookie();
+            });
+
+            $(window).on('unload', function () {});
         });
 
         function check_cookie() {
@@ -974,10 +979,17 @@
 
                     shopAllProductContainer.empty();
 
+                    var showPriceCookie = getProductCookie("show-price");
+                    var msrpPriceCookie = getProductCookie("msrp-price");
+
                     for (var i = 0; i < shopAllProducts.length; i++) {
                         var wishlistProduct = shopAllProducts[i].wishlist_product;
 
-                        var productHTML = `
+                        if (showPriceCookie === "true") {
+                            console.log("Show Price is enabled");
+                            if (msrpPriceCookie === "true") {
+                                console.log("MSRP Price is enabled");
+                                var productHTML = `
                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                 <div class="ec-product-inner">
                                     <div class="ec-pro-image-outer">
@@ -1004,6 +1016,96 @@
                                 </div>
                             </div>
                         `;
+
+                            } else {
+                                console.log("MSRP Price is disabled");
+                                var productHTML = `
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                <div class="ec-product-inner">
+                                    <div class="ec-pro-image-outer">
+                                        <div class="ec-pro-image">
+                                            <a href="product-left-sidebar.html?product_id=${wishlistProduct.product_id}" class="image">
+                                                <img class="main-image" src="dealer-admin/product_images/${wishlistProduct.product_image}" alt="Product" />
+                                                <img class="hover-image" src="dealer-admin/product_images/${wishlistProduct.product_image}" alt="Product" />
+                                            </a>
+                                            <span class="ec-com-remove ec-remove-wish"><a onclick="removeWishlistItem(${wishlistProduct.wishlist_id})">×</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ec-pro-content">
+                                        <h5 class="ec-pro-title">
+                                            <a href="product-left-sidebar.html?product_id=${wishlistProduct.product_id}">${wishlistProduct.product_name}</a>
+                                        </h5>
+                                        <div class="ec-pro-rating">
+                                        </div>
+                                        <div class="ec-pro-list-desc">${wishlistProduct.product_description}</div>
+                                        <span class="ec-price">
+                                            <span class="old-price">$${wishlistProduct.msrp_price.toFixed(2)}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                            }
+                        } else {
+                            console.log("Show Price is disabled");
+                            if (msrpPriceCookie === "true") {
+                                console.log("MSRP Price is enabled");
+                                var productHTML = `
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                <div class="ec-product-inner">
+                                    <div class="ec-pro-image-outer">
+                                        <div class="ec-pro-image">
+                                            <a href="product-left-sidebar.html?product_id=${wishlistProduct.product_id}" class="image">
+                                                <img class="main-image" src="dealer-admin/product_images/${wishlistProduct.product_image}" alt="Product" />
+                                                <img class="hover-image" src="dealer-admin/product_images/${wishlistProduct.product_image}" alt="Product" />
+                                            </a>
+                                            <span class="ec-com-remove ec-remove-wish"><a onclick="removeWishlistItem(${wishlistProduct.wishlist_id})">×</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ec-pro-content">
+                                        <h5 class="ec-pro-title">
+                                            <a href="product-left-sidebar.html?product_id=${wishlistProduct.product_id}">${wishlistProduct.product_name}</a>
+                                        </h5>
+                                        <div class="ec-pro-rating">
+                                        </div>
+                                        <div class="ec-pro-list-desc">${wishlistProduct.product_description}</div>
+                                        <span class="ec-price">
+                                            <span class="new-price">$${wishlistProduct.product_price.toFixed(2)}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                            } else {
+                                console.log("MSRP Price is disabled");
+                                var productHTML = `
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                <div class="ec-product-inner">
+                                    <div class="ec-pro-image-outer">
+                                        <div class="ec-pro-image">
+                                            <a href="product-left-sidebar.html?product_id=${wishlistProduct.product_id}" class="image">
+                                                <img class="main-image" src="dealer-admin/product_images/${wishlistProduct.product_image}" alt="Product" />
+                                                <img class="hover-image" src="dealer-admin/product_images/${wishlistProduct.product_image}" alt="Product" />
+                                            </a>
+                                            <span class="ec-com-remove ec-remove-wish"><a onclick="removeWishlistItem(${wishlistProduct.wishlist_id})">×</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="ec-pro-content">
+                                        <h5 class="ec-pro-title">
+                                            <a href="product-left-sidebar.html?product_id=${wishlistProduct.product_id}">${wishlistProduct.product_name}</a>
+                                        </h5>
+                                        <div class="ec-pro-rating">
+                                        </div>
+                                        <div class="ec-pro-list-desc">${wishlistProduct.product_description}</div>
+                                        <span class="ec-price">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                            }
+                        }
+
                         shopAllProductContainer.append(productHTML);
                     }
                 },
@@ -1014,6 +1116,16 @@
             });
         }
 
+        function getProductCookie(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+
+            if (parts.length === 2) {
+                return parts.pop().split(";").shift();
+            } else {
+                return null;
+            }
+        }
 
         function logout() {
             document.cookie =

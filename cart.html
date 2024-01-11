@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="assets/css/horse.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="slider.css">
 
     <style>
         body>section.ec-page-content.section-space-p>div>div>div.ec-pro-rightside.ec-common-rightside.col-lg-9.order-lg-last.col-md-12.order-md-first>div.single-pro-block>div>div>div.single-pro-desc>div>div.ec-pro-variation>div.ec-pro-variation-inner.ec-pro-variation-size>div>ul>li {
@@ -1546,94 +1547,48 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-5 col-sm-12 col-xs-12">
-                            <!-- Swiper -->
-                            <div class="qty-product-cover">
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_1.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_2.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_3.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_4.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_5.jpg" alt="">
+                            <div class="image__zoom__container__model">
+                                <div class="image__zoom__model">
+                                    <div class="zoom-container__model">
+                                        <img src="" alt="Zoomable Image" class="zoom-image__model"
+                                            id="zoomImage__model">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="qty-nav-thumb">
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_1.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_2.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_3.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_4.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_5.jpg" alt="">
+                            <div class="image__zoom__container__model">
+                                <div class="slider__banner__model ">
+                                    <i id="left__model" class="fa-solid fa-angle-left"></i>
+                                    <ul class="sliider__banner__carousel__model" id="imageList__model">
+                                    </ul>
+                                    <i id="right__model" class="fa-solid fa-angle-right"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-7 col-sm-12 col-xs-12">
                             <div class="quickview-pro-content">
-                                <h5 class="ec-quick-title"><a href="product-left-sidebar.html">Jackets</a>
+                                <h5 class="ec-quick-title"><a href="product-left-sidebar.html"
+                                        id="modal_product_name"></a>
                                 </h5>
-                                <div class="ec-quickview-rating">
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star"></i>
-                                </div>
-
-                                <div class="ec-quickview-desc">Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                    since the 1500s,</div>
+                                <div class="ec-quickview-desc" id="modal_product_description"></div>
                                 <div class="ec-quickview-price">
-                                    <span class="old-price">€100.00</span>
-                                    <span class="new-price">€80.00</span>
+                                    <span class="old-price" id="modal_product_price"></span>
+                                    <span class="new-price" id="modal_product_msrp_price"></span>
                                 </div>
 
                                 <div class="ec-pro-variation">
                                     <div class="ec-pro-variation-inner ec-pro-variation-color">
                                         <span>Color</span>
                                         <div class="ec-pro-color">
-                                            <ul class="ec-opt-swatch">
-                                                <li><span style="background-color:#696d62;"></span></li>
-                                                <li><span style="background-color:#d73808;"></span></li>
-                                                <li><span style="background-color:#577023;"></span></li>
-                                                <li><span style="background-color:#2ea1cd;"></span></li>
+                                            <ul class="ec-opt-swatch" id="modal_product_color">
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
                                         <span>Size</span>
                                         <div class="ec-pro-variation-content">
-                                            <ul class="ec-opt-size">
-                                                <li class="active"><a href="#" class="ec-opt-sz"
-                                                        data-tooltip="Small">S</a></li>
-                                                <li><a href="#" class="ec-opt-sz" data-tooltip="Medium">M</a></li>
-                                                <li><a href="#" class="ec-opt-sz" data-tooltip="Large">X</a></li>
-                                                <li><a href="#" class="ec-opt-sz" data-tooltip="Extra Large">XL</a></li>
+                                            <ul class="ec-opt-size" id="modal_product_size">
                                             </ul>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="ec-quickview-qty">
-                                    <div class="qty-plus-minus">
-                                        <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
-                                    </div>
-                                    <div class="ec-quickview-cart ">
-                                        <button class="btn btn-primary"><i class="fi-rr-shopping-basket"></i> Add To
-                                            Cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -1691,6 +1646,11 @@
         $(document).ready(function () {
 
             check_cookie();
+            $(window).on('beforeunload', function () {
+                // check_cookie();
+            });
+
+            $(window).on('unload', function () {});
         });
 
         var dealerId;
@@ -1763,68 +1723,246 @@
 
                     shopAllProductContainer.empty();
 
+                    var showPriceCookie = getProductCookie("show-price");
+                    var msrpPriceCookie = getProductCookie("msrp-price");
+
                     for (var i = 0; i < shopAllProducts.length; i++) {
                         var productObject = shopAllProducts[i].shop_all_product;
 
-                        var productHTML = `
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
-                <div class="ec-product-inner">
-                    <div class="ec-pro-image-outer">
-                        <div class="ec-pro-image">
-                            <a href="product-left-sidebar.html" class="image">
-                                <img class="main-image" src="dealer-admin/product_images/${productObject.product_image}" alt="${productObject.product_name}" data-product-id="${productObject.product_id}" />
-                                <img class="hover-image" src="dealer-admin/product_images/${productObject.product_image}" alt="${productObject.product_name}" data-product-id="${productObject.product_id}" />
-                            </a>
-                            <span class="percentage">20%</span>
-                            <a href="#" class="quickview" data-link-action="quickview" title="Quick view"
-                                data-bs-toggle="modal" data-bs-target="#ec_quickview_product_modal"><i class="fi-rr-eye"></i></a>
-                            <div class="ec-pro-actions">
-                                <a title="Add To Cart" class="ec-btn-group add-to-cart" href="cart.html"><i class="fi-rr-shopping-basket"></i></a>
-                                <a class="ec-btn-group" title="Wishlist" onclick="addWishlist(${productObject.product_id})"><i class="fi-rr-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ec-pro-content">
-                        <h5 class="ec-pro-title">
-                            <a href="product-left-sidebar.html?product_id=${productObject.product_id}">
-                                ${productObject.product_name}
-                            </a>
-                        </h5>
-                        <div class="ec-pro-list-desc">${productObject.product_description}</div>
-                        <span class="ec-price">
-                            <h6>Price &nbsp;:&nbsp;&nbsp;</h6>
-                            <span class="new-price">£ ${productObject.product_price.toFixed(2)}</span>
-                            <span class="old-price">£ ${productObject.msrp_price.toFixed(2)}</span>
-                        </span>
-                        <span class="ec-price">
-                            <h6>MSRP :&nbsp;&nbsp;</h6>
-                            <span class="new-price">£ ${productObject.msrp_price.toFixed(2)}</span>
-                            <span class="old-price">£ ${productObject.msrp_price.toFixed(2)}</span>
-                        </span>
-                        <div class="ec-pro-option">
-                            <div class="ec-pro-color">
-                                <span class="ec-pro-opt-label">Color</span>
-                                <ul class="ec-opt-swatch ec-change-img">
-                                    ${productObject.color.map(colorObject => `
-                                        <li${colorObject.color_product_id === 1 ? ' class="active"' : ''} onclick="handleColorClick(event, '${colorObject.color_value}', '${colorObject.color_name}', ${productObject.product_id}, ${colorObject.color_product_id}, '${colorObject.product_image}')" onmouseover="handleColorClick(event, '${colorObject.color_value}', '${colorObject.color_name}', ${productObject.product_id}, ${colorObject.color_product_id}, '${colorObject.product_image}')">
-                                            <a href="#" class="ec-opt-clr-img"
-                                                data-src="dealer-admin/color_images/${colorObject.color_value}"
-                                                data-src-hover="dealer-admin/color_images/${colorObject.color_value}"
-                                                data-tooltip="${colorObject.color_name}"
-                                                data-product-id="${colorObject.color_product_id}"
-                                                data-main-image="dealer-admin/product_images/${colorObject.product_image}"
-                                                data-hover-image="dealer-admin/product_images/${colorObject.product_image}">
-                                                <span style="${colorObject.color_type === 'code' ? 'background-color:' + colorObject.color_value : 'background-image: url(dealer-admin/color_images/' + colorObject.color_value + ')'}"></span>
-                                            </a>
-                                        </li>
-                                    `).join('')}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+                        if (showPriceCookie === "true") {
+                            console.log("Show Price is enabled");
+                            if (msrpPriceCookie === "true") {
+                                console.log("MSRP Price is enabled");
+                                var productHTML = `
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                        <div class="ec-product-inner">
+                                            <div class="ec-pro-image-outer">
+                                                <div class="ec-pro-image">
+                                                    <a href="product-left-sidebar.html" class="image">
+                                                        <img class="main-image" src="dealer-admin/product_images/${productObject.product_image}" alt="${productObject.product_name}" data-product-id="${productObject.product_id}" />
+                                                        <img class="hover-image" src="dealer-admin/product_images/${productObject.product_image}" alt="${productObject.product_name}" data-product-id="${productObject.product_id}" />
+                                                    </a>
+                                                    <span class="percentage">20%</span>
+                                                    <a href="#" class="quickview" data-link-action="quickview" title="Quick view"
+                                                        data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="modalProduct(${productObject.product_id})"><i class="fi-rr-eye"></i></a>
+                                                    <div class="ec-pro-actions">
+                                                        <a title="Add To Cart" class="ec-btn-group add-to-cart" href="cart.html"><i class="fi-rr-shopping-basket"></i></a>
+                                                        <a class="ec-btn-group" title="Wishlist" onclick="addWishlist(${productObject.product_id})"><i class="fi-rr-heart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ec-pro-content">
+                                                <h5 class="ec-pro-title">
+                                                    <a href="product-left-sidebar.html?product_id=${productObject.product_id}">
+                                                        ${productObject.product_name}
+                                                    </a>
+                                                </h5>
+                                                <div class="ec-pro-list-desc">${productObject.product_description}</div>
+                                                <span class="ec-price">
+                                                    <h6>Price &nbsp;:&nbsp;&nbsp;</h6>
+                                                    <span class="new-price">£ ${productObject.product_price.toFixed(2)}</span>
+                                                    <span class="old-price">£ ${productObject.msrp_price.toFixed(2)}</span>
+                                                </span>
+                                                <span class="ec-price">
+                                                    <h6>MSRP :&nbsp;&nbsp;</h6>
+                                                    <span class="new-price">£ ${productObject.msrp_price.toFixed(2)}</span>
+                                                    <span class="old-price">£ ${productObject.msrp_price.toFixed(2)}</span>
+                                                </span>
+                                                <div class="ec-pro-option">
+                                                    <div class="ec-pro-color">
+                                                        <span class="ec-pro-opt-label">Color</span>
+                                                        <ul class="ec-opt-swatch ec-change-img">
+                                                            ${productObject.color.map(colorObject => `
+                                                                <li${colorObject.color_product_id === 1 ? ' class="active"' : ''} onclick="handleColorClick(event, '${colorObject.color_value}', '${colorObject.color_name}', ${productObject.product_id}, ${colorObject.color_product_id}, '${colorObject.product_image}')" onmouseover="handleColorClick(event, '${colorObject.color_value}', '${colorObject.color_name}', ${productObject.product_id}, ${colorObject.color_product_id}, '${colorObject.product_image}')">
+                                                                    <a href="#" class="ec-opt-clr-img"
+                                                                        data-src="dealer-admin/color_images/${colorObject.color_value}"
+                                                                        data-src-hover="dealer-admin/color_images/${colorObject.color_value}"
+                                                                        data-tooltip="${colorObject.color_name}"
+                                                                        data-product-id="${colorObject.color_product_id}"
+                                                                        data-main-image="dealer-admin/product_images/${colorObject.product_image}"
+                                                                        data-hover-image="dealer-admin/product_images/${colorObject.product_image}">
+                                                                        <span style="${colorObject.color_type === 'code' ? 'background-color:' + colorObject.color_value : 'background-image: url(dealer-admin/color_images/' + colorObject.color_value + ')'}"></span>
+                                                                    </a>
+                                                                </li>
+                                                            `).join('')}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+
+                            } else {
+                                console.log("MSRP Price is disabled");
+                                var productHTML = `
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                        <div class="ec-product-inner">
+                                            <div class="ec-pro-image-outer">
+                                                <div class="ec-pro-image">
+                                                    <a href="product-left-sidebar.html" class="image">
+                                                        <img class="main-image" src="dealer-admin/product_images/${productObject.product_image}" alt="${productObject.product_name}" data-product-id="${productObject.product_id}" />
+                                                        <img class="hover-image" src="dealer-admin/product_images/${productObject.product_image}" alt="${productObject.product_name}" data-product-id="${productObject.product_id}" />
+                                                    </a>
+                                                    <span class="percentage">20%</span>
+                                                    <a href="#" class="quickview" data-link-action="quickview" title="Quick view"
+                                                        data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="modalProduct(${productObject.product_id})"><i class="fi-rr-eye"></i></a>
+                                                    <div class="ec-pro-actions">
+                                                        <a title="Add To Cart" class="ec-btn-group add-to-cart" href="cart.html"><i class="fi-rr-shopping-basket"></i></a>
+                                                        <a class="ec-btn-group" title="Wishlist" onclick="addWishlist(${productObject.product_id})"><i class="fi-rr-heart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ec-pro-content">
+                                                <h5 class="ec-pro-title">
+                                                    <a href="product-left-sidebar.html?product_id=${productObject.product_id}">
+                                                        ${productObject.product_name}
+                                                    </a>
+                                                </h5>
+                                                <div class="ec-pro-list-desc">${productObject.product_description}</div>
+                                                <span class="ec-price">
+                                                    <h6>Price &nbsp;:&nbsp;&nbsp;</h6>
+                                                    <span class="new-price">£ ${productObject.product_price.toFixed(2)}</span>
+                                                    <span class="old-price">£ ${productObject.msrp_price.toFixed(2)}</span>
+                                                </span>
+                                                <div class="ec-pro-option">
+                                                    <div class="ec-pro-color">
+                                                        <span class="ec-pro-opt-label">Color</span>
+                                                        <ul class="ec-opt-swatch ec-change-img">
+                                                            ${productObject.color.map(colorObject => `
+                                                                <li${colorObject.color_product_id === 1 ? ' class="active"' : ''} onclick="handleColorClick(event, '${colorObject.color_value}', '${colorObject.color_name}', ${productObject.product_id}, ${colorObject.color_product_id}, '${colorObject.product_image}')" onmouseover="handleColorClick(event, '${colorObject.color_value}', '${colorObject.color_name}', ${productObject.product_id}, ${colorObject.color_product_id}, '${colorObject.product_image}')">
+                                                                    <a href="#" class="ec-opt-clr-img"
+                                                                        data-src="dealer-admin/color_images/${colorObject.color_value}"
+                                                                        data-src-hover="dealer-admin/color_images/${colorObject.color_value}"
+                                                                        data-tooltip="${colorObject.color_name}"
+                                                                        data-product-id="${colorObject.color_product_id}"
+                                                                        data-main-image="dealer-admin/product_images/${colorObject.product_image}"
+                                                                        data-hover-image="dealer-admin/product_images/${colorObject.product_image}">
+                                                                        <span style="${colorObject.color_type === 'code' ? 'background-color:' + colorObject.color_value : 'background-image: url(dealer-admin/color_images/' + colorObject.color_value + ')'}"></span>
+                                                                    </a>
+                                                                </li>
+                                                            `).join('')}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            }
+                        } else {
+                            console.log("Show Price is disabled");
+                            if (msrpPriceCookie === "true") {
+                                console.log("MSRP Price is enabled");
+                                var productHTML = `
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                        <div class="ec-product-inner">
+                                            <div class="ec-pro-image-outer">
+                                                <div class="ec-pro-image">
+                                                    <a href="product-left-sidebar.html" class="image">
+                                                        <img class="main-image" src="dealer-admin/product_images/${productObject.product_image}" alt="${productObject.product_name}" data-product-id="${productObject.product_id}" />
+                                                        <img class="hover-image" src="dealer-admin/product_images/${productObject.product_image}" alt="${productObject.product_name}" data-product-id="${productObject.product_id}" />
+                                                    </a>
+                                                    <span class="percentage">20%</span>
+                                                    <a href="#" class="quickview" data-link-action="quickview" title="Quick view"
+                                                        data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="modalProduct(${productObject.product_id})"><i class="fi-rr-eye"></i></a>
+                                                    <div class="ec-pro-actions">
+                                                        <a title="Add To Cart" class="ec-btn-group add-to-cart" href="cart.html"><i class="fi-rr-shopping-basket"></i></a>
+                                                        <a class="ec-btn-group" title="Wishlist" onclick="addWishlist(${productObject.product_id})"><i class="fi-rr-heart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ec-pro-content">
+                                                <h5 class="ec-pro-title">
+                                                    <a href="product-left-sidebar.html?product_id=${productObject.product_id}">
+                                                        ${productObject.product_name}
+                                                    </a>
+                                                </h5>
+                                                <div class="ec-pro-list-desc">${productObject.product_description}</div>
+                                                
+                                                <span class="ec-price">
+                                                    <h6>MSRP :&nbsp;&nbsp;</h6>
+                                                    <span class="new-price">£ ${productObject.msrp_price.toFixed(2)}</span>
+                                                    <span class="old-price">£ ${productObject.msrp_price.toFixed(2)}</span>
+                                                </span>
+                                                <div class="ec-pro-option">
+                                                    <div class="ec-pro-color">
+                                                        <span class="ec-pro-opt-label">Color</span>
+                                                        <ul class="ec-opt-swatch ec-change-img">
+                                                            ${productObject.color.map(colorObject => `
+                                                                <li${colorObject.color_product_id === 1 ? ' class="active"' : ''} onclick="handleColorClick(event, '${colorObject.color_value}', '${colorObject.color_name}', ${productObject.product_id}, ${colorObject.color_product_id}, '${colorObject.product_image}')" onmouseover="handleColorClick(event, '${colorObject.color_value}', '${colorObject.color_name}', ${productObject.product_id}, ${colorObject.color_product_id}, '${colorObject.product_image}')">
+                                                                    <a href="#" class="ec-opt-clr-img"
+                                                                        data-src="dealer-admin/color_images/${colorObject.color_value}"
+                                                                        data-src-hover="dealer-admin/color_images/${colorObject.color_value}"
+                                                                        data-tooltip="${colorObject.color_name}"
+                                                                        data-product-id="${colorObject.color_product_id}"
+                                                                        data-main-image="dealer-admin/product_images/${colorObject.product_image}"
+                                                                        data-hover-image="dealer-admin/product_images/${colorObject.product_image}">
+                                                                        <span style="${colorObject.color_type === 'code' ? 'background-color:' + colorObject.color_value : 'background-image: url(dealer-admin/color_images/' + colorObject.color_value + ')'}"></span>
+                                                                    </a>
+                                                                </li>
+                                                            `).join('')}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            } else {
+                                console.log("MSRP Price is disabled");
+                                var productHTML = `
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                        <div class="ec-product-inner">
+                                            <div class="ec-pro-image-outer">
+                                                <div class="ec-pro-image">
+                                                    <a href="product-left-sidebar.html" class="image">
+                                                        <img class="main-image" src="dealer-admin/product_images/${productObject.product_image}" alt="${productObject.product_name}" data-product-id="${productObject.product_id}" />
+                                                        <img class="hover-image" src="dealer-admin/product_images/${productObject.product_image}" alt="${productObject.product_name}" data-product-id="${productObject.product_id}" />
+                                                    </a>
+                                                    <span class="percentage">20%</span>
+                                                    <a href="#" class="quickview" data-link-action="quickview" title="Quick view"
+                                                        data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="modalProduct(${productObject.product_id})"><i class="fi-rr-eye"></i></a>
+                                                    <div class="ec-pro-actions">
+                                                        <a title="Add To Cart" class="ec-btn-group add-to-cart" href="cart.html"><i class="fi-rr-shopping-basket"></i></a>
+                                                        <a class="ec-btn-group" title="Wishlist" onclick="addWishlist(${productObject.product_id})"><i class="fi-rr-heart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ec-pro-content">
+                                                <h5 class="ec-pro-title">
+                                                    <a href="product-left-sidebar.html?product_id=${productObject.product_id}">
+                                                        ${productObject.product_name}
+                                                    </a>
+                                                </h5>
+                                                <div class="ec-pro-list-desc">${productObject.product_description}</div>
+                                                
+                                                <div class="ec-pro-option">
+                                                    <div class="ec-pro-color">
+                                                        <span class="ec-pro-opt-label">Color</span>
+                                                        <ul class="ec-opt-swatch ec-change-img">
+                                                            ${productObject.color.map(colorObject => `
+                                                                <li${colorObject.color_product_id === 1 ? ' class="active"' : ''} onclick="handleColorClick(event, '${colorObject.color_value}', '${colorObject.color_name}', ${productObject.product_id}, ${colorObject.color_product_id}, '${colorObject.product_image}')" onmouseover="handleColorClick(event, '${colorObject.color_value}', '${colorObject.color_name}', ${productObject.product_id}, ${colorObject.color_product_id}, '${colorObject.product_image}')">
+                                                                    <a href="#" class="ec-opt-clr-img"
+                                                                        data-src="dealer-admin/color_images/${colorObject.color_value}"
+                                                                        data-src-hover="dealer-admin/color_images/${colorObject.color_value}"
+                                                                        data-tooltip="${colorObject.color_name}"
+                                                                        data-product-id="${colorObject.color_product_id}"
+                                                                        data-main-image="dealer-admin/product_images/${colorObject.product_image}"
+                                                                        data-hover-image="dealer-admin/product_images/${colorObject.product_image}">
+                                                                        <span style="${colorObject.color_type === 'code' ? 'background-color:' + colorObject.color_value : 'background-image: url(dealer-admin/color_images/' + colorObject.color_value + ')'}"></span>
+                                                                    </a>
+                                                                </li>
+                                                            `).join('')}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            }
+                        }
 
                         shopAllProductContainer.append(productHTML);
                     }
@@ -1836,6 +1974,16 @@
             });
         }
 
+        function getProductCookie(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+
+            if (parts.length === 2) {
+                return parts.pop().split(";").shift();
+            } else {
+                return null;
+            }
+        }
 
         function handleColorClick(event, colorValue, colorName, productId, colorProductId, productImage) {
             $('.main-image[data-product-id="' + productId + '"]').attr('src', 'dealer-admin/product_images/' +
@@ -1974,6 +2122,174 @@
                     console.log(error_response);
                 }
             });
+        }
+
+        // Modal Product Details
+
+        function modalProduct(productId) {
+            // alert(productId);
+            $.ajax({
+                url: 'dealer-admin/admin_actions/admin_action.php',
+                type: 'GET',
+                data: {
+                    get_all_color_product_request: 'get_product_details_for_modal',
+                    product_id: productId
+                },
+                success: function (response) {
+                    console.log(response);
+                    handleColorProductResponseForModal(response, productId)
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+
+        // Modal Coloue Variants
+
+        function handleColorProductResponseForModal(response, productId) {
+            var success_response = JSON.parse(response);
+            var variationColor = $('#modal_product_color');
+
+            variationColor.empty();
+
+            success_response.forEach(function (item, index) {
+                var colorOption = $('<li></li>');
+
+                if (item.color_type === 'code') {
+                    colorOption.html('<span style="background-color:' + item.color_value + ';"></span>');
+                } else if (item.color_type === 'image') {
+                    colorOption.html('<span style="background-image: url(dealer-admin/color_images/' +
+                        item.color_value + ');"></span>');
+                }
+
+                colorOption.click(function () {
+                    handleListItemClickForModal($(this), variationColor, item.color_product,
+                        productId);
+                });
+
+                variationColor.append(colorOption);
+            });
+
+            if (success_response.length > 0) {
+                var firstColorVariant = success_response[0];
+                handleListItemClickForModal(null, variationColor, firstColorVariant.color_product, productId);
+            }
+        }
+
+        // Product Details By Colour Request
+        function handleListItemClickForModal(item, variationColor, clickedColorName, productId) {
+            variationColor.find('li').removeClass('active');
+            if (item) {
+                item.addClass('active');
+            }
+
+            // console.log('Clicked Color Name:', clickedColorName);
+            // console.log('Product ID from URL:', productId);
+
+            $.ajax({
+                url: 'dealer-admin/admin_actions/admin_action.php',
+                type: 'GET',
+                data: {
+                    get_color_product_by_color_request: 'get_color_product',
+                    clickedColorName: clickedColorName,
+                    productId: productId
+                },
+                success: function (response) {
+                    handleProductDetailsResponseForModal(response);
+                },
+                error: function (xhr, status, error) {
+                    handleErrorResponse(xhr);
+                }
+            });
+        }
+
+        // Product Details By Colour
+
+        function handleProductDetailsResponseForModal(response) {
+            var success_response = JSON.parse(response);
+            // console.log(success_response);
+
+            if (Array.isArray(success_response) && success_response.length > 0) {
+                var firstItem = success_response[0];
+
+                if (firstItem.hasOwnProperty('product_name')) {
+                    // console.log('Product Name:', firstItem.product_name);
+                    $("#modal_product_name").text(firstItem.product_name);
+                    $("#modal_product_description").text(firstItem.product_description);
+                } else {
+                    console.log('No product_name property in the first item of the response.');
+                }
+
+                // console.log('Category Name:', firstItem.product_category_name);
+                // console.log('Category Type:', firstItem.product_category_type);
+                // console.log('Product Color:', firstItem.product_color);
+                // console.log('Product Description:', firstItem.product_description);
+                // console.log('Product Specification:', firstItem.product_specification);
+
+                if (firstItem.hasOwnProperty('sizes') && Array.isArray(firstItem.sizes)) {
+                    console.log('Sizes:', firstItem.sizes);
+
+                    var sizeContainer = $("#modal_product_size");
+                    sizeContainer.empty();
+
+                    for (var i = 0; i < firstItem.sizes.length; i++) {
+                        var currentSize = firstItem.sizes[i].product_size; //
+                        // console.log('Size:', currentSize);
+                        var sizeTemplate = `<li><span>${currentSize}</span></li>`;
+                        sizeContainer.append(sizeTemplate);
+
+                        if (firstItem.sizes[i].hasOwnProperty('product_price')) {
+                            if (i === 0) {
+                                var showPriceCookie = getProductCookie("show-price");
+
+                                if (showPriceCookie === "true") {
+                                    console.log("Show Price is enabled");
+                                    // console.log('Price:', firstItem.sizes[i].product_price);
+                                    $("#modal_product_price").text('£ ' + firstItem.sizes[i].product_price);
+                                    $("#modal_product_msrp_price").text('£ ' + firstItem.sizes[i].product_price);
+                                } else {
+                                    $("#modal_product_price").text('');
+                                    $("#modal_product_msrp_price").text('');
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                if (firstItem.hasOwnProperty('images') && Array.isArray(firstItem.images)) {
+                    console.log('Images:', firstItem.images);
+
+                    var ecProductImage = $(".sliider__banner__carousel__model");
+                    ecProductImage.empty();
+
+
+                    firstItem.images.forEach(function (image, index) {
+                        var slickIndex = index;
+
+                        var imageId = "Image_" + (index + 1);
+
+                        var productImageTemplate = `
+                        <li class="slider__banner__carousel__card__model">
+                                            <div class="slider__banner__carousel__card__img__model">
+                                                <img src="dealer-admin/product_images/${image}" alt="images" draggable="false">
+                                            </div>
+                                        </li>`;
+                        ecProductImage.append(productImageTemplate);
+
+                        // Update the src attribute of the zoomImage on the first iteration
+                        if (index === 0) {
+                            var zoomImage = $(".zoom-image__model");
+                            zoomImage.attr("src", "dealer-admin/product_images/" + image);
+                        }
+                    });
+                }
+
+
+            } else {
+                console.log('No data in the response or the response is not an array.');
+            }
         }
 
         function logout() {

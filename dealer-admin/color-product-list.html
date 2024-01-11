@@ -741,7 +741,8 @@
                                     product
                                     .color_product_id + ')">Edit</a>' +
                                     '<a type="button" class="dropdown-item" onclick="deleteColorProduct(' +
-                                    product.product_id + ')">Delete</a>' +
+                                    product.color_product_id + ', ' + product.product_id +
+                                    ')">Delete</a>' +
                                     '</div>' +
                                     '</div>'
                                 ]).draw();
@@ -757,9 +758,9 @@
 
         // Delete Products By Id 
 
-        function deleteColorProduct(colorProductId) {
-
-            alert(colorProductId);
+        function deleteColorProduct(colorProductId, productId) {
+            var productId = productId;
+            // alert(colorProductId);
             $.ajax({
                 url: 'admin_actions/admin_action.php',
                 type: 'DELETE',
@@ -769,7 +770,7 @@
                     colorProductId: colorProductId,
                 }),
                 success: function (response) {
-                    // console.log(response);
+                    console.log(response);
 
                     if (response === 'Last_product_deleted_successfully') {
                         //console.log(response);
@@ -777,7 +778,7 @@
                         noProductsFound = false;
                     } else if (response === 'Product_deleted_successfully') {
                         //console.log(response);
-                        loadColorProducts(colorProductId);
+                        loadColorProducts(productId);
                     }
                 },
                 error: function (xhr, status, error) {
@@ -1312,7 +1313,7 @@
                     color_product_details_id: color_productDetailsId
                 }),
                 success: function (response) {
-                    // console.log(response);
+                    console.log(response);
                     if (response == 'Product_details_deleted_successfully') {
                         alert("Detail Deleted Successfully");
                         editMoreColorDetails(color_productId);

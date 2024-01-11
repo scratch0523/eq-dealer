@@ -25,6 +25,7 @@ class Dealer {
     public function register($formData) {
         $first_name = $formData['firstname'];
         $last_name = $formData['lastname'];
+        $fullname = $first_name.$last_name;
         $gender = $formData['gender'];
         $email = $formData['email'];
         $phone = $formData['phone'];
@@ -71,6 +72,64 @@ class Dealer {
                 $stmt->bind_param("ssssssssssss", $first_name, $last_name, $gender, $email, $phone, $hashedPassword, $cpassword, $companyName, $address, $city, $postalcode, $country);
     
                 if ($stmt->execute()) {
+                    $mail = new PHPMailer(true);
+
+                    $mail->isSMTP();
+                    $mail->Host       = 'smtp.gmail.com';
+                    $mail->SMTPAuth   = true;
+                    $mail->Username   = 'jtestpurpose@gmail.com';
+                    $mail->Password   = 'dixm snph blsl iqpc';
+                    $mail->SMTPSecure = 'tls';
+                    $mail->Port       = 587;
+                    // $mail->SMTPDebug = 2;
+
+                    $mail->setFrom('jtestpurpose@gmail.com', 'Equipride');
+                    $mail->addAddress('jebinr82@gmail.com', 'Equipride Admin');
+
+                    $mail->Subject = 'Dealer Register Request';
+
+                    $emailBody = '<html>
+                                    <head>
+                                        <style>
+                                            body {
+                                                font-family: Arial, sans-serif;
+                                                background-color: #f4f4f4;
+                                            }
+                                            .email-container {
+                                                max-width: 600px;
+                                                margin: 0 auto;
+                                                padding: 20px;
+                                                background-color: #fff;
+                                                border-radius: 5px;
+                                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                                            }
+                                            .header {
+                                                font-size: 24px;
+                                                color: #333;
+                                                margin-bottom: 20px;
+                                            }
+                                            .details {
+                                                font-size: 16px;
+                                                color: #555;
+                                            }
+                                        </style>
+                                    </head>
+                                    <body>
+                                        <div class="email-container">
+                                            <div class="header">Received a Register Request From New Dealer</div>
+                                            <div class="details">
+                                                <p>Email: ' . $email . '</p>
+                                                <p>Full Name: ' . $fullname . '</p>
+                                                <p>Company Name: ' . $companyName . '</p>
+                                            </div>
+                                        </div>
+                                    </body>
+                                </html>';
+
+                    $mail->IsHTML(true);
+                    $mail->Body = $emailBody;
+
+                    $mail->send();
                     http_response_code(200);
                     echo json_encode("Registration-successful");
                 } else {

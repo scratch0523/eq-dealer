@@ -550,6 +550,7 @@
     </section>
     <!-- Forget Password End -->
 
+    <div id="loadingSpinnerContainer"></div>
 
     <!-- Vendor JS -->
     <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
@@ -567,6 +568,7 @@
     <script src="assets/js/plugins/infiniteslidev2.js"></script>
     <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/plugins/jquery.sticky-sidebar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
 
 
 
@@ -748,8 +750,12 @@
                     formData: formData,
                     register_id: register_id
                 },
+                beforeSend: function () {
+                    showLoadingSpinner();
+                },
                 success: function (response) {
                     // console.log(response);
+                    hideLoadingSpinner();
                     var success_response = JSON.parse(response);
 
                     const popup = document.querySelector('#pop_container')
@@ -952,6 +958,24 @@
 
             return String(number)
                 .match(/^(([0-9\ \+\_\-\,\.\^\*\?\$\^\#\(\)])|(ext|x)){1,20}$/);
+        }
+
+        // Spin Animation
+
+        function showLoadingSpinner() {
+            const target = document.getElementById('loadingSpinnerContainer');
+
+            const spinner = new Spinner().spin();
+
+            target.appendChild(spinner.el);
+        }
+
+        function hideLoadingSpinner() {
+            const target = document.getElementById('loadingSpinnerContainer');
+
+            while (target.firstChild) {
+                target.removeChild(target.firstChild);
+            }
         }
     </script>
 

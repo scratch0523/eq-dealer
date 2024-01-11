@@ -807,6 +807,11 @@
     <script>
         $(document).ready(function () {
             check_cookie();
+            $(window).on('beforeunload', function () {
+                // check_cookie();
+            });
+
+            $(window).on('unload', function () {});
             wishlistCount();
             $('.showmore').hide();
             $('#showless').hide();

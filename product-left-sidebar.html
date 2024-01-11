@@ -1634,6 +1634,7 @@
 
 
     <!-- Modal -->
+
     <div class="modal fade" id="ec_quickview_modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -1641,41 +1642,6 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-5 col-sm-12 col-xs-12">
-                            <!-- Swiper -->
-                            <!-- <div class="qty-product-cover">
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_1.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_2.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_3.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_4.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_5.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="qty-nav-thumb">
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_1.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_2.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_3.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_4.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_5.jpg" alt="">
-                                </div>
-                            </div> -->
                             <div class="image__zoom__container__model">
                                 <div class="image__zoom__model">
                                     <div class="zoom-container__model">
@@ -1688,26 +1654,6 @@
                                 <div class="slider__banner__model ">
                                     <i id="left__model" class="fa-solid fa-angle-left"></i>
                                     <ul class="sliider__banner__carousel__model" id="imageList__model">
-                                        <!-- <li class="slider__banner__carousel__card__model">
-                                            <div class="slider__banner__carousel__card__img__model">
-                                                <img src="images/img-1.jpg" alt="images" draggable="false">
-                                            </div>
-                                        </li>
-                                        <li class="slider__banner__carousel__card__model">
-                                            <div class="slider__banner__carousel__card__img__model">
-                                                <img src="images/img-2.jpg" alt="images" draggable="false">
-                                            </div>
-                                        </li>
-                                        <li class="slider__banner__carousel__card__model">
-                                            <div class="slider__banner__carousel__card__img__model">
-                                                <img src="images/img-3.jpg" alt="images" draggable="false">
-                                            </div>
-                                        </li>
-                                        <li class="slider__banner__carousel__card__model">
-                                            <div class="slider__banner__carousel__card__img__model">
-                                                <img src="images/img-5.jpg" alt="images" draggable="false">
-                                            </div>
-                                        </li> -->
                                     </ul>
                                     <i id="right__model" class="fa-solid fa-angle-right"></i>
                                 </div>
@@ -1729,10 +1675,6 @@
                                         <span>Color</span>
                                         <div class="ec-pro-color">
                                             <ul class="ec-opt-swatch" id="modal_product_color">
-                                                <!-- <li><span style="background-color:#696d62;"></span></li>
-                                                <li><span style="background-color:#d73808;"></span></li>
-                                                <li><span style="background-color:#577023;"></span></li>
-                                                <li><span style="background-color:#2ea1cd;"></span></li> -->
                                             </ul>
                                         </div>
                                     </div>
@@ -1740,20 +1682,10 @@
                                         <span>Size</span>
                                         <div class="ec-pro-variation-content">
                                             <ul class="ec-opt-size" id="modal_product_size">
-                                                <!-- <li class="active"><a href="#" class="ec-opt-sz"
-                                                        data-tooltip="Small">S</a></li>
-                                                <li><a href="#" class="ec-opt-sz" data-tooltip="Medium">M</a></li>
-                                                <li><a href="#" class="ec-opt-sz" data-tooltip="Large">X</a></li>
-                                                <li><a href="#" class="ec-opt-sz" data-tooltip="Extra Large">XL</a></li> -->
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="ec-quickview-qty">
-                                    <div class="qty-plus-minus">
-                                        <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -1762,10 +1694,6 @@
         </div>
     </div>
     <!-- Modal end -->
-
-    <!-- Modal -->
-
-
 
 
     <!-- Vendor JS -->
@@ -1795,6 +1723,11 @@
     <script>
         $(document).ready(function () {
             check_cookie();
+            $(window).on('beforeunload', function () {
+                // check_cookie();
+            });
+
+            $(window).on('unload', function () {});
             // // OrderSheet Tab
 
             $('#tab-1').hide();
@@ -1855,6 +1788,7 @@
         var globalDealerId;
 
         function check_cookie() {
+            console.log("cookie function called");
             $.ajax({
                 url: 'dealer_actions/dealer_cookies.php',
                 type: 'GET',
@@ -1899,11 +1833,14 @@
 
                     if (success_response.length < 4) {
                         // console.log("< 4");
+                        var showPriceCookie = getProductCookie("show-price");
 
                         for (var i = 0; i < Math.min(success_response.length, 4); i++) {
                             var product = success_response[i];
 
-                            var html = `
+                            if (showPriceCookie === "true") {
+                                console.log("Show Price is enabled");
+                                var html = `
                                 <div class="col-12 single__slider_part">
                                     <div class="row">
                                         <div class="col-4">
@@ -1917,10 +1854,10 @@
                                             <p>£ ${product.product_price}</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div>  
                             `;
 
-                            var secondhtml = `
+                                var secondhtml = `
                                 <div class="col-12 single__slider_part">
                                     <div class="row">
                                         <div class="col-4">
@@ -1936,6 +1873,39 @@
                                     </div>
                                 </div>
                             `;
+                            } else {
+                                var html = `
+                                <div class="col-12 single__slider_part">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="special__offer__image__container">
+                                                <img src="dealer-admin/product_images/${product.product_image}" alt="Product Image"
+                                                    class="special__offer__image__container__img">
+                                            </div>
+                                        </div>
+                                        <div class="col-8 special__offer__message">
+                                            <a href="product-left-sidebar.html?product_id=${product.product_id}"><p class="special__offer__message__title">${product.product_name}></p></a>
+                                        </div>
+                                    </div>
+                                </div>  
+                            `;
+
+                                var secondhtml = `
+                                <div class="col-12 single__slider_part">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="special__offer__image__container">
+                                                <img src="dealer-admin/product_images/${product.product_image}" alt="Product Image"
+                                                    class="special__offer__image__container__img">
+                                            </div>
+                                        </div>
+                                        <div class="col-8 special__offer__message">
+                                            <a href="product-left-sidebar.html?product_id=${product.product_id}"><p class="special__offer__message__title">${product.product_name}></p></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            }
 
                             left_templateContainer.append(html);
                             right_templateContainer.append(secondhtml);
@@ -1950,22 +1920,42 @@
                         for (var i = 0; i < 4; i++) {
                             var product = success_response[i];
 
-                            var html = `
-            <div class="col-12 single__slider_part">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="special__offer__image__container">
-                            <img src="dealer-admin/product_images/${product.product_image}" alt="Product Image"
-                                class="special__offer__image__container__img">
-                        </div>
-                    </div>
-                    <div class="col-8 special__offer__message">
-                        <a href="product-left-sidebar.html?product_id=${product.product_id}"><p class="special__offer__message__title">${product.product_name}</p></a>
-                        <p>£ ${product.product_price}</p>
-                    </div>
-                </div>
-            </div>
-        `;
+                            if (showPriceCookie === "true") {
+                                console.log("Show Price is enabled");
+                                var html = `
+                                    <div class="col-12 single__slider_part">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="special__offer__image__container">
+                                                    <img src="dealer-admin/product_images/${product.product_image}" alt="Product Image"
+                                                        class="special__offer__image__container__img">
+                                                </div>
+                                            </div>
+                                            <div class="col-8 special__offer__message">
+                                                <a href="product-left-sidebar.html?product_id=${product.product_id}"><p class="special__offer__message__title">${product.product_name}</p></a>
+                                                <p>£ ${product.product_price}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            } else {
+                                var html = `
+                                    <div class="col-12 single__slider_part">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="special__offer__image__container">
+                                                    <img src="dealer-admin/product_images/${product.product_image}" alt="Product Image"
+                                                        class="special__offer__image__container__img">
+                                                </div>
+                                            </div>
+                                            <div class="col-8 special__offer__message">
+                                                <a href="product-left-sidebar.html?product_id=${product.product_id}"><p class="special__offer__message__title">${product.product_name}</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            }
+
                             left_templateContainer.append(html);
                         }
 
@@ -1973,22 +1963,41 @@
                         for (var i = 4; i < success_response.length; i++) {
                             var product = success_response[i];
 
-                            var secondhtml = `
-            <div class="col-12 single__slider_part">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="special__offer__image__container">
-                            <img src="dealer-admin/product_images/${product.product_image}" alt="Product Image"
-                                class="special__offer__image__container__img">
-                        </div>
-                    </div>
-                    <div class="col-8 special__offer__message">
-                        <p class="special__offer__message__title">${product.product_name}</p>
-                        <p>${product.product_price}</p>
-                    </div>
-                </div>
-            </div>
-        `;
+                            if (showPriceCookie === "true") {
+                                console.log("Show Price is enabled");
+                                var secondhtml = `
+                                    <div class="col-12 single__slider_part">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="special__offer__image__container">
+                                                    <img src="dealer-admin/product_images/${product.product_image}" alt="Product Image"
+                                                        class="special__offer__image__container__img">
+                                                </div>
+                                            </div>
+                                            <div class="col-8 special__offer__message">
+                                                <p class="special__offer__message__title">${product.product_name}</p>
+                                                <p>${product.product_price}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            } else {
+                                var secondhtml = `
+                                    <div class="col-12 single__slider_part">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="special__offer__image__container">
+                                                    <img src="dealer-admin/product_images/${product.product_image}" alt="Product Image"
+                                                        class="special__offer__image__container__img">
+                                                </div>
+                                            </div>
+                                            <div class="col-8 special__offer__message">
+                                                <p class="special__offer__message__title">${product.product_name}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            }
 
                             right_templateContainer.append(secondhtml);
                         }
@@ -2336,7 +2345,8 @@
                         }
                     });
 
-                    if (success_response.stockData && Object.keys(success_response.stockData).length > 0) {
+                    if (success_response.stockData && Object.keys(success_response.stockData).length >
+                        0) {
                         var processedSizes = [];
 
                         Object.keys(success_response.stockData).forEach(function (size) {
@@ -2360,12 +2370,14 @@
                                         var container = document.createElement('div');
                                         container.classList.add('container');
                                         container.style.display = 'flex';
-                                        container.style.justifyContent = 'space-between';
+                                        container.style.justifyContent =
+                                            'space-between';
 
                                         var stocksDiv = document.createElement('div');
                                         stocksDiv.style.padding = '7px 0px 0px';
 
-                                        var stocksParagraph = document.createElement('p');
+                                        var stocksParagraph = document.createElement(
+                                            'p');
                                         stocksParagraph.style.fontWeight = '600';
                                         stocksParagraph.textContent = 'Stocks';
 
@@ -2376,7 +2388,8 @@
                                         boxDiv.style.backgroundColor = '#1fab8a';
 
                                         // Insert input element
-                                        var inputStocks = document.createElement('input');
+                                        var inputStocks = document.createElement(
+                                            'input');
                                         inputStocks.type = 'text';
                                         inputStocks.style.width = '33px';
                                         inputStocks.style.height = '33px';
@@ -2386,12 +2399,14 @@
                                         inputStocks.style.border = 'none';
                                         inputStocks.disabled = true;
                                         inputStocks.value = quantity;
-                                        inputStocks.setAttribute('data-color-product-id',
+                                        inputStocks.setAttribute(
+                                            'data-color-product-id',
                                             colorProductId);
 
                                         // Set data attributes
                                         inputStocks.setAttribute('data-size', size);
-                                        inputStocks.setAttribute('data-quantity', quantity);
+                                        inputStocks.setAttribute('data-quantity',
+                                            quantity);
 
                                         boxDiv.appendChild(inputStocks);
 
@@ -2400,7 +2415,8 @@
 
                                         var inputText = document.createElement('input');
                                         inputText.type = 'number';
-                                        inputText.classList.add('input-1', 'cart-input');
+                                        inputText.classList.add('input-1',
+                                            'cart-input');
                                         inputText.style.width = '33px';
                                         inputText.style.height = '33px';
                                         inputText.style.padding = '0px 0px 0px 0px';
@@ -2413,7 +2429,8 @@
 
                                         // Set data attributes
                                         inputText.setAttribute('data-size', size);
-                                        inputText.setAttribute('data-quantity', quantity);
+                                        inputText.setAttribute('data-quantity',
+                                            quantity);
 
                                         // Set the border color to red if quantity is zero
                                         if (quantity === 0) {
@@ -2427,7 +2444,8 @@
                                         inputText.oninput = function () {
                                             var enteredValue = inputText.value
                                             var dataQuantity = parseInt(inputText
-                                                .getAttribute('data-quantity'), 10);
+                                                .getAttribute('data-quantity'),
+                                                10);
 
                                             // if (!isNaN(enteredValue) && parseInt(
                                             //         enteredValue, 10) > dataQuantity) {
@@ -2449,16 +2467,20 @@
 
                                             var enteredValue = inputText.value;
                                             var dataQuantity = parseInt(inputText
-                                                .getAttribute('data-quantity'), 10);
+                                                .getAttribute('data-quantity'),
+                                                10);
 
                                             if (!isNaN(enteredValue) && parseInt(
-                                                    enteredValue, 10) > dataQuantity) {
+                                                    enteredValue, 10) >
+                                                dataQuantity) {
                                                 inputText.style.border =
                                                     '1px solid red';
                                                 inputText.classList.remove(
                                                     'cart-input');
-                                            } else if (enteredValue.toLowerCase() ===
-                                                'e' || parseInt(enteredValue, 10) <= 0
+                                            } else if (enteredValue
+                                                .toLowerCase() ===
+                                                'e' || parseInt(enteredValue, 10) <=
+                                                0
                                             ) {
                                                 inputText.style.border =
                                                     '1px solid red';
@@ -2480,13 +2502,15 @@
 
                                         if ('Arrival Date' in data && data[
                                                 'Arrival Date']) {
-                                            var arrivalDiv = document.createElement('div');
+                                            var arrivalDiv = document.createElement(
+                                                'div');
                                             arrivalDiv.classList.add('container');
                                             arrivalDiv.style.padding =
                                                 '0px !important; margin: 0px !important;';
 
-                                            var arrivalParagraph = document.createElement(
-                                                'p');
+                                            var arrivalParagraph = document
+                                                .createElement(
+                                                    'p');
                                             arrivalParagraph.style.padding =
                                                 '0px !important; margin: 0px !important; font-weight: 500; font-size: 10px ; text-align: center; font-style: italic;';
                                             arrivalParagraph.textContent =
@@ -2615,7 +2639,14 @@
                         if (firstItem.sizes[i].hasOwnProperty('product_price')) {
                             if (i === 0) {
                                 // console.log('Price:', firstItem.sizes[i].product_price);
-                                $("#new-price").text('£ ' + firstItem.sizes[i].product_price);
+                                var showPriceCookie = getProductCookie("show-price");
+
+                                if (showPriceCookie === "true") {
+                                    console.log("Show Price is enabled");
+                                    $("#new-price").text('£ ' + firstItem.sizes[i].product_price);
+                                } else {
+                                    $(".ec-single-price").hide();
+                                }
                             }
                         }
                     }
@@ -2710,7 +2741,8 @@
                 }
 
                 colorOption.click(function () {
-                    handleListItemClickForModal($(this), variationColor, item.color_product, productId);
+                    handleListItemClickForModal($(this), variationColor, item.color_product,
+                        productId);
                 });
 
                 variationColor.append(colorOption);
@@ -2786,9 +2818,18 @@
 
                         if (firstItem.sizes[i].hasOwnProperty('product_price')) {
                             if (i === 0) {
-                                // console.log('Price:', firstItem.sizes[i].product_price);
-                                $("#modal_product_price").text('£ ' + firstItem.sizes[i].product_price);
-                                $("#modal_product_msrp_price").text('£ ' + firstItem.sizes[i].product_price);
+                                var showPriceCookie = getProductCookie("show-price");
+
+                                if (showPriceCookie === "true") {
+                                    console.log("Show Price is enabled");
+                                    // console.log('Price:', firstItem.sizes[i].product_price);
+                                    $("#modal_product_price").text('£ ' + firstItem.sizes[i].product_price);
+                                    $("#modal_product_msrp_price").text('£ ' + firstItem.sizes[i].product_price);
+                                } else {
+                                    $("#modal_product_price").text('');
+                                    $("#modal_product_msrp_price").text('');
+                                }
+
                             }
                         }
                     }
@@ -2803,15 +2844,18 @@
 
                     firstItem.images.forEach(function (image, index) {
                         var slickIndex = index;
+                        var imageId = "ModalImage_" + (index + 1);
 
-                        var imageId = "Image_" + (index + 1);
+                        // Additional class based on index (view_1, view_2, view_3 for the first three images)
+                        var additionalClass = index < 3 ? `view_${index + 1}` : '';
 
                         var productImageTemplate = `
-                        <li class="slider__banner__carousel__card__model">
-                                            <div class="slider__banner__carousel__card__img__model">
-                                                <img src="dealer-admin/product_images/${image}" alt="images" draggable="false">
-                                            </div>
-                                        </li>`;
+                            <li class="slider__banner__carousel__card__model ${additionalClass}">
+                                <div class="slider__banner__carousel__card__img__model">
+                                    <img src="dealer-admin/product_images/${image}" alt="images" draggable="false" id="${imageId}"  class="${additionalClass}">
+                                </div>
+                            </li>`;
+
                         ecProductImage.append(productImageTemplate);
 
                         // Update the src attribute of the zoomImage on the first iteration
@@ -2957,8 +3001,93 @@
             // console.log("sdfd");
             window.location.href = 'category.html?main_category=' + category;
         }
+
+        const imageList = $("#imageList__model");
+        const globalCarousel = $(".sliider__banner__carousel__model");
+        const arrowBtns = $(".slider__banner__model i");
+        const zoomContainer = $(".zoom-container__model");
+        let zoomImage = $("#zoomImage__model")[0];
+        let currentId = "ModalImage_1";
+        const firstCardWidth = $(".slider__banner__carousel__card__model").outerWidth();
+
+        function handleCarouselButton(btn) {
+            const scrollAmount = btn.id === "left__model" ? -firstCardWidth : firstCardWidth;
+            globalCarousel.scrollLeft(globalCarousel.scrollLeft() + scrollAmount);
+
+            changeImageId(btn.id === "right__model");
+            updateCarouselDisplay();
+            setImage();
+        }
+
+        function updateCarouselDisplay() {
+            const currentNumericPart = parseInt(currentId.split("_")[1]);
+            const imgElements = imageList.find("img");
+            const totalImages = imgElements.length;
+            const centerIndex = Math.floor(totalImages / 2);
+
+            const newCenterIndex = currentNumericPart - 1;
+
+            const newScrollPosition = firstCardWidth * (newCenterIndex - centerIndex);
+
+            globalCarousel.scrollLeft(newScrollPosition);
+        }
+
+        function handleMouseMoveEvent(e) {
+            const {
+                offsetX,
+                offsetY
+            } = e;
+            const {
+                offsetWidth,
+                offsetHeight
+            } = zoomContainer[0];
+            const xPercentage = (offsetX / offsetWidth) * 100;
+            const yPercentage = (offsetY / offsetHeight) * 100;
+            zoomImage.style.transformOrigin = `${xPercentage}% ${yPercentage}%`;
+            zoomImage.classList.add("zoomed__model");
+        }
+
+        function resetZoomState() {
+            zoomImage.style.transformOrigin = "50% 50%";
+            zoomImage.classList.remove("zoomed__model");
+        }
+
+        function handleImageClickEvent(event) {
+            currentId = event.target.id;
+            setImage();
+        }
+
+        function changeImageId(increment) {
+            const numericPart = parseInt(currentId.split("_")[1]);
+            const newNumericPart = increment ? numericPart + 1 : numericPart - 1;
+            const imgElements = imageList.find("img");
+
+            if (newNumericPart >= 1 && newNumericPart <= imgElements.length) {
+                currentId = `ModalImage_${newNumericPart}`;
+            }
+        }
+
+        arrowBtns.click(function () {
+            handleCarouselButton(this);
+        });
+
+        imageList.on("click", "li", function (event) {
+            if (event.target.nodeName.toLowerCase() === 'img') {
+                handleImageClickEvent(event);
+            }
+        });
+
+        zoomContainer.on("mousemove", handleMouseMoveEvent);
+        zoomContainer.on("mouseleave", resetZoomState);
+
+        function setImage() {
+            const imageSrc = $(`#${currentId}`).attr('src');
+            console.log(currentId);
+            console.log(imageSrc);
+            zoomImage.src = imageSrc;
+        }
     </script>
-    <script src="./withmodel.js"></script>
+    <!-- <script src="./withmodel.js"></script> -->
     <script src="./withoutmodel.js"></script>
     <script>
         const clicks = document.querySelectorAll('.click')

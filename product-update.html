@@ -811,6 +811,12 @@
         $(document).ready(function () {
             check_cookie();
 
+            $(window).on('beforeunload', function () {
+                // check_cookie();
+            });
+
+            $(window).on('unload', function () {});
+
             $('.showmore').hide();
             $('#showless').hide();
             $('#view').click(function () {

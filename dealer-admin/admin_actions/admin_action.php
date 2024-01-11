@@ -7,6 +7,10 @@ session_start();
 // }
 include "../../connection.php";
 
+require '../../vendor/autoload.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class Admin {
     private $con;
 
@@ -117,6 +121,59 @@ class Admin {
         $stmt->bind_param('ss', $approve_status, $approve_email);
         
         if ($stmt->execute()) {
+            $mail = new PHPMailer(true);
+
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'jtestpurpose@gmail.com';
+            $mail->Password   = 'dixm snph blsl iqpc';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port       = 587;
+            // $mail->SMTPDebug = 2;
+
+            $mail->setFrom('jtestpurpose@gmail.com', 'Equipride');
+            $mail->addAddress($approve_email, 'Dealer');
+
+            $mail->Subject = 'Register Accepted';
+
+            $emailBody = '<html>
+                            <head>
+                                <style>
+                                    body {
+                                        font-family: Arial, sans-serif;
+                                        background-color: #f4f4f4;
+                                    }
+                                    .email-container {
+                                        max-width: 600px;
+                                        margin: 0 auto;
+                                        padding: 20px;
+                                        background-color: #fff;
+                                        border-radius: 5px;
+                                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                                    }
+                                    .header {
+                                        font-size: 24px;
+                                        color: #333;
+                                        margin-bottom: 20px;
+                                    }
+                                    .details {
+                                        font-size: 16px;
+                                        color: #555;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                                <div class="email-container">
+                                    <div class="header">Your Register Request has been Accepted!</div>
+                                </div>
+                            </body>
+                        </html>';
+
+            $mail->IsHTML(true);
+            $mail->Body = $emailBody;
+
+            $mail->send();
             echo "Dealer with email $email has been approved.";
         } else {
             echo "Failed to approve dealer with email $email.";
@@ -124,14 +181,67 @@ class Admin {
     }
 
     public function dealerCancel($email) {
-        $approve_status = 'Rejected'; 
-        $approve_email = $email;
-        $approve_query = "UPDATE dealer_register SET status=? WHERE email=?";
+        $reject_status = 'Rejected'; 
+        $reject_email = $email;
+        $reject_query = "UPDATE dealer_register SET status=? WHERE email=?";
         
-        $stmt = $this->con->prepare($approve_query);
-        $stmt->bind_param('ss', $approve_status, $approve_email);
+        $stmt = $this->con->prepare($reject_query);
+        $stmt->bind_param('ss', $reject_status, $reject_email);
         
         if ($stmt->execute()) {
+            $mail = new PHPMailer(true);
+
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'jtestpurpose@gmail.com';
+            $mail->Password   = 'dixm snph blsl iqpc';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port       = 587;
+            // $mail->SMTPDebug = 2;
+
+            $mail->setFrom('jtestpurpose@gmail.com', 'Equipride');
+            $mail->addAddress($reject_email, 'Dealer');
+
+            $mail->Subject = 'Register Rejected';
+
+            $emailBody = '<html>
+                            <head>
+                                <style>
+                                    body {
+                                        font-family: Arial, sans-serif;
+                                        background-color: #f4f4f4;
+                                    }
+                                    .email-container {
+                                        max-width: 600px;
+                                        margin: 0 auto;
+                                        padding: 20px;
+                                        background-color: #fff;
+                                        border-radius: 5px;
+                                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                                    }
+                                    .header {
+                                        font-size: 24px;
+                                        color: #333;
+                                        margin-bottom: 20px;
+                                    }
+                                    .details {
+                                        font-size: 16px;
+                                        color: #555;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                                <div class="email-container">
+                                    <div class="header">Your Register Request has been Rejected!</div>
+                                </div>
+                            </body>
+                        </html>';
+
+            $mail->IsHTML(true);
+            $mail->Body = $emailBody;
+
+            $mail->send();
             echo "Dealer with email $email has been approved.";
         } else {
             echo "Failed to approve dealer with email $email.";
@@ -702,6 +812,13 @@ class Product{
                     for ($i = 0; $i < count($fileData['product_image']['name']); $i++) {
                         $imageName = $fileData['product_image']['name'][$i];
                         $imageTmpName = $fileData['product_image']['tmp_name'][$i];
+
+                        $currentDate = date('Ymd');
+
+                        // Generate a unique image name
+                        $uniqueId = uniqid();
+                        $imageName = $currentDate . '_' . $uniqueId . '_' . $imageName;
+
                         $imagePath = $imageUploadPath . $imageName;
 
                         $allowedExtensions = ['jpg', 'jpeg', 'png'];
@@ -710,20 +827,26 @@ class Product{
                         if (in_array(strtolower($imageExtension), $allowedExtensions)) {
                             move_uploaded_file($imageTmpName, $imagePath);
 
+                            // Insert into product_images table
                             $add_image_sql = "INSERT INTO product_images (product_id, product_image)
                                             VALUES (?, ?)";
                             $add_image_stmt = mysqli_prepare($this->con, $add_image_sql);
                             mysqli_stmt_bind_param($add_image_stmt, "is", $product_id, $imageName);
                             mysqli_stmt_execute($add_image_stmt);
                             mysqli_stmt_close($add_image_stmt);
-                        } 
-                        else 
-                        {
-                            http_response_code(400); 
+
+                            // Insert into color_product_images table
+                            $add_color_image_sql = "INSERT INTO color_product_images (product_id, color_product_id, product_image)
+                                                    VALUES (?, ?, ?)";
+                            $add_color_image_stmt = mysqli_prepare($this->con, $add_color_image_sql);
+                            mysqli_stmt_bind_param($add_color_image_stmt, "iis", $product_id, $color_product_id, $imageName);
+                            mysqli_stmt_execute($add_color_image_stmt);
+                            mysqli_stmt_close($add_color_image_stmt);
+                        } else {
+                            http_response_code(400);
                             echo "Invalid_file_format";
                             exit;
                         }
-        
                     }
 
                     // Insert product details into the "product_details" table for each size, quantity, price, and msrp price
@@ -747,34 +870,42 @@ class Product{
                         mysqli_stmt_close($add_product_details_stmt);
                     }
 
-                    $imageUploadPath = "../product_images/";
+                    // $imageUploadPath = "../product_images/";
 
-                    for ($i = 0; $i < count($fileData['product_image']['name']); $i++) {
-                        $imageName = $fileData['product_image']['name'][$i];
-                        $imageTmpName = $fileData['product_image']['tmp_name'][$i];
-                        $imagePath = $imageUploadPath . $imageName;
+                    // for ($i = 0; $i < count($fileData['product_image']['name']); $i++) {
+                    //     $imageName = $fileData['product_image']['name'][$i];
+                    //     $imageTmpName = $fileData['product_image']['tmp_name'][$i];
 
-                        $allowedExtensions = ['jpg', 'jpeg', 'png'];
-                        $imageExtension = pathinfo($imageName, PATHINFO_EXTENSION);
+                    //     $currentDate = date('Ymd');
 
-                        if (in_array(strtolower($imageExtension), $allowedExtensions)) {
-                            move_uploaded_file($imageTmpName, $imagePath);
+                    //     $imageName = $fileData['product_image']['name'][$i];
 
-                            $add_image_sql = "INSERT INTO color_product_images (product_id, color_product_id, product_image)
-                                            VALUES (?, ?, ?)";
-                            $add_image_stmt = mysqli_prepare($this->con, $add_image_sql);
-                            mysqli_stmt_bind_param($add_image_stmt, "iis", $product_id, $color_product_id, $imageName);
-                            mysqli_stmt_execute($add_image_stmt);
-                            mysqli_stmt_close($add_image_stmt);
-                        } 
-                        else 
-                        {
-                            http_response_code(400); 
-                            echo "Invalid_file_format";
-                            exit;
-                        }
+                    //     // Add current date (without time) to the original image name
+                    //     $imageName = $currentDate . '_' . $imageName;
+
+                    //     $imagePath = $imageUploadPath . $imageName;
+
+                    //     $allowedExtensions = ['jpg', 'jpeg', 'png'];
+                    //     $imageExtension = pathinfo($imageName, PATHINFO_EXTENSION);
+
+                    //     if (in_array(strtolower($imageExtension), $allowedExtensions)) {
+                    //         move_uploaded_file($imageTmpName, $imagePath);
+
+                    //         $add_image_sql = "INSERT INTO color_product_images (product_id, color_product_id, product_image)
+                    //                         VALUES (?, ?, ?)";
+                    //         $add_image_stmt = mysqli_prepare($this->con, $add_image_sql);
+                    //         mysqli_stmt_bind_param($add_image_stmt, "iis", $product_id, $color_product_id, $imageName);
+                    //         mysqli_stmt_execute($add_image_stmt);
+                    //         mysqli_stmt_close($add_image_stmt);
+                    //     } 
+                    //     else 
+                    //     {
+                    //         http_response_code(400); 
+                    //         echo "Invalid_file_format";
+                    //         exit;
+                    //     }
         
-                    }
+                    // }
                 
                 }
 
@@ -930,68 +1061,6 @@ class Product{
         $delete_color_product_result = mysqli_stmt_execute($delete_color_product_stmt);
         mysqli_stmt_close($delete_color_product_stmt);
 
-        // $get_color_product_images_sql = "
-        //     SELECT product_image
-        //     FROM color_product_images
-        //     WHERE color_product_id IN (
-        //         SELECT color_product_id
-        //         FROM color_product
-        //         WHERE product_id = ?
-        //     )
-        // ";
-        // $get_color_product_images_stmt = mysqli_prepare($this->con, $get_color_product_images_sql);
-
-        // if ($get_color_product_images_stmt === false) {
-        //     http_response_code(500);
-        //     echo json_encode("Error preparing SQL statement: " . mysqli_error($this->con));
-        //     exit();
-        // }
-
-        // mysqli_stmt_bind_param($get_color_product_images_stmt, "i", $product_id);
-
-        // if (!mysqli_stmt_execute($get_color_product_images_stmt)) {
-        //     http_response_code(500);
-        //     echo json_encode("Error executing SQL statement: " . mysqli_error($this->con));
-        //     exit();
-        // }
-
-        // mysqli_stmt_bind_result($get_color_product_images_stmt, $product_image);
-
-        // $image_names = [];
-
-        // while (mysqli_stmt_fetch($get_color_product_images_stmt)) {
-        //     $image_names[] = $product_image;
-        // }
-
-        // mysqli_stmt_close($get_color_product_images_stmt);
-
-        // $imageUploadPath = "../product_images/";
-
-        // $unlinkSuccess = true; 
-
-        // foreach ($image_names as $image_name) {
-        //     $imagePath = $imageUploadPath . $image_name;
-
-        //     if (file_exists($imagePath)) {
-        //         if (!unlink($imagePath)) {
-        //             $unlinkSuccess = false;
-        //             break; 
-        //         }
-        //     }
-        // }
-
-        // if (!$unlinkSuccess) {
-        //     http_response_code(500);
-        //     echo json_encode("Error unlinking images");
-        //     exit();
-        // }
-
-        $delete_color_product_images_sql = "DELETE FROM color_product_images WHERE color_product_id IN (SELECT color_product_id FROM color_product WHERE product_id = ?)";
-        $delete_color_product_images_stmt = mysqli_prepare($this->con, $delete_color_product_images_sql);
-        mysqli_stmt_bind_param($delete_color_product_images_stmt, "i", $product_id);
-        $delete_color_product_images_result = mysqli_stmt_execute($delete_color_product_images_stmt);
-        mysqli_stmt_close($delete_color_product_images_stmt);
-
         $delete_wishlist_sql = "DELETE FROM wishlist WHERE product_id = ?";
         $delete_wishlist_stmt = mysqli_prepare($this->con, $delete_wishlist_sql);
         mysqli_stmt_bind_param($delete_wishlist_stmt, "i", $product_id);
@@ -1003,6 +1072,34 @@ class Product{
         mysqli_stmt_bind_param($delete_cart_stmt, "i", $product_id);
         $delete_cart_result = mysqli_stmt_execute($delete_cart_stmt);
         mysqli_stmt_close($delete_cart_stmt);
+
+        $select_images_sql = "SELECT product_image FROM color_product_images WHERE product_id = ?";
+        $select_images_stmt = mysqli_prepare($this->con, $select_images_sql);
+        mysqli_stmt_bind_param($select_images_stmt, "i", $product_id);
+        mysqli_stmt_execute($select_images_stmt);
+        mysqli_stmt_bind_result($select_images_stmt, $image_name);
+
+        $image_names = [];
+        while (mysqli_stmt_fetch($select_images_stmt)) {
+            $image_names[] = $image_name;
+        }
+
+        mysqli_stmt_close($select_images_stmt);
+
+        $imageUploadPath = "../product_images/";
+
+        foreach ($image_names as $image_name) {
+            $imagePath = $imageUploadPath . $image_name;
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+
+        $delete_color_product_images_sql = "DELETE FROM color_product_images WHERE product_id = ?";
+        $delete_color_product_images_stmt = mysqli_prepare($this->con, $delete_color_product_images_sql);
+        mysqli_stmt_bind_param($delete_color_product_images_stmt, "i", $product_id);
+        $delete_color_product_images_result = mysqli_stmt_execute($delete_color_product_images_stmt);
+        mysqli_stmt_close($delete_color_product_images_stmt);
         
         if ($delete_images_result && $delete_details_result && $delete_product_result && $delete_color_product_details_result && $delete_color_product_result && $delete_color_product_images_result && $delete_wishlist_result && $delete_cart_result) {
             if ($row_count == 0) {
@@ -2406,6 +2503,13 @@ class colorProduct{
                     for ($i = 0; $i < count($product_images['color_product_image']['name']); $i++) {
                         $imageName = $product_images['color_product_image']['name'][$i];
                         $imageTmpName = $product_images['color_product_image']['tmp_name'][$i];
+
+                        $currentDate = date('Ymd');
+
+                        // Generate a unique image name
+                        $uniqueId = uniqid();
+                        $imageName = $currentDate . '_' . $uniqueId . '_' . $imageName;
+
                         $imagePath = $imageUploadPath . $imageName;
     
                         $allowedExtensions = ['jpg', 'jpeg', 'png'];
@@ -3810,20 +3914,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (!empty($_FILES['images']['name'])) {
                     $uploadedImages = $_FILES['images'];
                     $imageNames = [];
-        
+                
                     foreach ($uploadedImages['name'] as $key => $imageName) {
                         $imageTmpName = $uploadedImages['tmp_name'][$key];
                         $imageType = $uploadedImages['type'][$key];
-        
-                        $allowedExtensions = ['JPEG','JPG','PNG','jpeg', 'jpg', 'png'];
+                
+                        $allowedExtensions = ['JPEG', 'JPG', 'PNG', 'jpeg', 'jpg', 'png'];
                         $fileExtension = pathinfo($imageName, PATHINFO_EXTENSION);
-        
+                
                         if (in_array($fileExtension, $allowedExtensions)) {
+                            $currentDate = date('Ymd');
+                            $uniqueId = uniqid();
+                            $newImageName = $currentDate . '_' . $uniqueId . '_' . $imageName;
+                
                             $uploadDirectory = '../product_images/';
-                            $targetPath = $uploadDirectory . $imageName;
-        
+                            $targetPath = $uploadDirectory . $newImageName;
+                
                             if (move_uploaded_file($imageTmpName, $targetPath)) {
-                                $imageNames[] = $imageName;
+                                $imageNames[] = $newImageName;
                             } else {
                                 http_response_code(400);
                                 echo "image_upload_failed";
@@ -3835,7 +3943,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             break;
                         }
                     }
-        
+                
                     if (!empty($imageNames)) {
                         $colorProduct->addColorProductImage($product_id, $color_product_id, $imageNames);
                     }

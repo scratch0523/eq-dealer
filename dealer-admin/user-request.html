@@ -1022,6 +1022,8 @@
 		</div> <!-- End Page Wrapper -->
 	</div> <!-- End Wrapper -->
 
+	<div id="loadingSpinnerContainer"></div>
+
 
 	<!-- Common Javascript -->
 	<script src="assets/plugins/jquery/jquery-3.5.1.min.js"></script>
@@ -1040,9 +1042,7 @@
 
 	<!-- Ekka Custom -->
 	<script src="assets/js/ekka.js"></script>
-
-
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
 
 	<script>
 		$(document).ready(function () {
@@ -1180,7 +1180,11 @@
 				data: {
 					dealer_approve: dealer_approve_mail
 				},
+				beforeSend: function () {
+					showLoadingSpinner();
+				},
 				success: function (response) {
+					hideLoadingSpinner();
 					displayDealerRequest()
 					console.log(response);
 				}
@@ -1197,7 +1201,11 @@
 				data: {
 					dealer_cancel: dealer_cancel_mail
 				},
+				beforeSend: function () {
+					showLoadingSpinner();
+				},
 				success: function (response) {
+					hideLoadingSpinner();
 					displayDealerRequest()
 					console.log(response);
 				}
@@ -1224,6 +1232,24 @@
 					logout();
 				}
 			})
+		}
+
+		// Spin Animation
+
+		function showLoadingSpinner() {
+			const target = document.getElementById('loadingSpinnerContainer');
+
+			const spinner = new Spinner().spin();
+
+			target.appendChild(spinner.el);
+		}
+
+		function hideLoadingSpinner() {
+			const target = document.getElementById('loadingSpinnerContainer');
+
+			while (target.firstChild) {
+				target.removeChild(target.firstChild);
+			}
 		}
 	</script>
 

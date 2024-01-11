@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="assets/css/demo6.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="slider.css">
 
     <style>
         body {
@@ -3420,101 +3421,55 @@
     <!-- Footer Area End -->
 
     <!-- Modal -->
-    <div class="modal fade" id="ec_quickview_modal" tabindex="-1">
+    <div class="modal fade" id="ec_quickview_modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <button type="button" class="btn-close qty_close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-5 col-sm-12 col-xs-12">
-                            <!-- Swiper -->
-                            <div class="qty-product-cover">
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/2_1.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/2_2.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/2_3.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/2_2.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/2_2.jpg" alt="">
+                            <div class="image__zoom__container__model">
+                                <div class="image__zoom__model">
+                                    <div class="zoom-container__model">
+                                        <img src="" alt="Zoomable Image" class="zoom-image__model"
+                                            id="zoomImage__model">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="qty-nav-thumb">
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/2_1.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/2_2.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/2_3.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/2_2.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/2_3.jpg" alt="">
+                            <div class="image__zoom__container__model">
+                                <div class="slider__banner__model ">
+                                    <i id="left__model" class="fa-solid fa-angle-left"></i>
+                                    <ul class="sliider__banner__carousel__model" id="imageList__model">
+                                    </ul>
+                                    <i id="right__model" class="fa-solid fa-angle-right"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-7 col-sm-12 col-xs-12">
                             <div class="quickview-pro-content">
-                                <h5 class="ec-quick-title"><a href="product-left-sidebar.html">Jackets</a>
+                                <h5 class="ec-quick-title"><a href="product-left-sidebar.html"
+                                        id="modal_product_name"></a>
                                 </h5>
-                                <div class="ec-quickview-rating">
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star"></i>
-                                </div>
-
-                                <div class="ec-quickview-desc">Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                    since the 1500s,</div>
+                                <div class="ec-quickview-desc" id="modal_product_description"></div>
                                 <div class="ec-quickview-price">
-                                    <span class="old-price">€100.00</span>
-                                    <span class="new-price">€80.00</span>
+                                    <span class="old-price" id="modal_product_price"></span>
+                                    <span class="new-price" id="modal_product_msrp_price"></span>
                                 </div>
 
                                 <div class="ec-pro-variation">
                                     <div class="ec-pro-variation-inner ec-pro-variation-color">
                                         <span>Color</span>
-                                        <div class="ec-pro-variation-content">
-                                            <ul>
-                                                <li><span style="background-color:#696d62;"></span></li>
-                                                <li><span style="background-color:#d73808;"></span></li>
-                                                <li><span style="background-color:#577023;"></span></li>
-                                                <li><span style="background-color:#2ea1cd;"></span></li>
+                                        <div class="ec-pro-color">
+                                            <ul class="ec-opt-swatch" id="modal_product_color">
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="ec-pro-variation-inner ec-pro-variation-size">
+                                    <div class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
                                         <span>Size</span>
                                         <div class="ec-pro-variation-content">
-                                            <ul>
-                                                <li><span>S</span></li>
-                                                <li><span>M</span></li>
-                                                <li><span>L</span></li>
-                                                <li><span>XL</span></li>
-
+                                            <ul class="ec-opt-size" id="modal_product_size">
                                             </ul>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="ec-quickview-qty">
-                                    <div class="qty-plus-minus">
-                                        <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
-                                    </div>
-                                    <div class="ec-quickview-cart ">
-                                        <button class="btn btn-primary"><i class="fi-rr-shopping-basket"></i> Add To
-                                            Cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -3578,7 +3533,7 @@
                 </div>
                 <div class="ec-nav-panel-icons">
                     <a href="wishlist.html" class="ec-header-btn"><i class="fi-rr-heart"></i><span
-                            class="ec-cart-noti">0</span></a>
+                            class="ec-cart-noti Wishlist_count">0</span></a>
                 </div>
                 <div class="ec-nav-panel-icons">
                     <a href="login.html" class="ec-header-btn"><i class="fi-rr-user"></i></a>
@@ -3617,28 +3572,20 @@
     <!-- Main Js -->
     <script src="assets/js/vendor/index.js"></script>
     <script src="assets/js/demo-6.js"></script>
+    <!-- <script src="./withmodel.js"></script> -->
 
 
     <script>
         $(document).ready(function () {
 
             check_cookie();
+            $(window).on('beforeunload', function () {
+                // check_cookie();
+            });
 
-            // $.ajax({
-            //     url: 'dealer_actions/check_session.php',
-            //     method: 'GET',
-            //     success: function (data) {
-            //         if (data === 'session-set') {
-            //             console.log("Session set. Perform actions on this page.");
-            //         } else {
-            //             console.error('Session not set. Redirecting to login page.');
-            //             window.location = "login.html";
-            //         }
-            //     },
-            //     error: function () {
-            //         console.error('Error checking session status');
-            //     }
-            // });
+            $(window).on('unload', function () {});
+
+
         });
 
         var dealerId;
@@ -3854,7 +3801,7 @@
                                                              class="fi-rr-heart"></i></a>
                                                      <a href="#" class="ec-btn-group quickview"
                                                          data-link-action="quickview" title="Quick view"
-                                                         data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i
+                                                         data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="modalProduct(${productObject.product_id})"><i
                                                              class="fi-rr-eye"></i></a>
 
                                                      <a title="Add To Cart" href="cart.html"
@@ -3864,7 +3811,7 @@
                                              </div>
                                          </div>
                                          <div class="ec-pro-content">
-                                             <a href="shop-left-sidebar-col-3.html">
+                                             <a onclick="categoryURL('${productObject.product_category_type}')">
                                                  <h6 class="ec-pro-stitle">${productObject.product_category_type}</h6>
                                              </a>
                                              <h5 class="ec-pro-title"><a href="product-left-sidebar.html?product_id=${productObject.product_id}">${productObject.product_name}</a></h5>
@@ -3905,7 +3852,7 @@
                                                              class="fi-rr-heart"></i></a>
                                                      <a href="#" class="ec-btn-group quickview"
                                                          data-link-action="quickview" title="Quick view"
-                                                         data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i
+                                                         data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="modalProduct(${productObject.product_id})"><i
                                                              class="fi-rr-eye"></i></a>
 
                                                      <a title="Add To Cart" href="cart.html"
@@ -3915,7 +3862,7 @@
                                              </div>
                                          </div>
                                          <div class="ec-pro-content">
-                                             <a href="shop-left-sidebar-col-3.html">
+                                             <a onclick="categoryURL('${productObject.product_category_type}')">
                                                  <h6 class="ec-pro-stitle">${productObject.product_category_type}</h6>
                                              </a>
                                              <h5 class="ec-pro-title"><a href="product-left-sidebar.html?product_id=${productObject.product_id}">${productObject.product_name}</a></h5>
@@ -3954,7 +3901,7 @@
                                                              class="fi-rr-heart"></i></a>
                                                      <a href="#" class="ec-btn-group quickview"
                                                          data-link-action="quickview" title="Quick view"
-                                                         data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i
+                                                         data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="modalProduct(${productObject.product_id})"><i
                                                              class="fi-rr-eye"></i></a>
 
                                                      <a title="Add To Cart" href="cart.html"
@@ -3964,7 +3911,7 @@
                                              </div>
                                          </div>
                                          <div class="ec-pro-content">
-                                             <a href="shop-left-sidebar-col-3.html">
+                                             <a  onclick="categoryURL('${productObject.product_category_type}')">
                                                  <h6 class="ec-pro-stitle">${productObject.product_category_type}</h6>
                                              </a>
                                              <h5 class="ec-pro-title"><a href="product-left-sidebar.html?product_id=${productObject.product_id}">${productObject.product_name}</a></h5>
@@ -4001,7 +3948,7 @@
                                                              class="fi-rr-heart"></i></a>
                                                      <a href="#" class="ec-btn-group quickview"
                                                          data-link-action="quickview" title="Quick view"
-                                                         data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i
+                                                         data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="modalProduct(${productObject.product_id})"><i
                                                              class="fi-rr-eye"></i></a>
 
                                                      <a title="Add To Cart" href="cart.html"
@@ -4011,7 +3958,7 @@
                                              </div>
                                          </div>
                                          <div class="ec-pro-content">
-                                             <a href="shop-left-sidebar-col-3.html">
+                                             <a onclick="categoryURL('${productObject.product_category_type}')">
                                                  <h6 class="ec-pro-stitle">${productObject.product_category_type}</h6>
                                              </a>
                                              <h5 class="ec-pro-title"><a href="product-left-sidebar.html?product_id=${productObject.product_id}">${productObject.product_name}</a></h5>
@@ -4131,6 +4078,175 @@
             });
         }
 
+        // Modal Product Details
+
+        function modalProduct(productId) {
+            // alert(productId);
+            $.ajax({
+                url: 'dealer-admin/admin_actions/admin_action.php',
+                type: 'GET',
+                data: {
+                    get_all_color_product_request: 'get_product_details_for_modal',
+                    product_id: productId
+                },
+                success: function (response) {
+                    console.log(response);
+                    handleColorProductResponseForModal(response, productId)
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+
+        // Modal Coloue Variants
+
+        function handleColorProductResponseForModal(response, productId) {
+            var success_response = JSON.parse(response);
+            var variationColor = $('#modal_product_color');
+
+            variationColor.empty();
+
+            success_response.forEach(function (item, index) {
+                var colorOption = $('<li></li>');
+
+                if (item.color_type === 'code') {
+                    colorOption.html('<span style="background-color:' + item.color_value + ';"></span>');
+                } else if (item.color_type === 'image') {
+                    colorOption.html('<span style="background-image: url(dealer-admin/color_images/' +
+                        item.color_value + ');"></span>');
+                }
+
+                colorOption.click(function () {
+                    handleListItemClickForModal($(this), variationColor, item.color_product,
+                        productId);
+                });
+
+                variationColor.append(colorOption);
+            });
+
+            if (success_response.length > 0) {
+                var firstColorVariant = success_response[0];
+                handleListItemClickForModal(null, variationColor, firstColorVariant.color_product, productId);
+            }
+        }
+
+        // Product Details By Colour Request
+        function handleListItemClickForModal(item, variationColor, clickedColorName, productId) {
+            variationColor.find('li').removeClass('active');
+            if (item) {
+                item.addClass('active');
+            }
+
+            // console.log('Clicked Color Name:', clickedColorName);
+            // console.log('Product ID from URL:', productId);
+
+            $.ajax({
+                url: 'dealer-admin/admin_actions/admin_action.php',
+                type: 'GET',
+                data: {
+                    get_color_product_by_color_request: 'get_color_product',
+                    clickedColorName: clickedColorName,
+                    productId: productId
+                },
+                success: function (response) {
+                    handleProductDetailsResponseForModal(response);
+                },
+                error: function (xhr, status, error) {
+                    handleErrorResponse(xhr);
+                }
+            });
+        }
+
+        // Product Details By Colour
+
+        function handleProductDetailsResponseForModal(response) {
+            var success_response = JSON.parse(response);
+            // console.log(success_response);
+
+            if (Array.isArray(success_response) && success_response.length > 0) {
+                var firstItem = success_response[0];
+
+                if (firstItem.hasOwnProperty('product_name')) {
+                    // console.log('Product Name:', firstItem.product_name);
+                    $("#modal_product_name").text(firstItem.product_name);
+                    $("#modal_product_description").text(firstItem.product_description);
+                } else {
+                    console.log('No product_name property in the first item of the response.');
+                }
+
+                // console.log('Category Name:', firstItem.product_category_name);
+                // console.log('Category Type:', firstItem.product_category_type);
+                // console.log('Product Color:', firstItem.product_color);
+                // console.log('Product Description:', firstItem.product_description);
+                // console.log('Product Specification:', firstItem.product_specification);
+
+                if (firstItem.hasOwnProperty('sizes') && Array.isArray(firstItem.sizes)) {
+                    console.log('Sizes:', firstItem.sizes);
+
+                    var sizeContainer = $("#modal_product_size");
+                    sizeContainer.empty();
+
+                    for (var i = 0; i < firstItem.sizes.length; i++) {
+                        var currentSize = firstItem.sizes[i].product_size; //
+                        // console.log('Size:', currentSize);
+                        var sizeTemplate = `<li><span>${currentSize}</span></li>`;
+                        sizeContainer.append(sizeTemplate);
+
+                        if (firstItem.sizes[i].hasOwnProperty('product_price')) {
+                            if (i === 0) {
+                                var showPriceCookie = getProductCookie("show-price");
+
+                                if (showPriceCookie === "true") {
+                                    console.log("Show Price is enabled");
+                                    // console.log('Price:', firstItem.sizes[i].product_price);
+                                    $("#modal_product_price").text('£ ' + firstItem.sizes[i].product_price);
+                                    $("#modal_product_msrp_price").text('£ ' + firstItem.sizes[i].product_price);
+                                } else {
+                                    $("#modal_product_price").text('');
+                                    $("#modal_product_msrp_price").text('');
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                if (firstItem.hasOwnProperty('images') && Array.isArray(firstItem.images)) {
+                    console.log('Images:', firstItem.images);
+
+                    var ecProductImage = $(".sliider__banner__carousel__model");
+                    ecProductImage.empty();
+
+                    firstItem.images.forEach(function (image, index) {
+                        var slickIndex = index;
+
+                        // Generate unique ID for each image
+                        var imageId = "ImageModel_" + (index + 1);
+
+                        var additionalClass = index < 3 ? `view_${index + 1}` : '';
+
+                        var productImageTemplate = `
+                        <li class="slider__banner__carousel__card__model">
+                            <div class="slider__banner__carousel__card__img__model">
+                                <img src="dealer-admin/product_images/${image}" alt="images" draggable="false" id="${imageId}" class="${additionalClass}">
+                            </div>
+                        </li>`;
+                        ecProductImage.append(productImageTemplate);
+
+                        // Update the src attribute of the zoomImage on the first iteration
+                        if (index === 0) {
+                            var zoomImage = $(".zoom-image__model");
+                            zoomImage.attr("src", "dealer-admin/product_images/" + image);
+                        }
+                    });
+                }
+
+
+            } else {
+                console.log('No data in the response or the response is not an array.');
+            }
+        }
 
         function addWishlist(productId) {
             // console.log(productId);
@@ -4159,7 +4275,7 @@
         }
 
         function categoryURL(category) {
-            console.log("sdfd");
+            // console.log("sdfd");
             window.location.href = 'category.html?main_category=' + category;
         }
 
@@ -4183,8 +4299,108 @@
                 }
             });
         }
-    </script>
 
+        const imageList = $("#imageList__model");
+        const globalCarousel = $(".sliider__banner__carousel__model");
+        const arrowBtns = $(".slider__banner__model i");
+        const zoomContainer = $(".zoom-container__model");
+        let zoomImage = $("#zoomImage__model")[0];
+        let currentId = "ImageModel_1";
+        const firstCardWidth = $(".slider__banner__carousel__card__model").outerWidth();
+
+        function handleCarouselButton(btn) {
+            const scrollAmount = btn.id === "left__model" ? -firstCardWidth : firstCardWidth;
+            globalCarousel.scrollLeft(globalCarousel.scrollLeft() + scrollAmount);
+
+            changeImageId(btn.id === "right__model");
+            updateCarouselDisplay();
+            setImage();
+        }
+
+        function updateCarouselDisplay() {
+            const currentNumericPart = parseInt(currentId.split("_")[1]);
+            const imgElements = imageList.find("img");
+            const totalImages = imgElements.length;
+            const centerIndex = Math.floor(totalImages / 2);
+
+            const newCenterIndex = currentNumericPart - 1;
+
+            const newScrollPosition = firstCardWidth * (newCenterIndex - centerIndex);
+
+            globalCarousel.scrollLeft(newScrollPosition);
+        }
+
+        function handleMouseMoveEvent(e) {
+            const {
+                offsetX,
+                offsetY
+            } = e;
+            const {
+                offsetWidth,
+                offsetHeight
+            } = zoomContainer[0];
+            const xPercentage = (offsetX / offsetWidth) * 100;
+            const yPercentage = (offsetY / offsetHeight) * 100;
+            zoomImage.style.transformOrigin = `${xPercentage}% ${yPercentage}%`;
+            zoomImage.classList.add("zoomed__model");
+        }
+
+        function resetZoomState() {
+            zoomImage.style.transformOrigin = "50% 50%";
+            zoomImage.classList.remove("zoomed__model");
+        }
+
+        function handleImageClickEvent(event) {
+            currentId = event.target.id;
+            setImage();
+        }
+
+        function changeImageId(increment) {
+            const numericPart = parseInt(currentId.split("_")[1]);
+            const newNumericPart = increment ? numericPart + 1 : numericPart - 1;
+            const imgElements = imageList.find("img");
+
+            if (newNumericPart >= 1 && newNumericPart <= imgElements.length) {
+                currentId = `ImageModel_${newNumericPart}`;
+            }
+        }
+
+        arrowBtns.click(function () {
+            handleCarouselButton(this);
+        });
+
+        imageList.on("click", "li", function (event) {
+            if (event.target.nodeName.toLowerCase() === 'img') {
+                handleImageClickEvent(event);
+            }
+        });
+
+        zoomContainer.on("mousemove", handleMouseMoveEvent);
+        zoomContainer.on("mouseleave", resetZoomState);
+
+        function setImage() {
+            const imageSrc = $(`#${currentId}`).attr('src');
+            console.log(currentId);
+            console.log(imageSrc);
+            zoomImage.src = imageSrc;
+
+            if (currentId === 'ImageModel_4') {
+
+                var imageSrc_2 = $("#ImageModel_2").attr('src');
+                var imageSrc_3 = $("#ImageModel_3").attr('src');
+                var viewSrc_1 = $(".view_1").attr('src', imageSrc_2);
+                var viewSrc_2 = $(".view_2").attr('src', imageSrc_3);
+                var viewSrc_3 = $(".view_3").attr('src', imageSrc);
+            } else if (currentId == 'ImageModel_3') {
+                var imageSrc_2 = $("#ImageModel_1").attr('src');
+                var imageSrc_3 = $("#ImageModel_2").attr('src');
+                var viewSrc_1 = $(".view_1").attr('src', imageSrc_2);
+                var viewSrc_2 = $(".view_2").attr('src', imageSrc_3);
+                var viewSrc_3 = $(".view_3").attr('src', imageSrc);
+            }
+        }
+    </script>
+    <!-- <SCRipt src="withmodel.js"></SCRipt> -->
     <script src="assets/js/search-bar.js"></script>
 
 </body>
